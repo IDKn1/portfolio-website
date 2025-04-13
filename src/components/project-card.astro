@@ -1,0 +1,8 @@
+---
+const data = Astro.props;
+const { title, slug, cover } = data;
+---
+  <div class="project-card">
+    <!-- project-____-${slug} is to pervent transition:name collisions so the viewtransition api can animate elements between page transitions -->
+    <h2 transition:name=`project-title-${slug}`><a href={'/projects/'+slug}>{title}</a></h2>
+  </div>

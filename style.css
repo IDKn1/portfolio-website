@@ -1,0 +1,53 @@
+:root {
+  --primary-clr: #00cc64;
+  --bg-clr: white;
+  --text-clr: #333333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-clr);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
+}
+
+.hero {
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-clr);
+  color: var(--bg-clr);
+  grid-column: 1/4;
+  word-wrap: break-word;
+  align-items: end;
+  padding-inline: 2rem;
+}
+
+.hero h1 {
+  font-size: 20vw;
+  line-height: 1;
+}
+
+.content {
+  grid-column: 2/3;
+}

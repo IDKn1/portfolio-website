@@ -1,0 +1,38 @@
+---
+// navbar component
+---
+<div class="nav">
+    <ul class="nav-list">
+        <li><a class="nav-link" href="/">Home</a></li>
+        <li><a class="nav-link" href="/about">About</a></li>
+    </ul>
+</div>
+
+<style>
+    /* Nav styling */
+.nav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  padding: 1.5rem 2rem;
+  align-items: end;
+  background-color: var(--primary-clr);
+}
+
+.nav ul {
+  list-style: none;
+  grid-column: 2/3;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-clr);dd
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--bg-clr);
+}
+</style>

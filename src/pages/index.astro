@@ -1,8 +1,16 @@
 ---
-import Layout from '../layouts/base.astro';
-
+import BaseLayout from '../layouts/base.astro';
+import ProjectCard from '../components/project-card.astro';
+const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true}));
 ---
 
-<Layout>
-	<h1>Hello this will be the homepage</h1>
-</Layout>
+<BaseLayout title="Nikolai's Portfolio Website">
+	<div class="hero">
+		<h1>Welcome to my portfolio</h1>
+	</div>
+	<div class="content">
+		<h2>Projects</h2>
+		<!-- map project markdown files into the project card component -->
+		{projects.map((i) => <ProjectCard title={i.frontmatter.title} slug={i.frontmatter.slug}/>)}
+	</div>
+</BaseLayout>
