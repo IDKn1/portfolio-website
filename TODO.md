@@ -1,5 +1,6 @@
 - [ ] project page setup
 - [ ] project page styling
+- [ ] project page mobile
 - [ ] fill out md files for projects
 - [ ] contact page
 - [ ] about me page copy
