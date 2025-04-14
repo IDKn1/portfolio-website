@@ -1,0 +1,9 @@
+- [ ] project page setup
+- [ ] project page styling
+- [ ] fill out md files for projects
+- [ ] contact page
+- [ ] about me page copy
+- [ ] hamburger menu
+- [ ] either scroll back to top button or sticky menu?
+- [ ] viewtransition stuff
+- [ ] card layer effect on main page
