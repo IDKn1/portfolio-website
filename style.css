@@ -50,4 +50,21 @@ body {
 
 .content {
   grid-column: 2/3;
+  padding-block: 4rem;
+}
+
+.projects {
+  padding-block: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.project-card {
+  width: clamp(200px, 50rem, 26vw);
+}
+
+.project-card img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
 }

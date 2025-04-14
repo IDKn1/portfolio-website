@@ -1,0 +1,70 @@
+---
+import BaseLayout from './base.astro'
+const { frontmatter} = Astro.props;
+const { title, slug, cover } = frontmatter;
+
+---
+
+<BaseLayout>
+    <div class="content" id="verticalContainer">
+        <div class="left-section">
+            <img src={'../../'+cover} alt="" transition:name={`project-cover-${slug}`}>
+            
+        </div>
+        <div class="right-section">
+            <h1 transition:name={`project-title-${slug}`}>{title}</h1>
+            <slot/>
+        </div>
+    </div>
+</BaseLayout>
+
+<!-- 
+This whole page is my favourite block of code because the grind was way to long to figure it out and the payoff was rewarding 
+ once I got the images to be parsed from the rendered markdown and got the bandaid fix script for the weird css issue I 
+ then realized it wasn't working unless I refreshed the page first because of weird viewtransition stuff but I finally got it!
+ I've had the paralax scroll code roughed out forever but I couldn't get the content to load in right to even see if my code works
+ on to that now!
+-->
+<script >
+    document.addEventListener('astro:page-load', () => {
+  const leftSection = document.querySelector('.left-section');
+  const markdownImages = document.querySelectorAll('img');
+
+  markdownImages.forEach(img => {
+    if (!leftSection.contains(img)) {
+      leftSection.appendChild(img);
+
+      // Reapply styles directly to update css values
+      img.style.width = '100%';
+      img.style.height = 'auto';
+      img.style.maxWidth = '100%';
+      img.style.display = 'block';
+      img.style.objectFit = 'cover';
+    }
+  });
+});
+
+</script>
+
+<style>
+    .content {
+        padding-block: 0;
+        grid-column: 1/4;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        position: relative;
+    }
+    .left-section {
+        grid-column: 1/2;
+    }
+    .left-section img, .right-section img {
+        width: 100%;
+        height: auto;
+    }
+
+    .right-section {
+        grid-column: 2/3;
+        padding: 2rem;
+    }
+</style>
