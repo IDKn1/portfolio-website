@@ -27,21 +27,23 @@ This whole page is my favourite block of code because the grind was way to long 
 -->
 <script >
     document.addEventListener('astro:page-load', () => {
-  const leftSection = document.querySelector('.left-section');
-  const markdownImages = document.querySelectorAll('img');
+  if (window.innerWidth > 750) {
+    const leftSection = document.querySelector('.left-section');
+    const markdownImages = document.querySelectorAll('img');
 
-  markdownImages.forEach(img => {
-    if (!leftSection.contains(img)) {
-      leftSection.appendChild(img);
+    markdownImages.forEach(img => {
+      if (!leftSection.contains(img)) {
+        leftSection.appendChild(img);
 
-      // Reapply styles directly to update css values
-      img.style.width = '100%';
-      img.style.height = 'auto';
-      img.style.maxWidth = '100%';
-      img.style.display = 'block';
-      img.style.objectFit = 'cover';
-    }
-  });
+        // Reapply styles directly to update css values
+        img.style.width = '100%';
+        img.style.height = 'auto';
+        img.style.maxWidth = '100%';
+        img.style.display = 'block';
+        img.style.objectFit = 'cover';
+      }
+    });
+  }
 });
 
 </script>
@@ -54,17 +56,11 @@ This whole page is my favourite block of code because the grind was way to long 
         grid-template-columns: 1fr 1fr;
         width: 100%;
         position: relative;
+        padding-inline: 0;
     }
-    .left-section {
-        grid-column: 1/2;
-    }
-    .left-section img, .right-section img {
-        width: 100%;
-        height: auto;
-    }
-
-    .right-section {
-        grid-column: 2/3;
-        padding: 2rem;
-    }
+    @media (max-width: 750px) {
+  .content {
+    grid-column: 2/3;
+  }
+}
 </style>

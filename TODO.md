@@ -1,10 +1,13 @@
-- [ ] project page setup
-- [ ] project page styling
-- [ ] project page mobile
+- [x] project page setup
+- [x] contact page
+- [x] project page styling
+- [x] project page mobile
 - [ ] fill out md files for projects
-- [ ] contact page
+- [ ] project page duo scroll
 - [ ] about me page copy
 - [ ] hamburger menu
-- [ ] either scroll back to top button or sticky menu?
 - [ ] viewtransition stuff
 - [ ] card layer effect on main page
+- [ ] fix hero landing section (new text or something else)
+<!-- maybe -->
+- [ ] either scroll back to top button or sticky menu?

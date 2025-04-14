@@ -29,7 +29,7 @@ body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: 2rem 1fr 2rem;
+  grid-template-columns: 1fr 90ch 1fr;
 }
 
 .hero {
@@ -51,6 +51,7 @@ body {
 .content {
   grid-column: 2/3;
   padding-block: 4rem;
+  padding-inline: 2rem;
 }
 
 .projects {
@@ -67,4 +68,44 @@ body {
   width: 100%;
   object-fit: cover;
   aspect-ratio: 1;
+}
+
+.left-section {
+  grid-column: 1/2;
+}
+.left-section img,
+.right-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.right-section {
+  grid-column: 2/3;
+  padding: 2rem;
+}
+
+.left-section img,
+.right-section img,
+::slotted(img) {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    grid-template-columns: 1fr 80vw 1fr;
+  }
+
+  .left-section,
+  .right-section {
+    grid-column: 1/3;
+  }
+
+  .right-section {
+    padding: 0;
+  }
 }
