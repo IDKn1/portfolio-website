@@ -5,7 +5,8 @@ import BaseLayout from '../layouts/base.astro';
 <BaseLayout title="Contact">
     <div class="content">
         <h1>Get in touch</h1>
-        <form action="https://formsubmit.co/el/mexoxi" target="_self" method="post">
+        <form action="https://api.web3forms.com/submit" target="_self" method="post">
+            <input type="hidden" name="access_key" value="23377c9f-4220-4e1d-9f68-b9710aa82e54">
             <div class="form_name">
                 <label for="name">Name</label>
                 <input type="text" name="name" required>
@@ -18,8 +19,12 @@ import BaseLayout from '../layouts/base.astro';
                 <label for="message">Message</label>
                 <textarea name="message" rows="8" placeholder="" required></textarea>
             </div>
-            <input type="hidden" name="_next" value="https://n-s.work/thanks.html">
-            <button type="submit">Send</button>
+            <!-- Honeypot Spam Protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        
+            <!-- Custom Confirmation / Success Page -->
+            <input type="hidden" name="redirect" value="https://n-s.work/thanks.html">
+            <button type="submit">Send message</button>
         </form>
     </div>
 </BaseLayout>
@@ -63,15 +68,11 @@ import BaseLayout from '../layouts/base.astro';
         }
 
         button {
-            background: var(--primary-clr);
-            color: var(--bg-clr);
-            padding: 0.5rem 1rem;
-        }
-
-        input:focus,
-        textarea:focus {
-            transition: border 0.2s ease-in-out;
-            border: 0.1rem solid var(--primary-color);
+            background: var(--bg-clr);
+            color: var(--primary-clr);
+            padding: 0.5rem 0.75rem;
+            border: 2px var(--primary-clr) solid;
+            transition: color 0.25s ease-in;
         }
 
         input:-webkit-autofill,
@@ -83,7 +84,16 @@ import BaseLayout from '../layouts/base.astro';
 
         button:hover, button:focus {
             background-color: var(--primary-clr);
-            color: var(--secondary-color);
+            color: var(--bg-clr);
             cursor: pointer;
+            border: 2px var(--primary-clr) solid;
         }
+
+        /* Mobile Styles */
+@media (max-width: 750px) {
+	.form_name,
+	.form_email {
+		grid-column: 1/3;
+	}
+}
 </style>
