@@ -16,6 +16,7 @@ const { title, slug, cover } = frontmatter;
             <slot/>
         </div>
     </div>
+
 </BaseLayout>
 
 <!-- 
@@ -26,41 +27,68 @@ This whole page is my favourite block of code because the grind was way to long 
  on to that now!
 -->
 <script >
+    import initSplitScroll from '../../src/split-scroll.js';
+  
     document.addEventListener('astro:page-load', () => {
-  if (window.innerWidth > 750) {
-    const leftSection = document.querySelector('.left-section');
-    const markdownImages = document.querySelectorAll('img');
-
-    markdownImages.forEach(img => {
-      if (!leftSection.contains(img)) {
-        leftSection.appendChild(img);
-
-        // Reapply styles directly to update css values
-        img.style.width = '100%';
-        img.style.height = 'auto';
-        img.style.maxWidth = '100%';
-        img.style.display = 'block';
-        img.style.objectFit = 'cover';
+      if (window.innerWidth > 750) {
+        const leftSection = document.querySelector('.left-section');
+        const markdownImages = document.querySelectorAll('img');
+  
+        markdownImages.forEach(img => {
+          if (!leftSection.contains(img)) {
+            leftSection.appendChild(img);
+  
+            img.style.width = '100%';
+            img.style.height = 'auto';
+            img.style.maxWidth = '100%';
+            img.style.display = 'block';
+            img.style.objectFit = 'cover';
+          }
+        });
+  
+        // Wait a moment to let the DOM update, then init GSAP
+        setTimeout(() => {
+          initSplitScroll(); // ⬅️ now we call GSAP after the images are in place
+        }, 100); // small delay to ensure layout is ready
       }
     });
-  }
-});
-
-</script>
+  </script>
+  
 
 <style>
-    .content {
-        padding-block: 0;
-        grid-column: 1/4;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-        position: relative;
-        padding-inline: 0;
-    }
+   .content {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+  grid-column: 1/4;
+  padding: 0;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  position: relative;
+  will-change: transform;
+}
+
+.left-section {
+    z-index: -1;
+}
+
+.right-section {
+    padding-inline: 2rem;
+}
+
     @media (max-width: 750px) {
   .content {
-    grid-column: 2/3;
+    flex-direction: column;
   }
+
+  .left-section {
+    height: fit-content;
+    min-height: fit-content;
+  }
+  
 }
 </style>
