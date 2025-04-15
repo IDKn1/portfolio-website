@@ -1,51 +1,53 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// rough reference from: https://gsap.com/community/forums/topic/40575-divide-a-site-into-two-equal-parts-and-have-different-scroll-speeds/
-
 gsap.registerPlugin(ScrollTrigger);
+
+// rough reference from: https://gsap.com/community/forums/topic/40575-divide-a-site-into-two-equal-parts-and-have-different-scroll-speeds/
 
 export default function initSplitScroll() {
   const container = document.querySelector("#verticalContainer");
   const left = document.querySelector(".left-section");
   const right = document.querySelector(".right-section");
 
+  // early exit if the required dom elements don't exist
   if (!left || !right || !container) return;
 
   const leftHeight = left.scrollHeight;
   const rightHeight = right.scrollHeight;
 
-  // calculate distances each column needs to scroll
+  // calculating the amount each needs to scroll
   const leftScroll = leftHeight - window.innerHeight;
   const rightScroll = rightHeight - window.innerHeight;
 
-  // set initial height to avoid whitespace at start
-  container.style.height = `${Math.max(leftHeight, rightHeight)}px`;
+  let currentHeight = Math.max(leftHeight, rightHeight);
+  container.style.height = `${currentHeight}px`;
 
-  // Create a shared ScrollTrigger for left
   ScrollTrigger.create({
     trigger: container,
     start: "top top",
-    end: `+=${leftScroll}`,
+    end: `+=${Math.max(leftScroll, rightScroll)}`,
     scrub: true,
     anticipatePin: 1,
     onUpdate: (self) => {
       const progress = self.progress;
 
-      // move left normally
-      gsap.set(left, {
-        y: -leftScroll * progress,
-      });
+      const newLeftY = -leftScroll * progress;
+      const newRightY = -rightScroll * progress;
 
-      // move right proportionally based on its own scroll height
-      gsap.set(right, {
-        y: -rightScroll * progress,
-      });
+      gsap.set(left, { y: newLeftY });
+      gsap.set(right, { y: newRightY });
 
-      // adjust container height based on visible content so that when they translate it doesn't leave blank space at the bottom
-      const leftVisible = leftHeight - leftScroll * progress;
-      const rightVisible = rightHeight - rightScroll * progress;
-      container.style.height = `${Math.max(leftVisible, rightVisible)}px`;
+      // upper and lower bounds for the size the verticalContainer can be when lerping
+      const leftVisible = leftHeight + newLeftY;
+      const rightVisible = rightHeight + newRightY;
+      const minHeight = window.innerHeight;
+
+      const targetHeight = Math.max(leftVisible, rightVisible, minHeight);
+
+      // lerp on container height adjustment to keep from the translations causing a bunch of dead space at the bottom
+      currentHeight += (targetHeight - currentHeight) * 0.2;
+      container.style.height = `${currentHeight}px`;
     },
   });
 

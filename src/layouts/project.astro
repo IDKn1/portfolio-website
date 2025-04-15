@@ -1,22 +1,19 @@
 ---
 import BaseLayout from './base.astro'
-const { frontmatter} = Astro.props;
+const { frontmatter } = Astro.props;
 const { title, slug, cover } = frontmatter;
-
 ---
 
 <BaseLayout>
-    <div class="content" id="verticalContainer">
-        <div class="left-section">
-            <img src={'../../'+cover} alt="" transition:name={`project-cover-${slug}`}>
-            
-        </div>
-        <div class="right-section">
-            <h1 transition:name={`project-title-${slug}`}>{title}</h1>
-            <slot/>
-        </div>
+  <div class="content" id="verticalContainer">
+    <div class="left-section">
+      <img src={'../../' + cover} alt="" transition:name={`project-cover-${slug}`} />
     </div>
-
+    <div class="right-section">
+      <h1 transition:name={`project-title-${slug}`}>{title}</h1>
+      <slot />
+    </div>
+  </div>
 </BaseLayout>
 
 <!-- 
@@ -26,22 +23,42 @@ This whole page is my favourite block of code  but specifically this script tag 
  I've had the paralax scroll code roughed out forever but I couldn't get the content to load in right to even see if my code works
  on to that now!
 -->
-<script >
-    import initSplitScroll from '../../src/split-scroll.js';
-  
-    document.addEventListener('astro:page-load', () => {
-      if (window.innerWidth > 750) {
-        const leftSection = document.querySelector('.left-section');
-        const markdownImages = document.querySelectorAll('img');
-  
-        markdownImages.forEach(img => {
+<script>
+  import initSplitScroll from '../../src/split-scroll.js';
 
-          const parent = img.parentElement;
+  function waitForImagesToLoad(images, callback) {
+    let loaded = 0;
+    const total = images.length;
+    if (total === 0) return callback();
 
-          if (!leftSection.contains(img)) {
-            leftSection.appendChild(img);
-  
-            // Then check and remove empty parent <p>
+    images.forEach(img => {
+      if (img.complete) {
+        loaded++;
+        if (loaded === total) callback();
+      } else {
+        img.addEventListener('load', () => {
+          loaded++;
+          if (loaded === total) callback();
+        });
+        img.addEventListener('error', () => {
+          loaded++;
+          if (loaded === total) callback();
+        });
+      }
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    if (window.innerWidth > 750) {
+      const leftSection = document.querySelector('.left-section');
+      const markdownImages = document.querySelectorAll('img');
+
+      markdownImages.forEach(img => {
+        const parent = img.parentElement;
+        // move all images to the left section
+        if (!leftSection.contains(img)) {
+          leftSection.appendChild(img);
+
           if (
             parent.tagName.toLowerCase() === 'p' &&
             parent.childNodes.length === 0
@@ -49,37 +66,42 @@ This whole page is my favourite block of code  but specifically this script tag 
             parent.remove();
           }
 
-            img.style.width = '100%';
-            img.style.height = 'auto';
-            img.style.maxWidth = '100%';
-            img.style.display = 'block';
-            img.style.objectFit = 'cover';
+          img.style.width = '100%';
+          img.style.height = 'auto';
+          img.style.maxWidth = '100%';
+          img.style.display = 'block';
+          img.style.objectFit = 'cover';
+        }
+      });
 
-          }
+      const allImages = document.querySelectorAll('img');
+      setTimeout(() => {
+        waitForImagesToLoad(allImages, () => {
+          initSplitScroll(); // only after images are fully loaded
         });
-  
-        //let the DOM update, then init GSAP
-        setTimeout(() => {
-          initSplitScroll(); 
-        }, 100); // small delay to ensure layout is ready
-      }
-    });
-  </script>
-  
+      }, 100);
+    }
+  });
+</script>
 
 <style>
-   .content {
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  position: relative;
-  grid-column: 1/4;
-  padding: 0;
-}
-
-@media (max-width: 750px) {
   .content {
-    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    grid-column: 1/4;
+    padding: 0;
   }
-}
+
+  .left-section,
+  .right-section {
+    will-change: transform;
+  }
+
+  @media (max-width: 750px) {
+    .content {
+      flex-direction: column;
+    }
+  }
 </style>
