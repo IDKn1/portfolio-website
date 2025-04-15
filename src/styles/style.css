@@ -27,8 +27,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text-clr);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 90ch 1fr;
+  flex: 1;
+}
 /* Nav styling */
 .nav {
   width: 100%;
@@ -71,11 +78,7 @@ footer {
 .copyright {
   grid-column: 1/2;
   font-size: 0.75rem;
-}
-
-.wrapper {
-  display: grid;
-  grid-template-columns: 1fr 90ch 1fr;
+  padding: 0;
 }
 
 .hero {
@@ -150,14 +153,32 @@ footer {
   padding-top: 1rem;
 }
 
-.right-section > p:not(:has(img)) {
+/*
+only paragraphs without imgs in them because the astro markdown parser buts images into paragraphs
+inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
+*/
+p:not(:has(img)) {
   padding-block: 1rem;
 }
 
 .right-section blockquote {
   padding-block: 1rem;
+  padding-inline: 2rem;
   font-size: 1.25rem;
   color: var(--primary-clr);
+}
+
+.about-wrapper {
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+}
+
+.about-copy {
+  grid-column: 1/2;
+}
+
+.about-image {
+  grid-column: 2/3;
 }
 
 @media (max-width: 800px) {
@@ -181,5 +202,10 @@ footer {
 
   .project-card {
     width: 65%;
+  }
+
+  .about-image,
+  .about-copy {
+    grid-column: 1/3;
   }
 }

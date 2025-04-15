@@ -11,7 +11,7 @@ Travelers often experience a sense of disconnection when they enter unfamiliar p
 
 ### Insight:
 
-A better travel experience comes from feeling present and like you belong, whether planning, arriving, or spending money locally. Travel is more enjoyable when it feels seamless, like you’re part of the local culture, rather than just an outsider.
+> A better travel experience comes from feeling present and like you belong, whether planning, arriving, or spending money locally. Travel is more enjoyable when it feels seamless, like you’re part of the local culture, rather than just an outsider.
 
 ### Solution:
 
@@ -28,7 +28,7 @@ Your trip starts long before your flight, it's in the planning, the daydreaming,
 
 ### Phase 2
 
-The next touchpoint happens in travel hubs (airports, train stations, locations of transition) Found there will be travel guides containing ready to activate Wise cards. The local guides will be styled to look like passports, as when traveling most people already have passports and travel documents on their mind. The guides will focus on local lesser know and less crowded locations, places where the atmosphere naturally fosters conversation and connection.
+The next touchpoint happens in travel hubs (airports, train stations, locations of transition) Found there will be travel guides containing ready to activate Wise cards. The local guides will be styled to look like passports, as when traveling most people already have passports and travel documents on their mind. The guides will focus on local lesser known and less crowded locations, places where the atmosphere naturally fosters conversation and connection.
 
 ![](/assets/wise/wise-passport-mock.jpg)
 
@@ -38,6 +38,7 @@ Lastly, Wise will partner up with local shops, cafes, and travel destinations to
 
 ![](/assets/wise/cash-register-mock.jpeg)
 ![](/assets/wise/wise-instore-mock.jpg)
-![](/assets/wise/atm-skin.jpg)
 
 > Wise is more than a payment method—it's your passport to local discoveries. You’re not just travelling, you're connecting to the world around you. When you travel with Wise, you pay like you belong.
+
+![](/assets/wise/atm-skin.jpg)

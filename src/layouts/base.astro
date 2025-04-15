@@ -18,11 +18,11 @@ const data = Astro.props;
 	</head>
 	<body>
 		
+		<Navbar />
 		<div class="wrapper">
-			<Navbar />
 			<slot />
-			<Footer />
 		</div>
+		<Footer />
 		<!-- smoother scrolling -->
 		<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 	</body>
