@@ -5,15 +5,15 @@ cover: /assets/wise/wise-passport-mock.jpg
 layout: ../../layouts/project.astro
 ---
 
-### Problem:
+### Problem
 
 Travelers often experience a sense of disconnection when they enter unfamiliar places, especially when dealing with foreign currencies, local customs, or navigating unknown environments. This can create a feeling of alienation hindering the full enjoyment of travel and exploration.
 
-### Insight:
+### Insight
 
 > A better travel experience comes from feeling present and like you belong, whether planning, arriving, or spending money locally. Travel is more enjoyable when it feels seamless, like you’re part of the local culture, rather than just an outsider.
 
-### Solution:
+### Solution
 
 Wise's "Pay Like You Belong" campaign highlights the Wise card, designed to eliminate the hassle of foreign currency, helping travelers feel more immersed in the local culture. With seamless payment options, personalized guides, and real-time local integrations, Wise ensures that travelers experience a journey where they truly belong.
 

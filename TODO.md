@@ -5,11 +5,11 @@
 - [x] viewtransition stuff
 - [x] card layer effect on main page
 - [x] about me page copy
-- [/] fill out md files for projects
+- [x] fill out md files for projects
 - [/] project page duo scroll
 - [ ] fix hero landing section (new text or something else)
-<!-- maybe -->
-- [ ] drawings for hero section and about page
+- [ ] drawings for hero section, about page, 404 page and thanks page
+- [ ] 404 page
 <!-- not needed -->
 - [-] either scroll back to top button or sticky menu?
 - [-] hamburger menu

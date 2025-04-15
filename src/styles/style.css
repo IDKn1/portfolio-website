@@ -36,6 +36,35 @@ body {
   grid-template-columns: 1fr 90ch 1fr;
   flex: 1;
 }
+
+.right-section a {
+  display: inline-block;
+  position: relative;
+  padding: 0.2em 0;
+  color: var(--primary-clr);
+  text-decoration: none; /* optional: remove default underline */
+}
+
+.right-section a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--primary-clr);
+  transition: opacity 300ms, transform 300ms;
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+  pointer-events: none; /* optional: prevent hover issues */
+}
+
+.right-section a:hover::after,
+.right-section a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 /* Nav styling */
 .nav {
   width: 100%;
@@ -157,7 +186,8 @@ footer {
 only paragraphs without imgs in them because the astro markdown parser buts images into paragraphs
 inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
 */
-p:not(:has(img)) {
+p:not(:has(img)),
+ol {
   padding-block: 1rem;
 }
 
