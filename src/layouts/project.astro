@@ -20,7 +20,7 @@ const { title, slug, cover } = frontmatter;
 </BaseLayout>
 
 <!-- 
-This whole page is my favourite block of code because the grind was way to long to figure it out and the payoff was rewarding 
+This whole page is my favourite block of code  but specifically this script tag because the grind was way to long to figure it out and the payoff was rewarding 
  once I got the images to be parsed from the rendered markdown and got the bandaid fix script for the weird css issue I 
  then realized it wasn't working unless I refreshed the page first because of weird viewtransition stuff but I finally got it!
  I've had the paralax scroll code roughed out forever but I couldn't get the content to load in right to even see if my code works
@@ -35,14 +35,26 @@ This whole page is my favourite block of code because the grind was way to long 
         const markdownImages = document.querySelectorAll('img');
   
         markdownImages.forEach(img => {
+
+          const parent = img.parentElement;
+
           if (!leftSection.contains(img)) {
             leftSection.appendChild(img);
   
+            // Then check and remove empty parent <p>
+          if (
+            parent.tagName.toLowerCase() === 'p' &&
+            parent.childNodes.length === 0
+          ) {
+            parent.remove();
+          }
+
             img.style.width = '100%';
             img.style.height = 'auto';
             img.style.maxWidth = '100%';
             img.style.display = 'block';
             img.style.objectFit = 'cover';
+
           }
         });
   
