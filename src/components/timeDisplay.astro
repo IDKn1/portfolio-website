@@ -1,11 +1,16 @@
 ---
+// No frontmatter needed
 ---
 
 <div class="about-time">
-<p>Where am I right now?<br><span id="local-time">Loading...</span><span class="location"> —Toronto</span></p>
+  <p>
+    Where am I right now?<br />
+    <span id="local-time">Loading...</span><span class="location"> —Toronto</span>
+  </p>
 </div>
 
-<script type="module" is:inline>
+<!-- Vanilla JS in Astro (no client:load needed) -->
+<script>
   const updateTime = () => {
     const time = new Date().toLocaleString("en-US", {
       timeZone: "America/Toronto",
@@ -13,7 +18,8 @@
       minute: "numeric",
       hour12: true,
     });
-    document.getElementById("local-time").textContent = time;
+    const el = document.getElementById("local-time");
+    if (el) el.textContent = time;
   };
 
   updateTime();
