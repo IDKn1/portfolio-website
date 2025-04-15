@@ -9,7 +9,16 @@
   margin: 0;
 }
 
-/* Improve line wrapping */
+@font-face {
+  font-family: "AlteHaasGrotesk";
+  src: url("/fonts/AlteHaasGroteskRegular.ttf") format("tff"),
+    url("/fonts/AlteHaasGroteskBold");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* improve line wrapping */
 p {
   text-wrap: pretty;
 }
