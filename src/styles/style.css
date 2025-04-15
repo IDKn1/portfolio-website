@@ -48,7 +48,7 @@ body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 90ch 1fr;
+  grid-template-columns: 1fr 70vw 1fr;
   flex: 1;
 }
 
@@ -191,16 +191,19 @@ footer {
   display: flex;
   gap: 2rem;
   background-color: var(--bg-clr);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .project-card {
-  width: clamp(200px, 50rem, 26vw);
+  flex: 1 1;
+  width: 20vw;
 }
 
 .project-card img {
   width: 100%;
   object-fit: cover;
-  aspect-ratio: 1;
+  aspect-ratio: 3/2;
 }
 
 .left-section {
@@ -284,7 +287,7 @@ ol {
   font-weight: 900;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .wrapper {
     grid-template-columns: 1fr 80vw 1fr;
   }
@@ -300,7 +303,7 @@ ol {
   }
 
   .project-card {
-    width: 65%;
+    width: 95%;
   }
 
   .about-image,
