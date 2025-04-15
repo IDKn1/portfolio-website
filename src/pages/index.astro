@@ -6,7 +6,7 @@ const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true
 
 <BaseLayout title="Nikolai's Portfolio Website">
 	<div class="hero">
-		<h1>Welcome to my portfolio</h1>
+		<h1>Welcome</h1>
 	</div>
 	<div class="content">
 		<!-- map project markdown files into the project card component -->
@@ -20,12 +20,17 @@ const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true
 </BaseLayout>
 
 <style>
-	/* stack effect from: https://codepen.io/baro82/pen/xxpxJRv*/
+/* stack effect from: https://codepen.io/baro82/pen/xxpxJRv*/
 .hero,
 .content {
   position: sticky;
   width: 100%;
   top: 0;
+}
+
+.hero {
+	min-height: 100vh;
+
 }
 .content {
 	background-color: var(--bg-clr);

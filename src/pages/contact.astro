@@ -23,7 +23,7 @@ import BaseLayout from '../layouts/base.astro';
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
         
             <!-- Custom Confirmation / Success Page -->
-            <input type="hidden" name="redirect" value="https://n-s.work/thanks.html">
+            <input type="hidden" name="redirect" value="https://n-s.work/thanks/">
             <button type="submit">Send message</button>
         </form>
     </div>
@@ -73,13 +73,6 @@ import BaseLayout from '../layouts/base.astro';
             padding: 0.5rem 0.75rem;
             border: 2px var(--primary-clr) solid;
             transition: color 0.25s ease-in;
-        }
-
-        input:-webkit-autofill,
-        input:-webkit-autofill:focus {
-            /* Autofill styling */
-            -webkit-box-shadow: 0 0 0px 40rem var(--dark-gray) inset;
-            transition: border 0.4s ease-in-out;
         }
 
         button:hover, button:focus {
