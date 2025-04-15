@@ -10,6 +10,3 @@
 - [x] 404 page
 - [/] project page duo scroll
 - [ ] drawings for hero section, about page, 404 page and thanks page
-<!-- not needed -->
-- [-] either scroll back to top button or sticky menu?
-- [-] hamburger menu
