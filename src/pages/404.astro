@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/base.astro';
+import ProjectCard from '../components/project-card.astro';
+const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true}));
+---
+
+<BaseLayout title="Nikolai's Portfolio Website">
+	<div class="hero">
+		<h1>404</h1>
+        <h2>Sorry that page doesn't live here</h2>
+		<img class="broken-heart" src="/assets/misc/broken-heart.svg">
+    </div>
+</BaseLayout>
+
+<style>
+
+.content {
+	background-color: var(--bg-clr);
+	grid-column: 1/4;
+	padding-block: 2rem;
+	display: grid;
+	grid-template-columns: 1fr 90ch 1fr;
+}
+
+.hero {
+    min-height: 0;
+}
+
+@media (max-width: 800px) {
+  .content {
+    grid-template-columns: 1fr 80vw 1fr;
+  }
+</style>

@@ -131,7 +131,8 @@ footer {
   line-height: 1;
 }
 
-.arrow {
+.arrow,
+.broken-heart {
   height: 12vh;
 }
 

@@ -6,10 +6,10 @@
 - [x] card layer effect on main page
 - [x] about me page copy
 - [x] fill out md files for projects
+- [x] fix hero landing section (new text or something else)
+- [x] 404 page
 - [/] project page duo scroll
-- [ ] fix hero landing section (new text or something else)
 - [ ] drawings for hero section, about page, 404 page and thanks page
-- [ ] 404 page
 <!-- not needed -->
 - [-] either scroll back to top button or sticky menu?
 - [-] hamburger menu
