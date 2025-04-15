@@ -271,6 +271,19 @@ ol {
   grid-column: 2/3;
 }
 
+.about-time {
+  grid-column: 2/3;
+  border-top: var(--text-clr) 2px solid;
+  font-weight: 100;
+  line-height: 2rem;
+}
+
+.about-time #local-time {
+  font-size: 1.5rem;
+  color: var(--primary-clr);
+  font-weight: 900;
+}
+
 @media (max-width: 800px) {
   .wrapper {
     grid-template-columns: 1fr 80vw 1fr;
@@ -291,7 +304,8 @@ ol {
   }
 
   .about-image,
-  .about-copy {
+  .about-copy,
+  .about-time {
     grid-column: 1/3;
   }
 }

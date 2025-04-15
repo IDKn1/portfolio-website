@@ -1,0 +1,21 @@
+---
+---
+
+<div class="about-time">
+<p>Where am I right now?<br><span id="local-time">Loading...</span><span class="location"> —Toronto</span></p>
+</div>
+
+<script type="module" is:inline>
+  const updateTime = () => {
+    const time = new Date().toLocaleString("en-US", {
+      timeZone: "America/Toronto",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+    document.getElementById("local-time").textContent = time;
+  };
+
+  updateTime();
+  setInterval(updateTime, 1000);
+</script>
