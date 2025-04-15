@@ -21,10 +21,11 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
+  font-weight: 900;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "AlteHaasGrotesk", Arial, Helvetica, sans-serif;
   color: var(--text-clr);
   min-height: 100vh;
   display: flex;
@@ -87,6 +88,7 @@ body {
   text-decoration: none;
   color: var(--text-clr);
   transition: color 0.2s ease-in;
+  font-weight: 900;
 }
 
 .nav-link:hover,
@@ -112,20 +114,25 @@ footer {
 
 .hero {
   width: 100%;
-  height: 100%;
   background-color: var(--primary-clr);
   color: var(--bg-clr);
   grid-column: 1/4;
   word-wrap: break-word;
-  align-items: end;
   padding-inline: 2rem;
-  position: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: -1;
 }
 
 .hero h1 {
   font-size: 20vw;
   line-height: 1;
+}
+
+.arrow {
+  height: 12vh;
 }
 
 .content {
