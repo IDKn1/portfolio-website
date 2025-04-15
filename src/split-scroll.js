@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// rough reference from: https://gsap.com/community/forums/topic/40575-divide-a-site-into-two-equal-parts-and-have-different-scroll-speeds/
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function initSplitScroll() {
@@ -13,10 +15,11 @@ export default function initSplitScroll() {
   const leftHeight = left.scrollHeight;
   const rightHeight = right.scrollHeight;
 
+  // calculate distances each column needs to scroll
   const leftScroll = leftHeight - window.innerHeight;
   const rightScroll = rightHeight - window.innerHeight;
 
-  // Set initial height to avoid whitespace at start
+  // set initial height to avoid whitespace at start
   container.style.height = `${Math.max(leftHeight, rightHeight)}px`;
 
   // Create a shared ScrollTrigger for left
@@ -29,17 +32,17 @@ export default function initSplitScroll() {
     onUpdate: (self) => {
       const progress = self.progress;
 
-      // Move left normally
+      // move left normally
       gsap.set(left, {
         y: -leftScroll * progress,
       });
 
-      // Move right proportionally based on its own scroll height
+      // move right proportionally based on its own scroll height
       gsap.set(right, {
         y: -rightScroll * progress,
       });
 
-      // Adjust container height based on visible content
+      // adjust container height based on visible content so that when they translate it doesn't leave blank space at the bottom
       const leftVisible = leftHeight - leftScroll * progress;
       const rightVisible = rightHeight - rightScroll * progress;
       container.style.height = `${Math.max(leftVisible, rightVisible)}px`;

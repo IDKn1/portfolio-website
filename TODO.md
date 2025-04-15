@@ -9,4 +9,5 @@
 - [x] fix hero landing section (new text or something else)
 - [x] 404 page
 - [/] project page duo scroll
-- [ ] drawings for hero section, about page, 404 page and thanks page
+- [ ] drawings for hero section, about page and thanks page
+- [ ] site icon

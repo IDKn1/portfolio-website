@@ -77,30 +77,9 @@ This whole page is my favourite block of code  but specifically this script tag 
   padding: 0;
 }
 
-.left-section,
-.right-section {
-  flex: 1;
-  position: relative;
-  will-change: transform;
-}
-
-.left-section {
-    z-index: -1;
-}
-
-.right-section {
-    padding-inline: 2rem;
-}
-
-    @media (max-width: 750px) {
+@media (max-width: 750px) {
   .content {
     flex-direction: column;
   }
-
-  .left-section {
-    height: fit-content;
-    min-height: fit-content;
-  }
-  
 }
 </style>
