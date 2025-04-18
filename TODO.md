@@ -8,6 +8,6 @@
 - [x] fill out md files for projects
 - [x] fix hero landing section (new text or something else)
 - [x] 404 page
+- [x] site icon
 - [/] project page duo scroll
 - [ ] drawings for hero section, about page and thanks page
-- [ ] site icon
