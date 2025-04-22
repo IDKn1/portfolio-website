@@ -265,7 +265,7 @@ ol {
 
 .about {
   grid-column: 2/3;
-  padding-block: 2rem;
+  padding-block: 4rem;
 }
 
 .about-image {
@@ -278,12 +278,13 @@ ol {
   margin-inline: auto;
 }
 
-.about-copy {
+.about-copy,
+.about-time,
+.about-cta {
   grid-column: 2/3;
 }
 
 .about-time {
-  grid-column: 2/3;
   border-top: var(--text-clr) 2px solid;
   font-weight: 100;
   line-height: 2rem;
@@ -316,7 +317,8 @@ ol {
 
   .about-image,
   .about-copy,
-  .about-time {
+  .about-time,
+  .about-cta {
     grid-column: 1/3;
   }
 }
