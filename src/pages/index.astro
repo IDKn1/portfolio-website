@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/base.astro';
 import ProjectCard from '../components/project-card.astro';
+import About from '../components/about.astro';
 const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true}));
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
-	<div class="hero">
+	<div class="hero" slot="full-bleed">
 		<h1>Welcome</h1>
 		<h2>Scroll</h2>
 		<img class="arrow" src="/assets/misc/arrow.svg">
@@ -18,15 +19,24 @@ const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true
 				{projects.map((i) => <ProjectCard title={i.frontmatter.title} slug={i.frontmatter.slug} cover={i.frontmatter.cover}/>)}
 			</div>
 		</div>
+		<div class="about">
+			<About />
+		</div>
 	</div>
 </BaseLayout>
 
 <style>
 /* stack effect from: https://codepen.io/baro82/pen/xxpxJRv*/
 .hero,
-.content {
+.content > * {
   position: sticky;
   top: 0;
+}
+
+.content > * {
+  background-color: var(--bg-clr);
+  width: 100%;
+  top: 4rem;
 }
 
 .content {

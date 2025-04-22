@@ -108,12 +108,14 @@ a:focus {
 /* Nav styling */
 .nav {
   width: 100%;
+  position: fixed;
   display: grid;
   grid-template-columns: 4fr 1fr;
   padding: 1.5rem 2rem;
   align-items: end;
   background-color: var(--primary-clr);
   grid-column: 1/4;
+  z-index: 100;
 }
 
 .nav ul {
@@ -162,6 +164,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   z-index: -1;
 }
 
@@ -183,7 +186,7 @@ footer {
 
 .projects-wrapper {
   grid-column: 2/3;
-  padding-bottom: 4rem;
+  padding-bottom: 10rem;
 }
 
 .projects {
@@ -258,6 +261,11 @@ ol {
   display: grid;
   gap: 1rem;
   width: 100%;
+}
+
+.about {
+  grid-column: 2/3;
+  padding-block: 2rem;
 }
 
 .about-image {

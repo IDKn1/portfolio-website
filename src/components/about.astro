@@ -1,10 +1,7 @@
 ---
-import BaseLayout from '../layouts/base.astro';
-import TimeDisplay from '../components/timeDisplay.astro';
+import TimeDisplay from './timeDisplay.astro';
 ---
 
-<BaseLayout title="About me">
-  <div class="content">
     <div class="about-wrapper">
       <img src="/assets/misc/me.svg" alt="Illustration of me" class="about-image" />
       
@@ -22,7 +19,5 @@ import TimeDisplay from '../components/timeDisplay.astro';
       </div>
       <TimeDisplay  />
       </div>
+      <h2>Drop me a <span class="circled">line</span></h2>
     </div>
-  </div>
-
-</BaseLayout>

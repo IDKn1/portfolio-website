@@ -9,5 +9,7 @@
 - [x] fix hero landing section (new text or something else)
 - [x] 404 page
 - [x] site icon
+- [x] collapse about and contact to the same page main page
+- [ ] handdrawn circle around email CTA
 - [/] project page duo scroll
 - [ ] drawings for hero section, about page and thanks page
