@@ -5,15 +5,15 @@ cover: /assets/fond/fond-cover.jpg
 layout: ../../layouts/project.astro
 ---
 
-## [Fonddd.ca](https://Fonddd.ca)
+#### [Fonddd.ca](https://Fonddd.ca)
 
 Made in collaboration with [Sarah Chung](https://futurabones.com)
 
-## Problem
+### Problem
 
 Growing up in a digital-first world has tied our social identity to a hyper-connected system that often lacks genuine personal connection. As digital spaces dominate, the line between authentic relationships and performative interactions blurs. Young creatives face constant pressure to produce, define themselves, and stay financially afloat, all while navigating generational expectations. Burnt out and overwhelmed, collaboration—once a source of connection—now often feels more like work than a meaningful exchange.
 
-## Solution
+### Solution
 
 After several trials and errors; after trashing a number of drafts and iterations, we created fond: a movement that encourages young folks to share more dinners together. Fond acts as a resource, a conceptual space which young creatives can explore, interact with, and replicate.
 
@@ -21,12 +21,12 @@ After several trials and errors; after trashing a number of drafts and iteration
 
 ![](/assets/fond/fond-mid-shot.jpg)
 
-## Manifesto
+### Manifesto
 
 Fond as an adjective is having an affection or liking for something. Fond as a noun is the flavorful browned bits that stick to the bottom of a pan after cooking. These bits act as the foundation of a good dish–it gives it depth, personality, and warmth. Fond finds friends because two friends found fond, over dinner.
 This idea is driven by human interaction and the need to feel connected. Fond acts as a curator, a resource, a set of intentions for the purpose of repeated application and evolution. It reinvents the third space—a judgment free zone dedicated towards rest and forming meaningful and lasting friendships. Fond embodies the post-digital, the word of mouth, the hard copy.
 
-## Intentions
+### Intentions
 
 1. Move with curiosity
 2. Get to know your surroundings and guests
@@ -38,11 +38,11 @@ This idea is driven by human interaction and the need to feel connected. Fond ac
 
 ![](/assets/fond/fond-party-shot.jpg)
 
-## About Fond
+### About Fond
 
 Fond is an ever evolving movement with several moving parts. It travels through talk rather than a digital algorithm. The motivation behind manually spreading the word is the need for explicit acts of care. It makes us put in the effort, it makes us go the extra mile. It starts in the flesh and ends in the flesh. Fond finds friends because two friends found fond, over dinner.
 
-## The Website
+### The Website
 
 ![](/assets/fond/fond-website-1.jpeg)
 
@@ -50,7 +50,7 @@ While Fond as a whole relies on personal connection and word of mouth we still r
 
 ![](/assets/fond/fond-website-2.jpeg)
 
-## Living the Research
+### Living the Research
 
 ![](/assets/fond/under-the-sea-invite.jpeg)
 

@@ -38,6 +38,27 @@ h6 {
   font-weight: 900;
 }
 
+h1 {
+  font-size: 3.815rem;
+}
+
+h2 {
+  font-size: 3.052rem;
+  color: var(--primary-clr);
+}
+
+h3 {
+  font-size: 2.441rem;
+}
+
+h4 {
+  font-size: 1.953rem;
+}
+
+h5 {
+  font-size: 1.563rem;
+}
+
 body {
   font-family: "AlteHaasGrotesk", Arial, Helvetica, sans-serif;
   color: var(--text-clr);
@@ -244,10 +265,13 @@ footer {
   object-fit: cover;
 }
 
-.right-section h1,
+.right-section h1 {
+  padding-top: 1rem;
+}
+
 .right-section h2,
 .right-section h3 {
-  padding-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 /*
@@ -256,13 +280,13 @@ inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
 */
 p:not(:has(img)),
 ol {
-  padding-block: 1rem;
+  margin-block: 1rem;
 }
 
 .right-section blockquote {
-  padding-block: 1rem;
+  margin-block: 1rem;
   padding-inline: 2rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--primary-clr);
 }
 

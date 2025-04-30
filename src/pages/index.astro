@@ -14,7 +14,7 @@ const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true
 	<div class="content">
 		<!-- map project markdown files into the project card component -->
 		<div class="projects-wrapper">
-			<h1>Projects</h1>
+			<h2>Projects</h2>
 			<div class="projects">
 				{projects.map((i) => <ProjectCard title={i.frontmatter.title} slug={i.frontmatter.slug} cover={i.frontmatter.cover}/>)}
 			</div>
