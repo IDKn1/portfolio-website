@@ -59,6 +59,10 @@ h5 {
   font-size: 1.563rem;
 }
 
+h6 {
+  font-size: 1.25rem;
+}
+
 body {
   font-family: "AlteHaasGrotesk", Arial, Helvetica, sans-serif;
   color: var(--text-clr);
@@ -182,6 +186,12 @@ footer {
 
 .footer-text h1 {
   color: var(--bg-clr);
+}
+
+@media (max-width: 1200px) {
+  .footer-text {
+    grid-column: 2/4;
+  }
 }
 
 .hero {
@@ -356,5 +366,11 @@ ol {
   .about-time,
   .about-cta {
     grid-column: 1/3;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: normal;
   }
 }
