@@ -7,7 +7,7 @@ layout: ../../layouts/project.astro
 
 #### [Fonddd.ca](https://Fonddd.ca)
 
-Made in collaboration with [Sarah Chung](https://futurabones.com)
+Made in collaboration with [Sarah Chung](https://futurabones.ca)
 
 ### Problem
 
