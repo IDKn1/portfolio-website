@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../layouts/base.astro';
-import ProjectCard from '../components/project-card.astro';
 import About from '../components/about.astro';
-const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true}));
+import Projects from '../components/projects.astro';
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
@@ -12,13 +11,9 @@ const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true
 		<img class="arrow" src="/assets/misc/arrow.svg">
 	</div>
 	<div class="content">
-		<!-- map project markdown files into the project card component -->
 		<div class="projects-wrapper">
-			<h2>Projects</h2>
-			<div class="projects">
-				{projects.map((i) => <ProjectCard title={i.frontmatter.title} slug={i.frontmatter.slug} cover={i.frontmatter.cover}/>)}
-			</div>
-		</div>
+			<Projects />	
+		</div>	
 		<div class="about">
 			<About />
 		</div>
@@ -27,10 +22,13 @@ const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true
 
 <style>
 /* stack effect from: https://codepen.io/baro82/pen/xxpxJRv*/
-.hero,
-.content > * {
+
+
+
+.hero, .about {
   position: sticky;
   top: 0;
+  overflow: hidden;
 }
 
 .content > * {

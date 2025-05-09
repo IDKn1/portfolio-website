@@ -234,30 +234,17 @@ footer {
   padding-bottom: 10rem;
 }
 
-.projects {
-  padding-block: 2rem;
-  display: flex;
-  gap: 2rem;
-  background-color: var(--bg-clr);
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.project-card {
-  flex: 1 1;
-  width: 20vw;
-}
-
-.project-card img {
-  width: 100%;
-  object-fit: cover;
-  aspect-ratio: 3/2;
-}
-
 .left-section {
   grid-column: 1/2;
   border-right: 3px solid var(--text-clr);
 }
+
+@media (max-width: 750px) {
+  .left-section {
+    border: none;
+  }
+}
+
 .left-section img,
 .right-section img {
   width: 100%;
@@ -357,15 +344,6 @@ ol {
   .left-section,
   .right-section {
     grid-column: 1/3;
-  }
-
-  .projects {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .project-card {
-    width: 95%;
   }
 
   .about-image,

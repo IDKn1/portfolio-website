@@ -1,8 +1,29 @@
----
+--- 
 const data = Astro.props;
-const { title, slug, cover } = data;
+const { title, slug, cover, style } = data;  // Include the style prop
 ---
-  <div class="project-card">
-    <!-- project-____-${slug} is to pervent transition:name collisions so the viewtransition api can animate elements between page transitions -->
-    <h4 transition:name={`project-title-${slug}`}><a href={'/projects/'+slug}><img transition:name={`project-cover-${slug}`} src={cover}>{title}</a></h4>
-  </div>
+<div class="project-card" style={style}> <!-- Apply the style here -->
+  <h4 transition:name={`project-title-${slug}`}>
+    <a href={'/projects/'+slug}>
+      <img transition:name={`project-cover-${slug}`} src={cover} />
+      {title}
+    </a>
+  </h4>
+</div>
+
+<style>
+.project-card {
+    position: sticky;
+    top: var(--top-offset, 9rem);  /* Fall back to 9rem if no top is set */
+    z-index: 1;
+    padding-bottom: 8rem;
+    background: var(--bg-clr);
+    scroll-snap-stop: start;
+  }
+  
+.project-card img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 3/2;
+}
+</style>
