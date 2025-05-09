@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import ProjectLayout from '../../layouts/project.astro';
 
 export async function getStaticPaths() {
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.props;
-const entry = await getEntryBySlug('projects', slug);
+const entry = await getEntry('projects', slug);
 if (!entry) throw new Error(`Project not found: ${slug}`);
 
 const { Content } = await entry.render();
