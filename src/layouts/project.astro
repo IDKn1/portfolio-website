@@ -1,8 +1,8 @@
 ---
 import Navbar from '../components/navbar.astro';
 import BaseLayout from './base.astro';
-const { title, slug, cover, content, scope } = Astro.props;
-console.log(Astro.props)
+const { title, slug, cover, content, scope, collaborators, project_link } = Astro.props;
+console.log(project_link)
 ---
 
 <BaseLayout title={title}>
@@ -15,8 +15,30 @@ console.log(Astro.props)
     
     <div class="right-section">
       <h1 transition:name={`project-title-${slug}`}>{title}</h1>
-      <p class="scope"> {scope.join(" / ")} </p>
-      <slot />
+      <div class="details">
+        <p class="scope"> {scope.join(" / ")} </p>
+        {collaborators && collaborators.length > 0 && (
+          <p class="collab">
+           Made in collaboration with:{''}
+    {collaborators.map((c, i) => (
+      <>
+        <a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
+        {i < collaborators.length - 1 ? ', ' : ''}
+      </>
+    ))}
+        </p>
+        )}
+        {project_link && project_link.url && (
+  <h4 class="project-link">
+    <a href={project_link.url} target="_blank" rel="noopener noreferrer">
+      {project_link.name}
+    </a>
+  </h4>
+)}
+      </div>
+      <div class="project-copy">
+        <slot />
+      </div>
     </div>
   </div>
 </BaseLayout>
@@ -105,11 +127,20 @@ This whole page is my favourite block of code  but specifically this script tag 
   }
 
   .scope {
-    border-bottom: 3px solid var(--text-clr);
     margin: 0;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
   }
+
+  .details {
+  margin: 0;
+  padding-inline: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--text-clr);
+  }
+
+  .collab {
+    margin: 0;
+  }
+
 
   @media (max-width: 750px) {
     .content {

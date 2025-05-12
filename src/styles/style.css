@@ -220,20 +220,8 @@ footer {
   margin-top: 2.5rem;
 }
 
-.right-section > * {
+.right-section > *:not(.details) {
   padding-inline: 2rem;
-}
-
-/*
-only paragraphs without imgs in them because the astro markdown parser buts images into paragraphs
-inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
-*/
-.right-section p:not(:has(img)),
-ol {
-  margin: 1.5rem 2.5rem;
-}
-
-  margin-block: 1rem;
 }
 
 .scope {
@@ -247,6 +235,25 @@ ol {
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--primary-clr);
+}
+
+/*
+only paragraphs without imgs in them because the astro markdown parser buts images into paragraphs
+inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
+*/
+.project-copy p,
+.project-copy ol {
+  margin: 1.5rem 2.5rem;
+}
+
+/* Optional: remove margin if p contains img */
+.project-copy p img {
+  display: block; /* or inline if you prefer */
+  margin: 0;
+}
+
+.project-copy p:has(img) {
+  margin: 0; /* fallback for supported browsers only */
 }
 
 .about {
