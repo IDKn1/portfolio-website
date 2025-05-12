@@ -6,10 +6,13 @@ import Projects from '../components/projects.astro';
 
 <BaseLayout title="Nikolai's Portfolio Website">
 	<div class="hero" slot="full-bleed">
-		<h1>Nikolai<br>Suvanto</h1>
-		<h4 class="prompt">Scroll
+		<div class="main-text">
+			<h1>Nikolai<br>Suvanto</h1>
+			<p>an ad major with a deep interest in how people connect—with each other, with ideas, and with the world around them.</p>
+		</div>
+		<h6 class="prompt">Scroll
 			<img class="arrow" src="/assets/misc/arrow.svg">
-		</h2>
+		</h6>
 	</div>
 	<div class="content">
 		<div class="projects-wrapper">
@@ -31,23 +34,22 @@ import Projects from '../components/projects.astro';
   width: 100%;
   background-color: var(--primary-clr);
   color: var(--bg-clr);
-  grid-column: 1/4;
   word-wrap: break-word;
   padding: 4rem 2rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: left;
   justify-content: space-between;
   z-index: -1;
 }
 
 h1 {
-  font-size: 20vw;
+  font-size: 12vw;
   line-height: 0.8;
+  padding-inline-end: 3rem;
 }
 
-h4 {
+h6 {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -57,6 +59,20 @@ h4 {
   position: sticky;
   top: 0;
   overflow: hidden;
+}
+
+.main-text {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.main-text p {
+	width: 40ch;
+	flex-shrink: 1;
+	border-inline-start: 3px solid var(--bg-clr);
+	padding-inline-start: 1rem;
+	font-size: 1.5rem;
+	font-weight: 900;
 }
 
 .content > * {
@@ -77,4 +93,14 @@ h4 {
   .content {
     grid-template-columns: 1fr 80vw 1fr;
   }
+
+  h1 {
+	font-size: 20vw;
+  }
+
+  .main-text p {
+	font-size: 1.25rem;
+  }
+
+}
 </style>

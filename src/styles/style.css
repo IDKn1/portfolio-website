@@ -274,18 +274,17 @@ ol {
   color: var(--primary-clr);
 }
 
+.about {
+  grid-column: 2/3;
+  padding-block: 4rem;
+}
+
 .about-wrapper {
   grid-template-columns: 2fr 1fr;
   display: grid;
   gap: 1rem;
   width: 100%;
 }
-
-.about {
-  grid-column: 2/3;
-  padding-block: 4rem;
-}
-
 .about-image {
   grid-column: 2/3;
   grid-row: 1/2;
@@ -302,18 +301,6 @@ ol {
 .about-time,
 .about-cta {
   grid-column: 1/2;
-}
-
-.about-time {
-  border-top: var(--text-clr) 2px solid;
-  font-weight: 100;
-  line-height: 2rem;
-}
-
-.about-time #local-time {
-  font-size: 1.5rem;
-  color: var(--primary-clr);
-  font-weight: 900;
 }
 
 @media (max-width: 850px) {

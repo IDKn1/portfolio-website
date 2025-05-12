@@ -4,7 +4,7 @@ import ProjectCard from '../components/project-card.astro';
 const projects = await getCollection('projects');
 ---
 
-<h2>Projects</h2>
+<h2>Work</h2>
 <div class="projects">
         {projects.map((i, index) => (
     <ProjectCard
@@ -26,5 +26,6 @@ h2 {
     padding-bottom: 2rem;
     position: sticky;
     top: 4rem;
+    background-color: var(--bg-clr);
 }
 </style>
