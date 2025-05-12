@@ -13,3 +13,4 @@
 - [x] handdrawn circle around email CTA
 - [/] project page duo scroll
 - [ ] drawings for hero section, about page and thanks page
+- [ ] fix viewtransitions breaking gsap scroll animations on navigation back
