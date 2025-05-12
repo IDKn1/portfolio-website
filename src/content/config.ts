@@ -16,7 +16,7 @@ const projects = defineCollection({
     title: z.string(),
     slug: z.string().optional(),
     cover: z.string(),
-    scope: z.array(z.enum(["branding", "campaign", "website"])),
+    scope: z.array(z.enum(["branding", "campaign", "web design"])),
     collaborators: collaborators.optional(),
     project_link: project_link.optional(),
   }),
