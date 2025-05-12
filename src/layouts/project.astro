@@ -3,7 +3,7 @@ import BaseLayout from './base.astro';
 const { title, slug, cover, content } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
   <div class="content" id="verticalContainer">
     <div class="left-section">
       <img src={'../../' + cover} alt="" transition:name={`project-cover-${slug}`} />
