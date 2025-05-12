@@ -56,10 +56,6 @@ h2 {
   color: var(--primary-clr);
 }
 
-.prompt {
-  color: var(--bg-clr);
-}
-
 h3 {
   font-size: 2.441rem;
 }
@@ -139,38 +135,6 @@ a:focus {
   transform: translate3d(0, 0, 0);
 }
 
-/* footer styling */
-footer {
-  width: 100%;
-  background-color: var(--primary-clr);
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  padding: 1.5rem 2rem;
-  grid-column: 1/4;
-  z-index: 2;
-  align-items: end;
-}
-.copyright {
-  grid-column: 1/2;
-  font-size: 0.75rem;
-  padding: 0;
-}
-
-.footer-text {
-  grid-column: 2/3;
-  text-align: center;
-}
-
-.footer-text h1 {
-  color: var(--bg-clr);
-}
-
-@media (max-width: 1200px) {
-  .footer-text {
-    grid-column: 2/4;
-  }
-}
-
 .arrow,
 .broken-heart {
   height: 12vh;
@@ -220,8 +184,22 @@ footer {
   margin-top: 2.5rem;
 }
 
-.right-section > *:not(.details) {
+.right-section > * {
   padding-inline: 2rem;
+}
+
+/*
+only paragraphs without imgs in them because the astro markdown parser buts images into paragraphs
+inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
+*/
+.right-section :not(.details)p:not(:has(img)),
+ol {
+  margin: 1.5rem 2.5rem;
+}
+
+.collab {
+  margin: 0;
+  margin-block: 1rem;
 }
 
 .scope {
@@ -235,25 +213,6 @@ footer {
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--primary-clr);
-}
-
-/*
-only paragraphs without imgs in them because the astro markdown parser buts images into paragraphs
-inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
-*/
-.project-copy p,
-.project-copy ol {
-  margin: 1.5rem 2.5rem;
-}
-
-/* Optional: remove margin if p contains img */
-.project-copy p img {
-  display: block; /* or inline if you prefer */
-  margin: 0;
-}
-
-.project-copy p:has(img) {
-  margin: 0; /* fallback for supported browsers only */
 }
 
 .about {
@@ -300,11 +259,5 @@ inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
   .about-time,
   .about-cta {
     grid-column: 1/3;
-  }
-
-  .footer {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: normal;
   }
 }

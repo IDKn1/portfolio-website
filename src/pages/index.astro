@@ -32,8 +32,8 @@ import Projects from '../components/projects.astro';
 
 .hero {
   width: 100%;
-  background-color: var(--primary-clr);
-  color: var(--bg-clr);
+  background-color: var(--bg-clr);
+  color: var(--text-clr);
   word-wrap: break-word;
   padding: 4rem 2rem;
   min-height: 100vh;
@@ -69,10 +69,15 @@ h6 {
 .main-text p {
 	width: 40ch;
 	flex-shrink: 1;
-	border-inline-start: 3px solid var(--bg-clr);
+	color: var(--primary-clr);
+	border-inline-start: 3px solid var(--text-clr);
 	padding-inline-start: 1rem;
 	font-size: 1.5rem;
 	font-weight: 900;
+}
+
+.prompt {
+  color: var(--text-clr);
 }
 
 .content > * {
