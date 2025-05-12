@@ -3,14 +3,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-window.addEventListener("DOMContentLoaded", () => {
+function setupScrollAnimations() {
   const reference = document.querySelector(".over-text .head-text");
   const content = document.querySelector(".content");
   const lastProjectCard = document.querySelector(
     ".projects-wrapper .project-card:last-child"
   );
   const projects = document.querySelector(".projects");
-  // fade in overlay heading
+
+  // Clean up any old triggers
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
   if (reference && content) {
     const referenceBottom =
       reference.getBoundingClientRect().bottom + window.scrollY;
@@ -35,22 +38,23 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (lastProjectCard && projects) {
+  if (lastProjectCard && projects && reference) {
     const referenceBottom =
       reference.getBoundingClientRect().bottom + window.scrollY;
-    // scale back heading based on
+
+    // Scale down the overlay heading
     gsap
       .timeline({
         scrollTrigger: {
           trigger: lastProjectCard,
           start: () => `top ${referenceBottom}px`,
-          end: () => `top+=150 ${referenceBottom}px`, // Adjust 150px for scroll range
+          end: () => `top+=150 ${referenceBottom}px`,
           scrub: true,
         },
       })
       .to(".over-text", {
         scale: 0.65,
-        y: -50, // use `y` instead of translateY in GSAP
+        y: -50,
         zIndex: 0,
         ease: "power2.out",
       });
@@ -58,6 +62,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const siblingsToFade = [...projects.querySelectorAll(":scope > *")].filter(
       (el) => !el.contains(lastProjectCard)
     );
+
+    // Fade out others + change color
     gsap
       .timeline({
         scrollTrigger: {
@@ -93,4 +99,14 @@ window.addEventListener("DOMContentLoaded", () => {
         0
       );
   }
+}
+
+// Run once on initial load
+window.addEventListener("DOMContentLoaded", () => {
+  setupScrollAnimations();
+});
+
+// Re-run after Astro page transitions
+document.addEventListener("astro:after-swap", () => {
+  setupScrollAnimations();
 });
