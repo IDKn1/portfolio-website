@@ -18,12 +18,39 @@ import Projects from '../components/projects.astro';
 			<About />
 		</div>
 	</div>
+	<script>
+    window.goatcounter.visit_count({append: '.about-time', no_branding: true, style: `div {border: none; text-align: left; font: inherit;} body {font-family: "AlteHaasGrotesk", Arial, Helvetica, sans-serif; color: var(--text-clr);} #gcvc-for {color: #000000;} #gcvc-views {font-weight:900; font-size: 1.5rem; color: #00cc64;}`})
+</script>
 </BaseLayout>
 
 <style>
 /* stack effect from: https://codepen.io/baro82/pen/xxpxJRv*/
 
+.hero {
+  width: 100%;
+  background-color: var(--primary-clr);
+  color: var(--bg-clr);
+  grid-column: 1/4;
+  word-wrap: break-word;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  z-index: -1;
+}
 
+h1 {
+  font-size: 20vw;
+  line-height: 0.8;
+}
+
+h4 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 .hero, .about {
   position: sticky;
