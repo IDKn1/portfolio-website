@@ -14,16 +14,10 @@ const projects = Object.values( import.meta.glob("./projects/*.md", {eager: true
 
 <style>
 
-.content {
-	background-color: var(--bg-clr);
-	grid-column: 1/4;
-	padding-block: 2rem;
-	display: grid;
-	grid-template-columns: 1fr 90ch 1fr;
-}
-
 .hero {
     min-height: 0;
+	grid-column: 2/3;
+	padding-block: 4rem;
 }
 
 @media (max-width: 800px) {
