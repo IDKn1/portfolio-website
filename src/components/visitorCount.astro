@@ -1,0 +1,34 @@
+<div class="visitor-count">
+  <p>
+    Number of site visitors<br />
+    <span id="visitors">Loading...</span>
+  </p>
+</div>
+
+<script type="module">
+  function fetchVisitors() {
+    fetch('https://stats.n-s.work/counter//.json')
+      .then(res => res.json())
+      .then(data => {
+        const count = data.count;
+        const el = document.getElementById('visitors');
+        if (el) el.textContent = count;
+      });
+  }
+
+  // Run on first load and every navigation
+  document.addEventListener('astro:page-load', fetchVisitors);
+</script>
+
+<style>
+.visitor-count {
+  font-weight: 100;
+  line-height: 2rem;
+}
+
+  #visitors {
+    font-size: 1.5rem;
+  color: var(--primary-clr);
+  font-weight: 900;
+  }
+</style>
