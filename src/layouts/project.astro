@@ -1,9 +1,12 @@
 ---
+import Navbar from '../components/navbar.astro';
 import BaseLayout from './base.astro';
-const { title, slug, cover, content } = Astro.props;
+const { title, slug, cover, content, scope } = Astro.props;
+console.log(Astro.props)
 ---
 
 <BaseLayout title={title}>
+  <Navbar />
   <div class="content" id="verticalContainer">
     <div class="left-section">
       <img src={'../../' + cover} alt="" transition:name={`project-cover-${slug}`} />
@@ -12,6 +15,7 @@ const { title, slug, cover, content } = Astro.props;
     
     <div class="right-section">
       <h1 transition:name={`project-title-${slug}`}>{title}</h1>
+      <p class="scope"> {scope.join(" / ")} </p>
       <slot />
     </div>
   </div>
@@ -98,6 +102,13 @@ This whole page is my favourite block of code  but specifically this script tag 
   .left-section,
   .right-section {
     will-change: transform;
+  }
+
+  .scope {
+    border-bottom: 3px solid var(--text-clr);
+    margin: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
   }
 
   @media (max-width: 750px) {

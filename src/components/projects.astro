@@ -12,6 +12,7 @@ const projects = await getCollection('projects');
         slug={i.slug}
         cover={i.data.cover}
         style={`--top-offset: ${9 + index * 2}rem;`}
+        scope={i.data.scope}
     />
 ))}
 </div>

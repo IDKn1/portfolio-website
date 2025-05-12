@@ -5,6 +5,7 @@ const projects = defineCollection({
     title: z.string(),
     slug: z.string().optional(),
     cover: z.string(),
+    scope: z.array(z.enum(["branding", "campaign", "website"])),
   }),
 });
 

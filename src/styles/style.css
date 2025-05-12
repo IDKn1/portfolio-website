@@ -23,9 +23,18 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Junicode";
+  src: url(/fonts/Junicode-BoldItalicCondensed.ttf);
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: condensed;
+}
+
 /* improve line wrapping */
 p {
   text-wrap: pretty;
+  margin-block: 1.5rem;
 }
 
 h1,
@@ -102,10 +111,6 @@ a:focus {
   z-index: -1;
 }
 
-.right-section {
-  padding-inline: 2rem;
-}
-
 .right-section a {
   display: inline-block;
   position: relative;
@@ -132,38 +137,6 @@ a:focus {
 .right-section a:focus::after {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-}
-
-/* Nav styling */
-.nav {
-  width: 100%;
-  position: fixed;
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  padding: 1.5rem 2rem;
-  align-items: end;
-  background-color: var(--primary-clr);
-  grid-column: 1/4;
-  z-index: 100;
-}
-
-.nav ul {
-  list-style: none;
-  grid-column: 2/3;
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: var(--text-clr);
-  transition: color 0.2s ease-in;
-  font-weight: 900;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: var(--bg-clr);
 }
 
 /* footer styling */
@@ -225,17 +198,8 @@ footer {
   }
 }
 
-.left-section img,
-.right-section img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
 .right-section {
   grid-column: 2/3;
-  padding: 2rem;
 }
 
 .left-section img,
@@ -248,8 +212,7 @@ footer {
 }
 
 .right-section h1 {
-  padding-block: 1rem;
-  border-bottom: 3px solid var(--text-clr);
+  padding-top: 2.5rem;
 }
 
 .right-section h2,
@@ -257,13 +220,25 @@ footer {
   margin-top: 2.5rem;
 }
 
+.right-section > * {
+  padding-inline: 2rem;
+}
+
 /*
 only paragraphs without imgs in them because the astro markdown parser buts images into paragraphs
 inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
 */
-p:not(:has(img)),
+.right-section p:not(:has(img)),
 ol {
+  margin: 1.5rem 2.5rem;
+}
+
   margin-block: 1rem;
+}
+
+.scope {
+  font-family: junicode;
+  font-size: 1.75rem;
 }
 
 .right-section blockquote {
