@@ -2,11 +2,12 @@
 import { getCollection } from 'astro:content';
 import ProjectCard from '../components/project-card.astro';
 const projects = await getCollection('projects');
+const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <h2>Work</h2>
 <div class="projects">
-        {projects.map((i, index) => (
+        {sortedItems.map((i, index) => (
     <ProjectCard
         title={i.data.title}
         slug={i.slug}

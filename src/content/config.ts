@@ -14,7 +14,7 @@ const project_link = z.object({
 const projects = defineCollection({
   schema: z.object({
     title: z.string(),
-    slug: z.string().optional(),
+    order: z.number(),
     cover: z.string(),
     scope: z.array(z.enum(["branding", "campaign", "web design"])),
     collaborators: collaborators.optional(),
