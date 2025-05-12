@@ -198,6 +198,13 @@ ol {
   margin: 1.5rem 2.5rem;
 }
 
+@media (max-width: 850px) {
+  .right-section :not(.details) p:not(:has(img)),
+  ol {
+    margin-inline: 0;
+  }
+}
+
 .collab {
   margin: 0;
   margin-block: 1rem;
