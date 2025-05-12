@@ -5,14 +5,14 @@ const projects = await getCollection('projects');
 const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
-<h2>Work</h2>
 <div class="projects">
+    <h2 class="work-heading">Work</h2>
         {sortedItems.map((i, index) => (
     <ProjectCard
         title={i.data.title}
         slug={i.slug}
         cover={i.data.cover}
-        style={`--top-offset: ${9 + index * 2}rem;`}
+        style={`--top-offset: ${13 + index * 1}rem;`}
         scope={i.data.scope}
     />
 ))}
@@ -20,14 +20,13 @@ const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
 
 <style>
 .projects {
-    top: 4rem;
+    top: 20rem;
     scroll-snap-type: mandatory;
 }
 
 h2 {
     padding-bottom: 2rem;
     position: sticky;
-    top: 4rem;
-    background-color: var(--bg-clr);
+    top: 9rem;
 }
 </style>

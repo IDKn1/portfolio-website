@@ -5,6 +5,11 @@ import Projects from '../components/projects.astro';
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
+	<div class="over-text" slot="full-bleed">
+		<div class="main-text">
+			<h1 class="head-text">Nikolai<br></h1>
+		</div>
+	</div>
 	<div class="hero" slot="full-bleed">
 		<div class="main-text">
 			<h1>Nikolai<br>Suvanto</h1>
@@ -22,26 +27,38 @@ import Projects from '../components/projects.astro';
 			<About />
 		</div>
 	</div>
+	<script type="module" is:inline src="src/headerTextFade.js"></script>
 </BaseLayout>
 
 <style>
 /* stack effect from: https://codepen.io/baro82/pen/xxpxJRv*/
 
-.hero {
+.over-text {
+	position: fixed;
+	z-index: 100;
+	opacity: 0;
+	padding-inline: 2rem;
+	padding-top: 3rem;
+	z-index: 5;
+	transform-origin: left center;
+}
+
+.hero, .over-text {
   width: 100%;
-  background-color: var(--bg-clr);
   color: var(--text-clr);
   word-wrap: break-word;
-  padding: 4rem 2rem;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: -1;
 }
-
+.hero {
+	padding: 3rem 2rem;
+	background-color: var(--bg-clr);
+	min-height: 100vh;
+	z-index: -1;
+}
 h1 {
-  font-size: 12vw;
+  font-size: 8rem;
   line-height: 0.8;
   padding-inline-end: 3rem;
 }
@@ -56,6 +73,11 @@ h6 {
   position: sticky;
   top: 0;
   overflow: hidden;
+}
+
+.about {
+	z-index: 10;
+	background: none;
 }
 
 .main-text {
@@ -78,7 +100,7 @@ h6 {
 }
 
 .content > * {
-  background-color: var(--bg-clr);
+  /* background-color: var(--bg-clr); */
   width: 100%;
   top: 4rem;
 }
@@ -88,7 +110,7 @@ h6 {
 	grid-column: 1/4;
 	padding-block: 2rem;
 	display: grid;
-	grid-template-columns: 1fr 90ch 1fr;
+	grid-template-columns: 1fr 80ch 1fr;
 }
 
 @media (max-width: 850px) {
