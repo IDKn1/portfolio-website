@@ -198,26 +198,6 @@ footer {
   }
 }
 
-.hero {
-  width: 100%;
-  background-color: var(--primary-clr);
-  color: var(--bg-clr);
-  grid-column: 1/4;
-  word-wrap: break-word;
-  padding-inline: 2rem;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: -1;
-}
-
-.hero h1 {
-  font-size: 20vw;
-  line-height: 1;
-}
-
 .arrow,
 .broken-heart {
   height: 12vh;
