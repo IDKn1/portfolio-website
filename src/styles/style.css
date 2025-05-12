@@ -193,7 +193,7 @@ a:focus {
 only paragraphs without imgs in them because the astro markdown parser buts images into paragraphs
 inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
 */
-.right-section :not(.details)p:not(:has(img)),
+.right-section :not(.details) p:not(:has(img)),
 ol {
   margin: 1.5rem 2.5rem;
 }
