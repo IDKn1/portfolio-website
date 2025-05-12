@@ -10,9 +10,9 @@
     fetch('https://stats.n-s.work/counter//.json')
       .then(res => res.json())
       .then(data => {
-        const count = data.count;
+        const count = Number(data.count);
         const el = document.getElementById('visitors');
-        if (el) el.textContent = count;
+        if (el) el.textContent = count + 18;
       });
   }
 
