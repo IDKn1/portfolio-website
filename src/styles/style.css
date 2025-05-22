@@ -104,9 +104,9 @@ a:focus {
   will-change: transform;
 }
 
-.left-section {
+/* .left-section {
   z-index: -1;
-}
+} */
 
 .right-section a {
   display: inline-block;
@@ -145,6 +145,7 @@ a:focus {
   grid-column: 2/3;
   padding-block: 4rem;
   padding-inline: 2rem;
+  background-color: var(--bg-clr);
 }
 
 .projects-wrapper {

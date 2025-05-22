@@ -103,7 +103,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // Re-run after Astro View Transitions
-document.addEventListener("astro:after-swap", () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Delay until DOM is fully painted
   requestAnimationFrame(() => {
     setTimeout(() => {
