@@ -25,13 +25,21 @@
 
 @font-face {
   font-family: "Junicode";
-  src: url(/fonts/Junicode-BoldItalicCondensed.ttf);
+  src: url("/fonts/Junicode-BoldItalicCondensed.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-stretch: condensed;
 }
 
-/* improve line wrapping */
+/* Typography */
+body {
+  font-family: "AlteHaasGrotesk", Arial, Helvetica, sans-serif;
+  color: var(--text-clr);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 p {
   text-wrap: pretty;
   margin-block: 1.5rem;
@@ -51,97 +59,45 @@ h6 {
 h1 {
   font-size: 3.815rem;
 }
-
 h2 {
   font-size: 3.052rem;
   color: var(--primary-clr);
 }
-
 h3 {
   font-size: 2.441rem;
 }
-
 h4 {
   font-size: 1.953rem;
 }
-
 h5 {
   font-size: 1.563rem;
 }
-
 h6 {
   font-size: 1.25rem;
 }
 
-body {
-  font-family: "AlteHaasGrotesk", Arial, Helvetica, sans-serif;
+/* Links */
+a {
   color: var(--text-clr);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  text-decoration: none;
+  transition: color 0.2s ease-in;
 }
 
+a:hover,
+a:focus {
+  color: var(--primary-clr);
+}
+
+/* Layout */
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 70vw 1fr;
   flex: 1;
 }
 
-a {
-  text-decoration: none;
-  color: var(--text-clr);
-  transition: color 0.2s ease-in;
-}
-a:hover,
-a:focus {
-  color: var(--primary-clr);
-}
-
-.left-section,
-.right-section {
-  flex: 1;
-  position: relative;
-  will-change: transform;
-}
-
-/* .left-section {
-  z-index: -1;
-} */
-
-.right-section a {
-  display: inline-block;
-  position: relative;
-  padding: 0.2em 0;
-  color: var(--primary-clr);
-  text-decoration: none; /* optional: remove default underline */
-}
-
-.right-section a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0.1em;
-  background-color: var(--primary-clr);
-  transition: opacity 300ms, transform 300ms;
-  opacity: 0;
-  transform: translate3d(-100%, 0, 0);
-  pointer-events: none; /* optional: prevent hover issues */
-}
-
-.right-section a:hover::after,
-.right-section a:focus::after {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-.arrow,
-.broken-heart {
-  height: 12vh;
-}
-
-.content {
+.content,
+.projects-wrapper,
+.about {
   grid-column: 2/3;
   padding-block: 4rem;
   padding-inline: 2rem;
@@ -149,25 +105,35 @@ a:focus {
 }
 
 .projects-wrapper {
-  grid-column: 2/3;
   padding-bottom: 6rem;
 }
 
 .left-section {
   grid-column: 1/2;
   border-right: 3px solid var(--text-clr);
+  position: relative;
+  will-change: transform;
+  max-width: 50dvw;
+}
+
+.right-section {
+  position: relative;
+  will-change: transform;
+  max-width: 50dvw;
 }
 
 @media (max-width: 750px) {
   .left-section {
     border: none;
   }
+
+  .left-section,
+  .right-section {
+    max-width: 100%;
+  }
 }
 
-.right-section {
-  grid-column: 2/3;
-}
-
+/* Section Images */
 .left-section img,
 .right-section img,
 ::slotted(img) {
@@ -177,6 +143,7 @@ a:focus {
   object-fit: cover;
 }
 
+/* Right Section Specifics */
 .right-section h1 {
   padding-top: 2.5rem;
 }
@@ -190,10 +157,42 @@ a:focus {
   padding-inline: 2rem;
 }
 
-/*
-only paragraphs without imgs in them because the astro markdown parser buts images into paragraphs
-inspo source: https://www.matuzo.at/blog/2022/100daysof-day50/
-*/
+.right-section a {
+  display: inline-block;
+  position: relative;
+  padding: 0.2em 0;
+  color: var(--primary-clr);
+}
+
+.right-section a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--primary-clr);
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+  transition: opacity 300ms, transform 300ms;
+  pointer-events: none;
+}
+
+.right-section a:hover::after,
+.right-section a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.right-section blockquote {
+  margin-block: 1rem;
+  padding-inline: 2rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--primary-clr);
+}
+
+/* Paragraphs without images */
 .right-section :not(.details) p:not(:has(img)),
 ol {
   margin: 1.5rem 2.5rem;
@@ -206,44 +205,37 @@ ol {
   }
 }
 
+/* Misc Elements */
+.arrow,
+.broken-heart {
+  height: 12vh;
+}
+
 .collab {
-  margin: 0;
   margin-block: 1rem;
 }
 
 .scope {
-  font-family: junicode;
+  font-family: Junicode;
   font-size: 1.75rem;
 }
 
-.right-section blockquote {
-  margin-block: 1rem;
-  padding-inline: 2rem;
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: var(--primary-clr);
-}
-
-.about {
-  grid-column: 2/3;
-  padding-block: 4rem;
-}
-
+/* About Section */
 .about-wrapper {
-  grid-template-columns: 2fr 1fr;
   display: grid;
+  grid-template-columns: 2fr 1fr;
   gap: 1rem;
   width: 100%;
 }
+
 .about-image {
   grid-column: 2/3;
   grid-row: 1/2;
   display: block;
-  height: auto;
   max-width: 15vw;
-  object-fit: cover;
   max-height: 10rem;
   margin-inline: auto;
+  object-fit: cover;
   order: 1;
 }
 
@@ -253,16 +245,14 @@ ol {
   grid-column: 1/2;
 }
 
+/* Responsive Layout */
 @media (max-width: 850px) {
   .wrapper {
     grid-template-columns: 1fr 80vw 1fr;
   }
 
   .left-section,
-  .right-section {
-    grid-column: 1/3;
-  }
-
+  .right-section,
   .about-image,
   .about-copy,
   .stats,
@@ -270,6 +260,7 @@ ol {
     grid-column: 1/3;
   }
 }
+
 @media (max-width: 500px) {
   .stats {
     flex-direction: column;
