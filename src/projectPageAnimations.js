@@ -20,16 +20,17 @@ export default function pageWipe() {
     })
       .to(transitionCover, {
         yPercent: -100,
-        duration: 0.75,
-        delay: 0.5,
-        ease: "power1.inOut",
+        duration: 1,
+        delay: 0.25,
+        ease: "expo.inOut",
       })
       .to([left, right], {
         xPercent: 0,
-        duration: 0.75,
-        delay: 0.5,
+        duration: 1.25,
+        delay: 0.125,
         stagger: 0.5,
-        ease: "power1.inOut",
+        // ease: "power1.inOut",
+        ease: "expo.out",
       });
   }
 }
