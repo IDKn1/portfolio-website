@@ -14,6 +14,7 @@ const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
         cover={i.data.cover}
         style={`--top-offset: ${13 + index * 1}rem;`}
         scope={i.data.scope}
+        project_color={i.data.project_color}
     />
 ))}
 </div>

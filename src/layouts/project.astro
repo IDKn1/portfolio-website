@@ -1,20 +1,19 @@
 ---
 import Navbar from '../components/navbar.astro';
 import BaseLayout from './base.astro';
-const { title, slug, cover, content, scope, collaborators, project_link } = Astro.props;
-console.log(project_link)
+const { title, slug, cover, content, scope, collaborators, project_link, project_color } = Astro.props;
 ---
 
 <BaseLayout title={title}>
   <Navbar />
   <div class="content" id="verticalContainer">
-    <div class="left-section">
-      <img src={'../../' + cover} alt="" transition:name={`project-cover-${slug}`} />
+    <div class="left-section" id="left-section">
+      <img src={'../../' + cover} alt="" id="project-cover" />
       <!-- This will be the container where we move images and video -->
     </div>
     
-    <div class="right-section">
-      <h1 transition:name={`project-title-${slug}`}>{title}</h1>
+    <div class="right-section" id="right-section">
+      <h1 >{title}</h1>
       <div class="details">
         <p class="scope"> {scope.join(" / ")} </p>
         {collaborators && collaborators.length > 0 && (
@@ -40,7 +39,10 @@ console.log(project_link)
         <slot />
       </div>
     </div>
+    <div class="transition-cover" id="transition-cover" style={`background-color: `+ project_color + `;`}>
+      </div>
   </div>
+
 </BaseLayout>
 
 <!-- 
@@ -52,6 +54,7 @@ This whole page is my favourite block of code  but specifically this script tag 
 -->
 <script>
   import initSplitScroll from '../../src/split-scroll.js';
+  import pageWipe from '../../src/projectPageAnimations.js'
 
   function waitForImagesToLoad(images, callback) {
     let loaded = 0;
@@ -108,6 +111,9 @@ This whole page is my favourite block of code  but specifically this script tag 
         });
       }, 100);
     }
+requestAnimationFrame(() => {
+    pageWipe();
+  });
   });
 </script>
 

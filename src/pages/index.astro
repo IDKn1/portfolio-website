@@ -5,6 +5,7 @@ import Projects from '../components/projects.astro';
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
+	<div class="transition-cover" slot="full-bleed"></div>
 	<div class="over-text" slot="full-bleed">
 		<div class="main-text">
 			<h1 class="head-text">Nikolai<br></h1>
@@ -13,7 +14,7 @@ import Projects from '../components/projects.astro';
 	<div class="hero" slot="full-bleed">
 		<div class="main-text">
 			<h1>Nikolai<br>Suvanto</h1>
-			<p>an ad major with a strong interest in how people connect—with each other, with ideas, and with the world around them.</p>
+			<p>an art director with a strong interest in how people connect—with each other, with ideas, and with the world around them.</p>
 		</div>
 		<h6 class="prompt">Scroll
 			<img class="arrow" src="/assets/misc/arrow.svg">
@@ -30,7 +31,19 @@ import Projects from '../components/projects.astro';
 	<script src="../headerTextFade.js" />
 </BaseLayout>
 
+<script type="module">
+  import { setupCardClickHandlers } from '../../src/cardTransition.js';
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setupCardClickHandlers();
+  });
+</script>
+
 <style>
+
+	.transition-cover {
+		opacity: 0;
+	}
 /* stack effect from: https://codepen.io/baro82/pen/xxpxJRv*/
 
 .over-text {

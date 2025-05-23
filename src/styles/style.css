@@ -93,6 +93,18 @@ a:focus {
   display: grid;
   grid-template-columns: 1fr 70vw 1fr;
   flex: 1;
+  background-color: var(--bg-clr);
+}
+
+.transition-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  pointer-events: none;
+  transition: none;
 }
 
 .content,
@@ -101,7 +113,6 @@ a:focus {
   grid-column: 2/3;
   padding-block: 4rem;
   padding-inline: 2rem;
-  background-color: var(--bg-clr);
 }
 
 .projects-wrapper {
