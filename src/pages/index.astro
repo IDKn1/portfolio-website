@@ -31,11 +31,25 @@ import Projects from '../components/projects.astro';
 	<script src="../headerTextFade.js" />
 </BaseLayout>
 
-<script type="module">
+<script >
   import { setupCardClickHandlers } from '../../src/cardTransition.js';
+  
+  import { gsap } from "gsap";
+
+window.addEventListener("pageshow", () => {
+  const transitionCover = document.querySelector(".transition-cover");
+  if (transitionCover) {
+    gsap.set(transitionCover, {
+      opacity: 0,
+      width: 0,
+      height: 0,
+      scale: 1,
+    });
+  }
+});
 
   document.addEventListener("DOMContentLoaded", () => {
-    setupCardClickHandlers();
+	  setupCardClickHandlers();
   });
 </script>
 
