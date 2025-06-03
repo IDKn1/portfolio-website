@@ -12,9 +12,9 @@
 - [x] collapse about and contact to the same page main page
 - [x] handdrawn circle around email CTA
 - [x] other work section after about me
+- [x] fix hero text animation
 - [/] project page duo scroll
 - [ ] drawings for hero section, about page and thanks page
 - [ ] list of current hobbies
-- [ ] fix hero text animation
 - [ ] shader effect over hero text
 - [ ] add info vis project

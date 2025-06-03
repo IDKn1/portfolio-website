@@ -76,6 +76,13 @@ h6 {
   font-size: 1.25rem;
 }
 
+.icon-text {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  opacity: 0;
+}
+
 /* Links */
 a {
   color: var(--text-clr);
@@ -91,7 +98,7 @@ a:focus {
 /* Layout */
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 70vw 1fr;
+  grid-template-columns: 1fr 60vw 1fr;
   flex: 1;
   background-color: var(--bg-clr);
 }
@@ -112,14 +119,14 @@ a:focus {
 .about,
 .misc-wrapper {
   grid-column: 2/3;
-  padding-block: 4rem;
 }
 .content {
   padding-inline: 2rem;
 }
 
-.projects-wrapper {
-  padding-bottom: 6rem;
+.projects-wrapper,
+.misc-wrapper {
+  padding-block: 15rem 6rem;
 }
 
 .left-section {

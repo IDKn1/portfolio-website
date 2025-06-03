@@ -20,7 +20,7 @@ const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
         title={i.data.title}
         slug={i.slug}
         cover={i.data.cover}
-        style={`--top-offset: ${13 + index * 1}rem;`}
+        style={`--top-offset: ${10 + index}rem;`}
         scope={i.data.scope}
         project_color={i.data.project_color}
         collection={i.data.collection}
@@ -37,6 +37,6 @@ const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
 h2 {
     padding-bottom: 2rem;
     position: sticky;
-    top: 9rem;
+    top: 6rem;
 }
 </style>

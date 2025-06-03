@@ -6,14 +6,12 @@ import Projects from '../components/projects.astro';
 
 <BaseLayout title="Nikolai's Portfolio Website">
 	<div class="transition-cover" slot="full-bleed"></div>
-	<div class="over-text" slot="full-bleed">
 		<div class="main-text">
-			<h1 class="head-text">Nikolai<br></h1>
+			<h3 class="icon-text">N–S<br></h1>
 		</div>
-	</div>
 	<div class="hero" slot="full-bleed">
 		<div class="main-text">
-			<h1>Nikolai<br>Suvanto</h1>
+			<h1 class="hero-text">Nikolai<br>Suvanto</h1>
 			<p>an art director with a strong interest in how people connect—with each other, with ideas, and with the world around them.</p>
 		</div>
 		<h6 class="prompt">Scroll
@@ -63,17 +61,7 @@ window.addEventListener("pageshow", () => {
 	}
 /* stack effect from: https://codepen.io/baro82/pen/xxpxJRv*/
 
-.over-text {
-	position: fixed;
-	z-index: 100;
-	opacity: 0;
-	padding-inline: 2rem;
-	padding-top: 3rem;
-	z-index: 5;
-	transform-origin: left center;
-}
-
-.hero, .over-text {
+.hero, {
   width: 100%;
   color: var(--text-clr);
   word-wrap: break-word;
@@ -87,7 +75,7 @@ window.addEventListener("pageshow", () => {
 	min-height: 100vh;
 	z-index: -1;
 }
-h1 {
+.hero-text {
   font-size: 8rem;
   line-height: 0.8;
   padding-inline-end: 3rem;
@@ -137,18 +125,11 @@ h6 {
 
 .content {
 	background-color: var(--bg-clr);
-	grid-column: 1/4;
 	padding-block: 2rem;
-	display: grid;
-	grid-template-columns: 1fr 80ch 1fr;
 }
 
 @media (max-width: 850px) {
-  .content {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
+  .hero-text {
 	font-size: 20vw;
   }
 
