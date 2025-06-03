@@ -22,10 +22,13 @@ import Projects from '../components/projects.astro';
 	</div>
 	<div class="content">
 		<div class="projects-wrapper">
-			<Projects />	
+			<Projects cato="work"/>	
 		</div>	
 		<div class="about">
 			<About />
+		</div>
+		<div class="misc-wrapper">
+			<Projects cato="misc"/>
 		</div>
 	</div>
 	<script src="../headerTextFade.js" />
@@ -96,7 +99,7 @@ h6 {
 	align-items: center;
 }
 
-.hero, .about {
+.hero{
   position: sticky;
   top: 0;
   overflow: hidden;
@@ -142,7 +145,7 @@ h6 {
 
 @media (max-width: 850px) {
   .content {
-    grid-template-columns: 1fr 80vw 1fr;
+    grid-template-columns: 1fr;
   }
 
   h1 {

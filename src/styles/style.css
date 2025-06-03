@@ -109,9 +109,12 @@ a:focus {
 
 .content,
 .projects-wrapper,
-.about {
+.about,
+.misc-wrapper {
   grid-column: 2/3;
   padding-block: 4rem;
+}
+.content {
   padding-inline: 2rem;
 }
 
@@ -259,7 +262,7 @@ ol {
 /* Responsive Layout */
 @media (max-width: 850px) {
   .wrapper {
-    grid-template-columns: 1fr 80vw 1fr;
+    grid-template-columns: 1fr;
   }
 
   .left-section,

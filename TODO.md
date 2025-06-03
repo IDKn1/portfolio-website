@@ -11,6 +11,10 @@
 - [x] site icon
 - [x] collapse about and contact to the same page main page
 - [x] handdrawn circle around email CTA
+- [x] other work section after about me
 - [/] project page duo scroll
 - [ ] drawings for hero section, about page and thanks page
-- [ ] fix viewtransitions breaking gsap scroll animations on navigation back
+- [ ] list of current hobbies
+- [ ] fix hero text animation
+- [ ] shader effect over hero text
+- [ ] add info vis project
