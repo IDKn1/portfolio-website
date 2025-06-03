@@ -5,137 +5,86 @@ import Projects from '../components/projects.astro';
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
-	<div class="transition-cover" slot="full-bleed"></div>
-		<div class="main-text">
-			<h3 class="icon-text">N–S<br></h1>
-		</div>
-	<div class="hero" slot="full-bleed">
-		<div class="main-text">
-			<h1 class="hero-text">Nikolai<br>Suvanto</h1>
-			<p>an art director with a strong interest in how people connect—with each other, with ideas, and with the world around them.</p>
-		</div>
-		<h6 class="prompt">Scroll
-			<img class="arrow" src="/assets/misc/arrow.svg">
-		</h6>
-	</div>
-	<div class="content">
-		<div class="projects-wrapper">
-			<Projects cato="work"/>	
-		</div>	
-		<div class="about">
-			<About />
-		</div>
-		<div class="misc-wrapper">
-			<Projects cato="misc"/>
-		</div>
-	</div>
-	<script src="../headerTextFade.js" />
+  <div class="transition-cover" slot="full-bleed"></div>
+
+  <div class="main-text">
+    <h3 class="icon-text">N–S</h3>
+  </div>
+
+  <div class="hero" slot="full-bleed">
+    <div class="main-text">
+      <h1 class="hero-text">Nikolai<br>Suvanto</h1>
+      <p>
+        an art director with a strong interest in how people connect—with each other,
+        with ideas, and with the world around them.
+      </p>
+    </div>
+    <h6 class="prompt">
+      Scroll
+      <img class="arrow" src="/assets/misc/arrow.svg" alt="Scroll down arrow">
+    </h6>
+  </div>
+
+  <div class="content">
+    <div class="projects-wrapper">
+      <Projects cato="work" />	
+    </div>	
+
+    <div class="about">
+      <About />
+    </div>
+
+    <!-- <div class="misc-wrapper">
+      <Projects cato="misc" />
+    </div> -->
+  </div>
+
+  <script src="../headerTextFade.js" />
 </BaseLayout>
 
-<script >
+<script>
   import { setupCardClickHandlers } from '../../src/cardTransition.js';
-  
   import { gsap } from "gsap";
 
-window.addEventListener("pageshow", () => {
-  const transitionCover = document.querySelector(".transition-cover");
-  if (transitionCover) {
-    gsap.set(transitionCover, {
-      opacity: 0,
-      width: 0,
-      height: 0,
-      scale: 1,
-    });
-  }
-});
+  window.addEventListener("pageshow", () => {
+    const transitionCover = document.querySelector(".transition-cover");
+    if (transitionCover) {
+      gsap.set(transitionCover, {
+        opacity: 0,
+        width: 0,
+        height: 0,
+        scale: 1,
+      });
+    }
+  });
 
   document.addEventListener("DOMContentLoaded", () => {
-	  setupCardClickHandlers();
+    setupCardClickHandlers();
   });
 </script>
 
 <style>
-
-	.transition-cover {
-		opacity: 0;
-	}
-/* stack effect from: https://codepen.io/baro82/pen/xxpxJRv*/
-
-.hero, {
-  width: 100%;
-  color: var(--text-clr);
-  word-wrap: break-word;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.hero {
-	padding: 3rem 2rem;
-	background-color: var(--bg-clr);
-	min-height: 100vh;
-	z-index: -1;
-}
-.hero-text {
-  font-size: 8rem;
-  line-height: 0.8;
-  padding-inline-end: 3rem;
-}
-
-h6 {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.hero{
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-}
-
-.about {
-	z-index: 10;
-	background: none;
-}
-
-.main-text {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.main-text p {
-	width: 40ch;
-	flex-shrink: 1;
-	color: var(--primary-clr);
-	border-inline-start: 3px solid var(--text-clr);
-	padding-inline-start: 1rem;
-	font-size: 1.5rem;
-	font-weight: 900;
-}
-
-.prompt {
-  color: var(--text-clr);
-}
-
-.content > * {
-  /* background-color: var(--bg-clr); */
-  width: 100%;
-  top: 4rem;
-}
-
-.content {
-	background-color: var(--bg-clr);
-	padding-block: 2rem;
-}
-
-@media (max-width: 850px) {
-  .hero-text {
-	font-size: 20vw;
+  .transition-cover {
+    opacity: 0;
   }
 
-  .main-text p {
-	font-size: 1.25rem;
+  .content {
+    background-color: var(--bg-clr);
+    padding-block: 2rem;
   }
 
-}
+  .content > * {
+    width: 100%;
+    top: 4rem;
+  }
+
+  @media (max-width: 850px) {
+    .hero-text {
+      font-size: 20vw;
+    }
+
+    .main-text p {
+      font-size: 1.25rem;
+    }
+  }
 </style>
