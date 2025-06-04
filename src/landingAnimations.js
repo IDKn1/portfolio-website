@@ -4,15 +4,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 function setupScrollAnimations() {
-  // Kill any existing triggers
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-
   const icon = document.querySelector(".icon-text");
   const content = document.querySelector(".content");
+  const projects = document.querySelector(".projects-wrapper");
+
   const lastProjectCard = document.querySelector(
     ".projects-wrapper .project-card:last-child"
   );
-  const projects = document.querySelector(".projects");
+
   gsap.set(icon, { yPercent: 20 });
   gsap
     .timeline({
@@ -29,17 +28,37 @@ function setupScrollAnimations() {
       ease: "expo.in",
     });
 
-  // 3. Fade background + fade other cards
   const siblingsToFade = [...projects.querySelectorAll(":scope > *")].filter(
     (el) => !el.contains(lastProjectCard)
   );
 
+  function scaleScrollDistance(minWidth, maxWidth, minScroll, maxScroll) {
+    const screenWidth = window.innerWidth;
+
+    // Clamp screen width between minWidth and maxWidth
+    const clampedWidth = Math.min(Math.max(screenWidth, minWidth), maxWidth);
+
+    // Normalize to 0–1
+    const t = (clampedWidth - minWidth) / (maxWidth - minWidth);
+
+    // Interpolate scroll distance
+    return minScroll + t * (maxScroll - minScroll);
+  }
+
+  let cardFadeBP;
+  if (window.innerWidth > 800) {
+    cardFadeBP = scaleScrollDistance(800, 1100, 250, 300);
+  } else {
+    cardFadeBP = scaleScrollDistance(300, 800, 200, 250);
+  }
+
+  console.log(cardFadeBP);
   gsap
     .timeline({
       scrollTrigger: {
         trigger: lastProjectCard,
-        start: "bottom-=700 top",
-        end: "bottom-=400 top",
+        start: `top top+=${cardFadeBP}`,
+        end: "top+=50",
         scrub: true,
       },
     })
@@ -61,12 +80,11 @@ function setupScrollAnimations() {
     );
 }
 
-// Re-run after Astro View Transitions
 document.addEventListener("DOMContentLoaded", () => {
   // Delay until DOM is fully painted
   requestAnimationFrame(() => {
     setTimeout(() => {
       setupScrollAnimations();
-    }, 0); // if needed, increase to 50ms or 100ms
+    }, 50); // if needed, increase to 50ms or 100ms
   });
 });

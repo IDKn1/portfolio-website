@@ -13,7 +13,7 @@ const projects = await getCollection(cato);
 const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
-<div class="projects">
+
     <h2 class=`${cato}-heading`>{sectionTitle}</h2>
         {sortedItems.map((i, index) => (
     <ProjectCard
@@ -26,13 +26,9 @@ const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
         collection={i.data.collection}
     />
 ))}
-</div>
+
 
 <style>
-.projects {
-    top: 20rem;
-    scroll-snap-type: mandatory;
-}
 
 h2 {
     padding-bottom: 2rem;
