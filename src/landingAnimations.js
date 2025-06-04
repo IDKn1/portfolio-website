@@ -28,9 +28,9 @@ function setupScrollAnimations() {
       ease: "expo.in",
     });
 
-  const siblingsToFade = [...projects.querySelectorAll(":scope > *")].filter(
-    (el) => !el.contains(lastProjectCard)
-  );
+  const siblingsToFade = [
+    ...projects.querySelectorAll(":scope > .project-card"),
+  ].filter((el) => !el.contains(lastProjectCard));
 
   function scaleScrollDistance(minWidth, maxWidth, minScroll, maxScroll) {
     const screenWidth = window.innerWidth;
@@ -47,37 +47,32 @@ function setupScrollAnimations() {
 
   let cardFadeBP;
   if (window.innerWidth > 800) {
-    cardFadeBP = scaleScrollDistance(800, 1100, 250, 300);
+    cardFadeBP = scaleScrollDistance(800, 1100, 300, 350);
   } else {
-    cardFadeBP = scaleScrollDistance(300, 800, 200, 250);
+    cardFadeBP = scaleScrollDistance(300, 800, 250, 300);
   }
 
-  console.log(cardFadeBP);
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: lastProjectCard,
-        start: `top top+=${cardFadeBP}`,
-        end: "top+=50",
-        scrub: true,
-      },
-    })
-    .to(
-      lastProjectCard,
-      {
-        backgroundColor: "transparent",
-        ease: "power2.in",
-      },
-      0
-    )
-    .to(
-      siblingsToFade,
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: lastProjectCard,
+      start: `top top+=${cardFadeBP}`,
+      end: "bottom", // control how much scroll space the whole stagger spans
+      scrub: true,
+    },
+  });
+  // Manually stagger each card in the timeline
+  siblingsToFade.forEach((el, i) => {
+    tl.to(
+      el,
       {
         opacity: 0,
-        duration: 0.1,
+        scale: 0.5,
+        transformOrigin: "bottom center",
+        ease: "power2.out",
       },
-      0
-    );
+      i * 0.03
+    ); // stagger step (like 0.1 for 10% of the scroll space per card)
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
