@@ -10,11 +10,10 @@
 - [x] 404 page
 - [x] site icon
 - [x] collapse about and contact to the same page main page
-- [x] handdrawn circle around email CTA
 - [x] other work section after about me
 - [x] fix hero text animation
 - [x] add info vis project
 - [/] project page duo scroll
-- [/] shader effect over hero text
-- [ ] drawings for hero section, about page and thanks page
+- [/] shader effect in hero section
+- [ ] handdrawn line under email CTA
 - [ ] list of current hobbies

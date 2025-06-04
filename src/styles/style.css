@@ -135,7 +135,7 @@ a:focus {
   color: var(--text-clr);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: end;
   word-wrap: break-word;
   position: sticky;
   top: 0;
@@ -143,7 +143,13 @@ a:focus {
   z-index: -1;
 }
 
-.hero-text {
+@media (max-width: 1144px) {
+  .hero {
+    padding-bottom: 0;
+  }
+}
+
+.hero-title {
   font-size: 8rem;
   line-height: 0.8;
   padding-inline-end: 3rem;
@@ -157,19 +163,33 @@ a:focus {
 }
 
 /* Main Text Block */
-.main-text {
+.hero-copy {
   display: flex;
   flex-wrap: wrap;
 }
 
-.main-text p {
+.hero-motion {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  gap: 1rem;
+  max-height: min-content;
+}
+
+.hero-desc {
   width: 40ch;
-  flex-shrink: 1;
   color: var(--primary-clr);
-  border-inline-start: 3px solid var(--text-clr);
-  padding-inline-start: 1rem;
-  font-size: 1.5rem;
   font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.border-line {
+  width: 5px;
+  height: 60%;
+  background-color: var(--text-clr);
+  transform: scaleY(0);
+  transform-origin: top;
 }
 
 /* Sections */
