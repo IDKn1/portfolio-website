@@ -3,45 +3,20 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function setupScrollAnimations() {
-  const icon = document.querySelector(".icon-text");
-  const content = document.querySelector(".content");
-  const projects = document.querySelector(".projects-wrapper");
+function setupCardStackAnimation(wrapperSelector) {
+  const wrapper = document.querySelector(wrapperSelector);
+  if (!wrapper) return;
 
-  const lastProjectCard = document.querySelector(
-    ".projects-wrapper .project-card:last-child"
-  );
+  const cards = [...wrapper.querySelectorAll(":scope > .project-card")];
+  if (cards.length === 0) return;
 
-  gsap.set(icon, { yPercent: 20 });
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: content,
-        start: "top top",
-        end: "+=150",
-        scrub: true,
-      },
-    })
-    .to(icon, {
-      opacity: 1,
-      yPercent: 0,
-      ease: "expo.in",
-    });
-
-  const siblingsToFade = [
-    ...projects.querySelectorAll(":scope > .project-card"),
-  ].filter((el) => !el.contains(lastProjectCard));
+  const lastCard = cards[cards.length - 1];
+  const siblingsToFade = cards.slice(0, -1);
 
   function scaleScrollDistance(minWidth, maxWidth, minScroll, maxScroll) {
     const screenWidth = window.innerWidth;
-
-    // Clamp screen width between minWidth and maxWidth
     const clampedWidth = Math.min(Math.max(screenWidth, minWidth), maxWidth);
-
-    // Normalize to 0–1
     const t = (clampedWidth - minWidth) / (maxWidth - minWidth);
-
-    // Interpolate scroll distance
     return minScroll + t * (maxScroll - minScroll);
   }
 
@@ -54,13 +29,13 @@ function setupScrollAnimations() {
 
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: lastProjectCard,
+      trigger: lastCard,
       start: `top top+=${cardFadeBP}`,
-      end: "bottom", // control how much scroll space the whole stagger spans
+      end: "bottom",
       scrub: true,
     },
   });
-  // Manually stagger each card in the timeline
+
   siblingsToFade.forEach((el, i) => {
     tl.to(
       el,
@@ -71,15 +46,42 @@ function setupScrollAnimations() {
         ease: "power2.out",
       },
       i * 0.03
-    ); // stagger step (like 0.1 for 10% of the scroll space per card)
+    );
   });
 }
 
+function setupScrollAnimations() {
+  // Animate the icon and content (unchanged)
+  const icon = document.querySelector(".icon-text");
+  const content = document.querySelector(".content");
+
+  if (icon && content) {
+    gsap.set(icon, { yPercent: 20 });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: content,
+          start: "top top",
+          end: "+=150",
+          scrub: true,
+        },
+      })
+      .to(icon, {
+        opacity: 1,
+        yPercent: 0,
+        ease: "expo.in",
+      });
+  }
+
+  // Apply animation to multiple stacks
+  setupCardStackAnimation(".projects-wrapper");
+  setupCardStackAnimation(".misc-wrapper"); // Add more wrappers here as needed
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Delay until DOM is fully painted
   requestAnimationFrame(() => {
     setTimeout(() => {
       setupScrollAnimations();
-    }, 50); // if needed, increase to 50ms or 100ms
+    }, 50);
   });
 });
