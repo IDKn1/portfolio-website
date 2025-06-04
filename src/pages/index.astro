@@ -2,27 +2,17 @@
 import BaseLayout from '../layouts/base.astro';
 import About from '../components/about.astro';
 import Projects from '../components/projects.astro';
+import Hero from '../components/hero.astro';
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
   <div class="transition-cover" slot="full-bleed"></div>
 
-  <div class="main-text">
-    <h3 class="icon-text">N–S</h3>
-  </div>
+  <h3 class="icon-text">N–S</h3>
 
   <div class="hero" slot="full-bleed">
-    <div class="main-text">
-      <h1 class="hero-text">Nikolai<br>Suvanto</h1>
-      <p>
-        an art director with a strong interest in how people connect—with each other,
-        with ideas, and with the world around them.
-      </p>
-    </div>
-    <h6 class="prompt">
-      Scroll
-      <img class="arrow" src="/assets/misc/arrow.svg" alt="Scroll down arrow">
-    </h6>
+
+    <Hero />
   </div>
 
   <div class="content">
@@ -77,14 +67,5 @@ import Projects from '../components/projects.astro';
     width: 100%;
     top: 4rem;
   }
-
-  @media (max-width: 850px) {
-    .hero-text {
-      font-size: 20vw;
-    }
-
-    .main-text p {
-      font-size: 1.25rem;
-    }
-  }
+  
 </style>
