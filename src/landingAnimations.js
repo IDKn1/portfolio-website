@@ -51,28 +51,6 @@ function setupCardStackAnimation(wrapperSelector) {
 }
 
 function setupScrollAnimations() {
-  // Animate the icon and content (unchanged)
-  const icon = document.querySelector(".icon-text");
-  const content = document.querySelector(".content");
-
-  if (icon && content) {
-    gsap.set(icon, { yPercent: 20 });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: content,
-          start: "top top",
-          end: "+=150",
-          scrub: true,
-        },
-      })
-      .to(icon, {
-        opacity: 1,
-        yPercent: 0,
-        ease: "expo.in",
-      });
-  }
-
   // Apply animation to multiple stacks
   setupCardStackAnimation(".projects-wrapper");
   setupCardStackAnimation(".misc-wrapper"); // Add more wrappers here as needed

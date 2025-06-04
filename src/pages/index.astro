@@ -3,12 +3,13 @@ import BaseLayout from '../layouts/base.astro';
 import About from '../components/about.astro';
 import Projects from '../components/projects.astro';
 import Hero from '../components/hero.astro';
+import Navbar from '../components/navbar.astro';
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
   <div class="transition-cover" slot="full-bleed"></div>
 
-  <h3 class="icon-text">N–S</h3>
+  <Navbar />
 
   <div class="hero" slot="full-bleed">
 

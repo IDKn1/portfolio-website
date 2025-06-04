@@ -3,31 +3,64 @@
 ---
 <div class="nav">
     <ul class="nav-list">
-        <li><a class="nav-link" href="/">Home</a></li>
+        <li><a class="nav-link" href="/">N–S</a></li>
         <!-- <li><a class="nav-link" href="/about">About</a></li>
         <li><a class="nav-link" href="/contact">Contact</a></li> -->
     </ul>
 </div>
 
+<script>
+  import gsap from "gsap";
+document.addEventListener("DOMContentLoaded", () => {
+
+
+// Animate the icon and content (unchanged)
+  const icon = document.querySelector(".nav");
+  const content = document.querySelector(".content");
+
+  if (icon && content) {
+    gsap.set(icon, { yPercent: -100 });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: content,
+          start: "top top",
+          end: "+=350",
+          scrub: true,
+        },
+      })
+      .to(icon, {
+        opacity: 1,
+        yPercent: 0,
+        ease: "power1.out",
+      });
+  }
+})
+</script>
+
 <style>
     .nav {
   width: 100%;
-  position: absolute;
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  padding: 1.5rem 2rem;
-  align-items: end;
-  /* background-color: var(--bg-clr); */
-  grid-column: 1/4;
-  z-index: 100;
+  padding-block: 1rem;
+  padding-left: 2rem;
+  position: fixed;
+  background-color: var(--bg-clr);
+  top: 0;
+  z-index: 20;
+  opacity: 0;
+}
+
+@media (max-width: 500px){
+  .nav {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
 }
 
 .nav ul {
   list-style: none;
-  grid-column: 2/3;
   display: flex;
-  flex-direction: row-reverse;
-  gap: 1rem;
+  padding: 0;
 }
 
 .nav-link {
@@ -35,6 +68,7 @@
   color: var(--text-clr);
   transition: color 0.2s ease-in;
   font-weight: 900;
+  font-size: 2.074rem;
 }
 
 .nav-link:hover,
