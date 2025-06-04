@@ -26,11 +26,10 @@ export default function pageWipe() {
       })
       .to([left, right], {
         xPercent: 0,
-        duration: 1.25,
+        duration: 0.75,
         delay: 0.125,
         stagger: 0.5,
-        // ease: "power1.inOut",
-        ease: "expo.out",
+        ease: "power1.out",
       });
   }
 }
