@@ -9,7 +9,7 @@ export default function pageWipe() {
 
   if (transitionCover && left && right) {
     tl.set(left, { xPercent: -100 });
-    if (window.innerWidth > 750) {
+    if (window.innerWidth > 800) {
       tl.set(right, { xPercent: 100 });
     } else {
       tl.set(right, { xPercent: -100 });

@@ -200,7 +200,7 @@ a:focus {
 }
 
 /* Responsive Sections */
-@media (max-width: 750px) {
+@media (max-width: 800px) {
   .left-section {
     border: none;
   }
@@ -276,7 +276,7 @@ a:focus {
   margin: 1.5rem 2.5rem;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
   .right-section :not(.details) p:not(:has(img)),
   .right-section ol {
     margin-inline: 0;
@@ -324,7 +324,7 @@ a:focus {
 }
 
 /* Responsive About Section */
-@media (max-width: 850px) {
+@media (max-width: 800px) {
   .wrapper {
     grid-template-columns: 1fr;
   }
