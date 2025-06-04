@@ -15,6 +15,6 @@
 - [x] fix hero text animation
 - [x] add info vis project
 - [/] project page duo scroll
+- [/] shader effect over hero text
 - [ ] drawings for hero section, about page and thanks page
 - [ ] list of current hobbies
-- [ ] shader effect over hero text

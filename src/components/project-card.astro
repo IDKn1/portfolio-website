@@ -17,8 +17,11 @@ const { title, slug, cover, style, scope, project_color, collection } = data;  /
     position: sticky;
     top: var(--top-offset, 10);  /* Fall back to 9rem if no top is set */
     z-index: 1;
-    margin-bottom: 8rem;
     background: var(--bg-clr);
+  }
+  
+  .project-card:not(:first-of-type) {
+    margin-top: 15rem;
   }
   
   .project-card img {

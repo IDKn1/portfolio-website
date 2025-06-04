@@ -1,5 +1,5 @@
 ---
-title: Ocadvertising Gradex 110 Website
+title: Ocad Advertising Gradex 110 Website
 order: 2
 cover: /assets/ocadvertising/hero.webp
 project_color: "#d72c39"
