@@ -19,6 +19,7 @@ const baseCard = {
   cover: z.string(),
   project_color: z.string(),
   collection: z.string(),
+  project_link: project_link.optional(),
 };
 
 const work = defineCollection({
@@ -26,7 +27,6 @@ const work = defineCollection({
     ...baseCard,
     scope: z.array(z.enum(["branding", "campaign", "web design"])),
     collaborators: collaborators.optional(),
-    project_link: project_link.optional(),
   }),
 });
 
