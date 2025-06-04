@@ -33,7 +33,7 @@ const work = defineCollection({
 const misc = defineCollection({
   schema: z.object({
     ...baseCard,
-    scope: z.array(z.enum(["test"])),
+    scope: z.array(z.enum(["information design", "web dev", "ceramics"])),
   }),
 });
 

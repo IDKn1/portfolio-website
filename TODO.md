@@ -13,8 +13,8 @@
 - [x] handdrawn circle around email CTA
 - [x] other work section after about me
 - [x] fix hero text animation
+- [x] add info vis project
 - [/] project page duo scroll
 - [ ] drawings for hero section, about page and thanks page
 - [ ] list of current hobbies
 - [ ] shader effect over hero text
-- [ ] add info vis project
