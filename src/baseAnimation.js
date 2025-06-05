@@ -20,6 +20,24 @@ gsap.utils.toArray(".fade-up").forEach((el) => {
   });
 });
 
+gsap.utils.toArray(".drop-down").forEach((el) => {
+  console.log(el);
+  gsap.from(el, {
+    yPercent: -100,
+    opacity: 0,
+    delay: 0.2,
+    duration: 0.75,
+    transformOrigin: "top center",
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: el,
+      start: "top 90%",
+      toggleActions: "play none none none",
+      once: true, // animation only happens once
+    },
+  });
+});
+
 const heroMotionElements = gsap.utils.toArray(".hero-motion");
 
 const tl = gsap.timeline({

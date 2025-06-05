@@ -53,7 +53,7 @@ function setupCardStackAnimation(wrapperSelector) {
 function setupScrollAnimations() {
   // Apply animation to multiple stacks
   setupCardStackAnimation(".projects-wrapper");
-  setupCardStackAnimation(".misc-wrapper"); // Add more wrappers here as needed
+  setupCardStackAnimation(".misc-wrapper");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
