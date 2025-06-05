@@ -37,7 +37,7 @@ tl.from(heroMotionElements, {
   opacity: 0,
   duration: 0.75,
   ease: "power2.out",
-  delay: 0.5,
+  delay: 1.125,
   stagger: 0.25,
 });
 
@@ -52,3 +52,23 @@ tl.to(
   },
   "+=0.5" // overlaps with the entrance motion
 );
+
+const asciiEyes = gsap.utils.toArray(".eye");
+
+const eyeTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: asciiEyes[0],
+    start: "top 50%",
+    toggleActions: "play none none none",
+    once: true,
+  },
+});
+
+eyeTl.from(asciiEyes, {
+  opacity: 0,
+  scale: 0.55,
+  duration: 0.05,
+  ease: "power1.inOut",
+  delay: 0.25,
+  stagger: 0.05,
+});
