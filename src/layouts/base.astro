@@ -1,31 +1,32 @@
 ---
-import Footer from '../components/footer.astro';
-import '../styles/style.css'
+import Footer from "../components/footer.astro";
+import "../styles/style.css";
 const data = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/assets/misc/me.svg" />
-		<title>{data.title}</title>
-		<!-- client router is used for the astro view transitions api: https://docs.astro.build/en/guides/view-transitions/#adding-view-transitions-to-a-page -->
-		<!-- <ClientRouter /> -->
-	</head>
-	<body>
-		
-		<!-- <Navbar /> phased out in commit b5765c2-->
-		<slot name="full-bleed" />
-		<div class="wrapper">
-			<slot />
-		</div>
-		<Footer />
-		<!-- smoother scrolling -->
-		<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-		<script data-goatcounter="https://idkn1.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-		<script src="../baseAnimation.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/assets/misc/me.svg" />
+    <title>{data.title}</title>
+    <!-- client router is used for the astro view transitions api: https://docs.astro.build/en/guides/view-transitions/#adding-view-transitions-to-a-page -->
+    <!-- <ClientRouter /> -->
+  </head>
+  <body>
+    <!-- <Navbar /> phased out in commit b5765c2-->
+    <slot name="full-bleed" />
+    <div class="wrapper">
+      <slot />
+    </div>
+    <Footer />
+
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script
+      data-goatcounter="https://idkn1.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"></script>
+    <script src="../baseAnimation.js"></script>
+  </body>
 </html>

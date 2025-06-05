@@ -7,28 +7,27 @@
 
 <script type="module">
   function fetchVisitors() {
-    fetch('https://stats.n-s.work/counter//.json')
-      .then(res => res.json())
-      .then(data => {
+    fetch("https://stats.n-s.work/counter//.json")
+      .then((res) => res.json())
+      .then((data) => {
         const count = Number(data.count);
-        const el = document.getElementById('visitors');
+        const el = document.getElementById("visitors");
         if (el) el.textContent = count + 18;
       });
   }
 
-  // Run on first load and every navigation
-  document.addEventListener('DOMContentLoaded', fetchVisitors);
+  document.addEventListener("DOMContentLoaded", fetchVisitors);
 </script>
 
 <style>
-.visitor-count {
-  font-weight: 100;
-  line-height: 2rem;
-}
+  .visitor-count {
+    font-weight: 100;
+    line-height: 2rem;
+  }
 
   #visitors {
     font-size: 1.5rem;
-  color: var(--primary-clr);
-  font-weight: 900;
+    color: var(--primary-clr);
+    font-weight: 900;
   }
 </style>

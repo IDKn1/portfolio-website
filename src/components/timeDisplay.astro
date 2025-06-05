@@ -5,11 +5,12 @@
 <div class="about-time">
   <p>
     Where am I right now?<br />
-    <span id="local-time">Loading...</span><span class="location"> —Toronto</span>
+    <span id="local-time">Loading...</span><span class="location">
+      —Toronto</span
+    >
   </p>
 </div>
 
-<!-- Vanilla JS in Astro (no client:load needed) -->
 <script>
   const updateTime = () => {
     const time = new Date().toLocaleString("en-US", {
@@ -27,10 +28,9 @@
 </script>
 
 <style>
-
-.about-time #local-time {
-  font-size: 1.5rem;
-  color: var(--primary-clr);
-  font-weight: 900;
-}
+  .about-time #local-time {
+    font-size: 1.5rem;
+    color: var(--primary-clr);
+    font-weight: 900;
+  }
 </style>

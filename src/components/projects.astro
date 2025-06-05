@@ -1,38 +1,37 @@
 ---
-import { getCollection } from 'astro:content';
-import ProjectCard from '../components/project-card.astro';
+import { getCollection } from "astro:content";
+import ProjectCard from "../components/project-card.astro";
 const data = Astro.props;
 const { cato } = data;
 function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1);
 }
 
-const sectionTitle = capitalize(cato)
+const sectionTitle = capitalize(cato);
 
 const projects = await getCollection(cato);
 const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
-
-    <h2 class=`${cato}-heading`>{sectionTitle}</h2>
-        {sortedItems.map((i, index) => (
+<h2 class=`${cato}-heading`>{sectionTitle}</h2>
+{
+  sortedItems.map((i, index) => (
     <ProjectCard
-        title={i.data.title}
-        slug={i.slug}
-        cover={i.data.cover}
-        style={`--top-offset: ${9 + index * 2}rem;`}
-        scope={i.data.scope}
-        project_color={i.data.project_color}
-        collection={i.data.collection}
+      title={i.data.title}
+      slug={i.slug}
+      cover={i.data.cover}
+      style={`--top-offset: ${9 + index * 2}rem;`}
+      scope={i.data.scope}
+      project_color={i.data.project_color}
+      collection={i.data.collection}
     />
-))}
-
+  ))
+}
 
 <style>
-
-h2 {
+  h2 {
     padding-bottom: 2rem;
     position: sticky;
     top: 5rem;
-}
+  }
 </style>

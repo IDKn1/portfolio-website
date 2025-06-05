@@ -1,13 +1,14 @@
---- 
-const data = Astro.props;
-const { title, slug, cover, style, scope, project_color, collection } = data;  // Include the style prop
 ---
-<div class="project-card" style={style}> <!-- Apply the style here -->
-  <a href={`/${collection}/`+slug} data-color={project_color}>
-  <h4 transition:name={`project-title-${slug}`}>
+const data = Astro.props;
+const { title, slug, cover, style, scope, project_color, collection } = data; // Include the style prop
+---
+
+<div class="project-card" style={style}>
+  <!-- Apply the style here -->
+  <a href={`/${collection}/` + slug} data-color={project_color}>
+    <h4 transition:name={`project-title-${slug}`}>
       <img transition:name={`project-cover-${slug}`} src={cover} />
       <div class="card-label drop-down">
-
         {title}
         <div class="scope">{scope.join(" / ")}</div>
       </div>
@@ -16,9 +17,9 @@ const { title, slug, cover, style, scope, project_color, collection } = data;  /
 </div>
 
 <style>
-.project-card {
+  .project-card {
     position: sticky;
-    top: var(--top-offset, 9);  /* Fall back to 9rem if no top is set */
+    top: var(--top-offset, 9); /* Fall back to 9rem if no top is set */
     background: var(--bg-clr);
   }
 
@@ -26,11 +27,11 @@ const { title, slug, cover, style, scope, project_color, collection } = data;  /
     position: relative;
     z-index: -1;
   }
-  
+
   .project-card:not(:first-of-type) {
     margin-top: 15rem;
   }
-  
+
   .project-card img {
     width: 100%;
     max-height: 60vh;

@@ -1,48 +1,69 @@
 ---
-import Navbar from '../components/navbar.astro';
-import BaseLayout from './base.astro';
-const { title, slug, cover, content, scope, collaborators, project_link, project_color } = Astro.props;
+import Navbar from "../components/navbar.astro";
+import BaseLayout from "./base.astro";
+const {
+  title,
+  cover,
+  content,
+  scope,
+  collaborators,
+  project_link,
+  project_color,
+} = Astro.props;
 ---
 
 <BaseLayout title={title}>
   <Navbar />
   <div class="content" id="verticalContainer">
     <div class="left-section" id="left-section">
-      <img src={'../../' + cover} alt="" id="project-cover" />
+      <img src={"../../" + cover} alt="" id="project-cover" />
       <!-- This will be the container where we move images and video -->
     </div>
-    
+
     <div class="right-section" id="right-section">
-      <h1 >{title}</h1>
+      <h1>{title}</h1>
       <div class="details">
-        <p class="scope"> {scope.join(" / ")} </p>
-        {collaborators && collaborators.length > 0 && (
-          <p class="collab">
-           Made in collaboration with:{''}
-    {collaborators.map((c, i) => (
-      <>
-        <a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
-        {i < collaborators.length - 1 ? ', ' : ''}
-      </>
-    ))}
-        </p>
-        )}
-        {project_link && project_link.url && (
-  <h4 class="project-link">
-    <a href={project_link.url} target="_blank" rel="noopener noreferrer">
-      {project_link.name}
-    </a>
-  </h4>
-)}
+        <p class="scope">{scope.join(" / ")}</p>
+        {
+          collaborators && collaborators.length > 0 && (
+            <p class="collab">
+              Made in collaboration with:{""}
+              {collaborators.map((c, i) => (
+                <>
+                  <a href={c.url} target="_blank" rel="noopener noreferrer">
+                    {c.name}
+                  </a>
+                  {i < collaborators.length - 1 ? ", " : ""}
+                </>
+              ))}
+            </p>
+          )
+        }
+        {
+          project_link && project_link.url && (
+            <h4 class="project-link">
+              <a
+                href={project_link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {project_link.name}
+              </a>
+            </h4>
+          )
+        }
       </div>
       <div class="project-copy">
         <slot />
       </div>
     </div>
-    <div class="transition-cover" id="transition-cover" style={`background-color: `+ project_color + `;`}>
-      </div>
+    <div
+      class="transition-cover"
+      id="transition-cover"
+      style={`background-color: ` + project_color + `;`}
+    >
+    </div>
   </div>
-
 </BaseLayout>
 
 <!-- 
@@ -53,24 +74,24 @@ This whole page is my favourite block of code  but specifically this script tag 
  on to that now!
 -->
 <script>
-  import initSplitScroll from '../../src/split-scroll.js';
-  import pageWipe from '../../src/projectPageAnimations.js'
+  import initSplitScroll from "../../src/split-scroll.js";
+  import pageWipe from "../../src/projectPageAnimations.js";
 
   function waitForImagesToLoad(images, callback) {
     let loaded = 0;
     const total = images.length;
     if (total === 0) return callback();
 
-    images.forEach(img => {
+    images.forEach((img) => {
       if (img.complete) {
         loaded++;
         if (loaded === total) callback();
       } else {
-        img.addEventListener('load', () => {
+        img.addEventListener("load", () => {
           loaded++;
           if (loaded === total) callback();
         });
-        img.addEventListener('error', () => {
+        img.addEventListener("error", () => {
           loaded++;
           if (loaded === total) callback();
         });
@@ -78,42 +99,42 @@ This whole page is my favourite block of code  but specifically this script tag 
     });
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth > 800) {
-      const leftSection = document.querySelector('.left-section');
-      const markdownImages = document.querySelectorAll('img');
-      const videoWrappers = document.querySelectorAll('.video-wrapper'); // Select video-wrapper
+      const leftSection = document.querySelector(".left-section");
+      const markdownImages = document.querySelectorAll("img");
+      const videoWrappers = document.querySelectorAll(".video-wrapper"); // Select video-wrapper
 
       // Create a combined array of images and video wrappers
       const allElements = [...markdownImages, ...videoWrappers];
 
       // Move each element in order of appearance in the MDX content
-      allElements.forEach(element => {
+      allElements.forEach((element) => {
         // Ensure element is moved only if it hasn't been moved yet
         if (!leftSection.contains(element)) {
           leftSection.appendChild(element);
         }
 
         // Apply styles to images (if it's an image)
-        if (element.tagName.toLowerCase() === 'img') {
-          element.style.width = '100%';
-          element.style.height = 'auto';
-          element.style.maxWidth = '100%';
-          element.style.display = 'block';
-          element.style.objectFit = 'cover';
+        if (element.tagName.toLowerCase() === "img") {
+          element.style.width = "100%";
+          element.style.height = "auto";
+          element.style.maxWidth = "100%";
+          element.style.display = "block";
+          element.style.objectFit = "cover";
         }
       });
 
-      const allImages = document.querySelectorAll('img');
+      const allImages = document.querySelectorAll("img");
       setTimeout(() => {
         waitForImagesToLoad(allImages, () => {
           initSplitScroll(); // only after images are fully loaded
         });
       }, 100);
     }
-requestAnimationFrame(() => {
-    pageWipe();
-  });
+    requestAnimationFrame(() => {
+      pageWipe();
+    });
   });
 </script>
 
@@ -132,17 +153,16 @@ requestAnimationFrame(() => {
   }
 
   .details {
-  margin: 0;
-  margin-bottom: 2rem;
-  padding-inline: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 3px solid var(--text-clr);
+    margin: 0;
+    margin-bottom: 2rem;
+    padding-inline: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--text-clr);
   }
 
   .collab {
     margin: 0;
   }
-
 
   @media (max-width: 800px) {
     .content {

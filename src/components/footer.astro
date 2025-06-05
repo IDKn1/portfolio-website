@@ -1,52 +1,48 @@
----
----
-
 <footer class="footer">
-    <p class="copyright">© 2025 Nikolai Suvanto. All rights reserved.</p>
-    <div class="footer-text">
-        <h4>That's it for me</h4>
-        <h6>Thank you for visiting :)</h5>
-    </div>
+  <p class="copyright">© 2025 Nikolai Suvanto. All rights reserved.</p>
+  <div class="footer-text">
+    <h4>That's it for me</h4>
+    <h6>Thank you for visiting :)</h6>
+  </div>
 </footer>
 
 <style>
-    h4 {
-        color: var(--primary-clr);
-    }
+  h4 {
+    color: var(--primary-clr);
+  }
 
-footer {
-  width: 100%;
-  background-color: var(--bg-clr);
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  padding: 1.5rem 2rem;
-  grid-column: 1/4;
-  z-index: 2;
-  align-items: baseline;
+  footer {
+    width: 100%;
+    background-color: var(--bg-clr);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 1.5rem 2rem;
+    grid-column: 1/4;
+    z-index: 2;
+    align-items: baseline;
+  }
+  .copyright {
+    grid-column: 1/2;
+    font-size: 0.75rem;
+    padding: 0;
+  }
 
-}
-.copyright {
-  grid-column: 1/2;
-  font-size: 0.75rem;
-  padding: 0;
-}
-
-.footer-text {
-  grid-column: 2/3;
-  text-align: center;
-}
-
-@media (max-width: 1200px) {
   .footer-text {
-    grid-column: 2/4;
+    grid-column: 2/3;
+    text-align: center;
   }
-}
 
-@media (max-width: 800px) {
-    .footer {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: normal;
+  @media (max-width: 1200px) {
+    .footer-text {
+      grid-column: 2/4;
+    }
   }
-}
+
+  @media (max-width: 800px) {
+    .footer {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: normal;
+    }
+  }
 </style>

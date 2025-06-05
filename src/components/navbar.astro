@@ -1,78 +1,76 @@
 ---
 // navbar component
 ---
+
 <div class="nav">
-    <ul class="nav-list">
-        <li><a class="nav-link" href="/">N–S</a></li>
-        <!-- <li><a class="nav-link" href="/about">About</a></li>
+  <ul class="nav-list">
+    <li><a class="nav-link" href="/">N–S</a></li>
+    <!-- <li><a class="nav-link" href="/about">About</a></li>
         <li><a class="nav-link" href="/contact">Contact</a></li> -->
-    </ul>
+  </ul>
 </div>
 
 <script>
   import gsap from "gsap";
-document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
+    const icon = document.querySelector(".nav");
+    const content = document.querySelector(".content");
 
-
-// Animate the icon and content (unchanged)
-  const icon = document.querySelector(".nav");
-  const content = document.querySelector(".content");
-
-  if (icon && content) {
-    gsap.set(icon, { yPercent: -100 });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: content,
-          start: "top top",
-          end: "+=350",
-          scrub: true,
-        },
-      })
-      .to(icon, {
-        opacity: 1,
-        yPercent: 0,
-        ease: "power1.out",
-      });
-  }
-})
+    if (icon && content) {
+      gsap.set(icon, { yPercent: -100 });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: content,
+            start: "top top",
+            end: "+=350",
+            scrub: true,
+          },
+        })
+        .to(icon, {
+          opacity: 1,
+          yPercent: 0,
+          ease: "power1.out",
+        });
+    }
+  });
 </script>
 
 <style>
-    .nav {
-  width: 100%;
-  padding-block: 1rem;
-  padding-left: 2rem;
-  position: fixed;
-  background-color: var(--bg-clr);
-  top: 0;
-  z-index: 20;
-  opacity: 0;
-}
-
-@media (max-width: 500px){
   .nav {
     width: 100%;
-    padding: 1rem 2rem;
+    padding-block: 1rem;
+    padding-left: 2rem;
+    position: fixed;
+    background-color: var(--bg-clr);
+    top: 0;
+    z-index: 20;
+    opacity: 0;
   }
-}
 
-.nav ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-}
+  @media (max-width: 500px) {
+    .nav {
+      width: 100%;
+      padding: 1rem 2rem;
+    }
+  }
 
-.nav-link {
-  text-decoration: none;
-  color: var(--text-clr);
-  transition: color 0.2s ease-in;
-  font-weight: 900;
-  font-size: 2.074rem;
-}
+  .nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+  }
 
-.nav-link:hover,
-.nav-link:focus {
-  color: var(--primary-clr);
-}
+  .nav-link {
+    text-decoration: none;
+    color: var(--text-clr);
+    transition: color 0.2s ease-in;
+    font-weight: 900;
+    font-size: 2.074rem;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    color: var(--primary-clr);
+  }
 </style>

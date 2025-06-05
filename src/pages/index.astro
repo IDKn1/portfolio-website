@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/base.astro';
-import About from '../components/about.astro';
-import Projects from '../components/projects.astro';
-import Hero from '../components/hero.astro';
-import Navbar from '../components/navbar.astro';
+import BaseLayout from "../layouts/base.astro";
+import About from "../components/about.astro";
+import Projects from "../components/projects.astro";
+import Hero from "../components/hero.astro";
+import Navbar from "../components/navbar.astro";
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
@@ -12,14 +12,13 @@ import Navbar from '../components/navbar.astro';
   <Navbar />
 
   <div class="hero" slot="full-bleed">
-
     <Hero />
   </div>
 
   <div class="content">
     <div class="projects-wrapper">
-      <Projects cato="work" />	
-    </div>	
+      <Projects cato="work" />
+    </div>
 
     <div class="about">
       <About />
@@ -30,11 +29,11 @@ import Navbar from '../components/navbar.astro';
     </div>
   </div>
 
-  <script src="../landingAnimations.js" />
+  <script src="../landingAnimations.js"></script>
 </BaseLayout>
 
 <script>
-  import { setupCardClickHandlers } from '../../src/cardTransition.js';
+  import { setupCardClickHandlers } from "../../src/cardTransition.js";
   import { gsap } from "gsap";
 
   window.addEventListener("pageshow", () => {
@@ -68,5 +67,4 @@ import Navbar from '../components/navbar.astro';
     width: 100%;
     top: 4rem;
   }
-  
 </style>

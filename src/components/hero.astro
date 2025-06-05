@@ -1,32 +1,41 @@
 ---
-import Eye from "./eye.astro";
 
 ---
+
 <div class="ascii-wrapper">
-  
-  <Eye/>
-  <Eye/>
-  <Eye/>
-  <Eye/>
-  <Eye/>
-  <Eye/>
-  <Eye/>
-  <Eye/>
-  <Eye/>
-  <Eye/>
+  <pre>
+
+
+     ##### /    ##   ###            ###                                                
+  ######  /  #####    ###            ###                                               
+ /#   /  /     #####   ###            ##                                               
+/    /  ##     # ##      ##           ##                                               
+    /  ###     #         ##           ##                                               
+   ##   ##     #         ##    /##    ##      /###      /###   ### /### /###     /##   
+   ##   ##     #         ##   / ###   ##     / ###  /  / ###  / ##/ ###/ /##  / / ###  
+   ##   ##     #         ##  /   ###  ##    /   ###/  /   ###/   ##  ###/ ###/ /   ### 
+   ##   ##     #         ## ##    ### ##   ##        ##    ##    ##   ##   ## ##    ###
+   ##   ##     #         ## ########  ##   ##        ##    ##    ##   ##   ## ######## 
+    ##  ##     #         ## #######   ##   ##        ##    ##    ##   ##   ## #######  
+     ## #      #         /  ##        ##   ##        ##    ##    ##   ##   ## ##       
+      ###      /##      /   ####    / ##   ###     / ##    ##    ##   ##   ## ####    /
+       #######/ #######/     ######/  ### / ######/   ######     ###  ###  ### ######/ 
+         ####     ####        #####    ##/   #####     ####       ###  ###  ### #####  
+                                                                                       
+
+
+</pre>
 </div>
 
-
 <div class="hero-copy">
-      <h1 class="hero-title">Nikolai<br>Suvanto</h1>
-       <div class="hero-motion">
-
-         <div class="border-line"></div>
-         <p class="hero-desc">
-           an art director with a strong interest in how people connect—with each other,
-           with ideas, and with the world around them.
-          </p>
-        </div>
+  <h1 class="hero-title">Nikolai<br />Suvanto</h1>
+  <div class="hero-motion">
+    <div class="border-line"></div>
+    <p class="hero-desc">
+      an art director with a strong interest in how people connect—with each
+      other, with ideas, and with the world around them.
+    </p>
+  </div>
 </div>
 <!-- <h6 class="prompt">
   Scroll
@@ -36,33 +45,39 @@ import Eye from "./eye.astro";
 <!-- <script src="../../src/heroTextShader.js"></script> -->
 
 <style>
+  #heroText {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 
-    #heroText {
-        position:absolute;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
+  canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 
-    canvas {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-
-    .hero-title {
-      background-color: var(--bg-clr);
-      z-index: 1;
-    }
-    .ascii-wrapper {
-      display:grid; grid-template-columns: repeat(5,1fr); justify-content:space-around; overflow:hidden;
-      color: var(--primary-clr); line-height: 1; font-family: monospace; font-size: 12px;
-    }
-        @media (max-width: 800px) {
+  .hero-title {
+    background-color: var(--bg-clr);
+    z-index: 1;
+  }
+  .ascii-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-around;
+    overflow: hidden;
+    color: var(--primary-clr);
+    line-height: 1;
+    font-family: "AlteHaasGrotesk";
+    font-size: 1.7vw;
+    padding-left: 2rem;
+  }
+  @media (max-width: 800px) {
     .hero-title {
       font-size: 20vw;
     }

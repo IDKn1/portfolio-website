@@ -1,25 +1,25 @@
 ---
-import BaseLayout from '../layouts/base.astro';
+import BaseLayout from "../layouts/base.astro";
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
-	<div class="hero">
-		<h1>404</h1>
-        <h2>Sorry that page doesn't live here</h2>
-		<img class="broken-heart" src="/assets/misc/broken-heart.svg">
-    </div>
+  <div class="hero">
+    <h1>404</h1>
+    <h2>Sorry that page doesn't live here</h2>
+    <img class="broken-heart" src="/assets/misc/broken-heart.svg" />
+  </div>
 </BaseLayout>
 
 <style>
-
-.hero {
+  .hero {
     min-height: 0;
-	grid-column: 2/3;
-	padding-block: 4rem;
-}
+    grid-column: 2/3;
+    padding-block: 4rem;
+  }
 
-@media (max-width: 800px) {
-  .content {
-    grid-template-columns: 1fr 80vw 1fr;
+  @media (max-width: 800px) {
+    .content {
+      grid-template-columns: 1fr 80vw 1fr;
+    }
   }
 </style>
