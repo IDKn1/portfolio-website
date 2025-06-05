@@ -129,8 +129,7 @@ a:focus {
 
 .hero {
   width: 100%;
-  min-height: 100vh;
-  padding: 3rem 2rem;
+  max-height: 100vh;
   background-color: var(--bg-clr);
   color: var(--text-clr);
   display: flex;
@@ -141,12 +140,6 @@ a:focus {
   top: 0;
   overflow: hidden;
   z-index: -1;
-}
-
-@media (max-width: 1144px) {
-  .hero {
-    padding-bottom: 0;
-  }
 }
 
 .hero-title {
@@ -162,12 +155,18 @@ a:focus {
   color: var(--text-clr);
 }
 
-/* Main Text Block */
+/* Hero Text Block */
 .hero-copy {
   display: flex;
   flex-wrap: wrap;
+  padding: 1.5rem 0rem 2rem 2rem;
 }
 
+@media (max-width: 1144px) {
+  .hero-copy {
+    padding-bottom: 0;
+  }
+}
 .hero-motion {
   display: flex;
   align-items: center;

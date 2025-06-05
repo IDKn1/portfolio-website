@@ -1,5 +1,21 @@
 ---
+import Eye from "./eye.astro";
+
 ---
+<div class="ascii-wrapper">
+  
+  <Eye/>
+  <Eye/>
+  <Eye/>
+  <Eye/>
+  <Eye/>
+  <Eye/>
+  <Eye/>
+  <Eye/>
+  <Eye/>
+  <Eye/>
+</div>
+
 
 <div class="hero-copy">
       <h1 class="hero-title">Nikolai<br>Suvanto</h1>
@@ -41,6 +57,10 @@
     .hero-title {
       background-color: var(--bg-clr);
       z-index: 1;
+    }
+    .ascii-wrapper {
+      display:grid; grid-template-columns: repeat(5,1fr); justify-content:space-around; overflow:hidden; border-bottom: 3px solid var(--text-clr);
+      color: var(--primary-clr); line-height: 1; font-family: monospace; font-size: 12px;
     }
         @media (max-width: 800px) {
     .hero-title {
