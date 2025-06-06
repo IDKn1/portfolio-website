@@ -37,7 +37,7 @@ tl.from(heroMotionElements, {
   opacity: 0,
   duration: 0.75,
   ease: "power2.out",
-  delay: 1.125,
+  delay: 3.125,
   stagger: 0.25,
 });
 
