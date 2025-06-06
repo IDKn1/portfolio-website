@@ -1,0 +1,65 @@
+<div id="loader">
+  <h6 id="nikolai">N<span class="fade-out">ikolai</span></h6>
+  <h6 id="en">–</h6>
+  <h6 id="suvanto">S<span class="fade-out">uvanto</span></h6>
+  <h6 id="work">.work</h6>
+</div>
+
+<style>
+  #loader {
+    background-color: var(--bg-clr);
+    position: relative;
+    display: flex;
+    gap: 0rem;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    height: 100dvh;
+    z-index: 300;
+    /* opacity: 0; */
+  }
+
+  #nikolai,
+  #en,
+  #suvanto {
+    font-size: 10vw;
+  }
+
+  #en,
+  #suvanto {
+    background-color: var(--bg-clr);
+  }
+
+  #en {
+    opacity: 0;
+  }
+
+  #work {
+    position: fixed;
+    font-size: 4vw;
+  }
+
+  /* .fade-out {
+    opacity: 0;
+  } */
+</style>
+
+<script>
+  import loader from "../loaderAnimation.js";
+  import { animateAsciiArt, animateHeroCopy } from "../heroAsciiAnimation.js";
+
+  const loaderEl = document.getElementById("loader");
+
+  if (!sessionStorage.getItem("visited")) {
+    loader(() => {
+      animateAsciiArt();
+      animateHeroCopy();
+      loaderEl.style.display = "none"; // optional: hide loader after animation
+    });
+    sessionStorage.setItem("visited", "true");
+  } else {
+    loaderEl.style.display = "none"; // skip loader if already visited
+    animateAsciiArt();
+    animateHeroCopy();
+  }
+</script>

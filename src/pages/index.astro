@@ -4,9 +4,13 @@ import About from "../components/about.astro";
 import Projects from "../components/projects.astro";
 import Hero from "../components/hero.astro";
 import Navbar from "../components/navbar.astro";
+import Loader from "../components/loading.astro";
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
+  <div class="loading-slot" slot="full-bleed">
+    <Loader />
+  </div>
   <div class="transition-cover" slot="full-bleed"></div>
 
   <Navbar />
@@ -57,6 +61,13 @@ import Navbar from "../components/navbar.astro";
 <style>
   .transition-cover {
     opacity: 0;
+  }
+
+  .loading-slot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 400;
   }
 
   .content {
