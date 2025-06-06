@@ -30,7 +30,12 @@ const {
               Made in collaboration with:{""}
               {collaborators.map((c, i) => (
                 <>
-                  <a href={c.url} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={c.url}
+                    class="underline-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {c.name}
                   </a>
                   {i < collaborators.length - 1 ? ", " : ""}
@@ -43,6 +48,7 @@ const {
           project_link && project_link.url && (
             <h4 class="project-link">
               <a
+                class="underline-link"
                 href={project_link.url}
                 target="_blank"
                 rel="noopener noreferrer"
