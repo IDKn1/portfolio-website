@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// card stack animations
+
 gsap.registerPlugin(ScrollTrigger);
 
 function setupCardStackAnimation(wrapperSelector) {
@@ -45,10 +47,28 @@ function setupCardStackAnimation(wrapperSelector) {
         transformOrigin: "bottom center",
         ease: "power2.out",
       },
-      i * 0.03
+      i * 0.03,
     );
   });
 }
+
+gsap.utils.toArray(".drop-down").forEach((el) => {
+  console.log(el);
+  gsap.from(el, {
+    yPercent: -100,
+    opacity: 0,
+    delay: 0.2,
+    duration: 0.75,
+    transformOrigin: "top center",
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: el,
+      start: "top 90%",
+      toggleActions: "play none none none",
+      once: true, // animation only happens once
+    },
+  });
+});
 
 function setupScrollAnimations() {
   // Apply animation to multiple stacks

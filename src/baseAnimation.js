@@ -20,24 +20,6 @@ gsap.utils.toArray(".fade-up").forEach((el) => {
   });
 });
 
-gsap.utils.toArray(".drop-down").forEach((el) => {
-  console.log(el);
-  gsap.from(el, {
-    yPercent: -100,
-    opacity: 0,
-    delay: 0.2,
-    duration: 0.75,
-    transformOrigin: "top center",
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: el,
-      start: "top 90%",
-      toggleActions: "play none none none",
-      once: true, // animation only happens once
-    },
-  });
-});
-
 const heroMotionElements = gsap.utils.toArray(".hero-motion");
 
 const tl = gsap.timeline({
@@ -68,25 +50,5 @@ tl.to(
     ease: "power2.out",
     stagger: 0.25,
   },
-  "+=0.5" // overlaps with the entrance motion
+  "+=0.5", // overlaps with the entrance motion
 );
-
-const asciiEyes = gsap.utils.toArray(".eye");
-
-const eyeTl = gsap.timeline({
-  scrollTrigger: {
-    trigger: asciiEyes[0],
-    start: "top 50%",
-    toggleActions: "play none none none",
-    once: true,
-  },
-});
-
-eyeTl.from(asciiEyes, {
-  opacity: 0,
-  scale: 0.55,
-  duration: 0.05,
-  ease: "power1.inOut",
-  delay: 0.25,
-  stagger: 0.05,
-});
