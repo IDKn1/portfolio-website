@@ -1,21 +1,19 @@
----
-// navbar component
----
-
-<div class="nav">
-  <ul class="nav-list">
-    <li><a class="nav-link" href="/">N–S</a></li>
-    <!-- <li><a class="nav-link" href="/about">About</a></li>
-        <li><a class="nav-link" href="/contact">Contact</a></li> -->
+<!-- navbar component -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <ul class="nav-list" role="list">
+    <li role="listitem">
+      <a class="nav-link" href="/" aria-label="Navigate to homepage">N–S</a>
+    </li>
+    <!-- <li role="listitem"><a class="nav-link" href="/about" aria-label="Navigate to about page">About</a></li>
+        <li role="listitem"><a class="nav-link" href="/contact" aria-label="Navigate to contact page">Contact</a></li> -->
   </ul>
-</div>
+</nav>
 
 <script>
   import gsap from "gsap";
   document.addEventListener("DOMContentLoaded", () => {
     const icon = document.querySelector(".nav");
     const content = document.querySelector(".content");
-
     if (icon && content) {
       gsap.set(icon, { yPercent: -100 });
       gsap
@@ -47,20 +45,17 @@
     z-index: 20;
     opacity: 0;
   }
-
   @media (max-width: 500px) {
     .nav {
       width: 100%;
       padding: 1rem 2rem;
     }
   }
-
   .nav ul {
     list-style: none;
     display: flex;
     padding: 0;
   }
-
   .nav-link {
     text-decoration: none;
     color: var(--text-clr);
@@ -68,7 +63,6 @@
     font-weight: 900;
     font-size: 2.074rem;
   }
-
   .nav-link:hover,
   .nav-link:focus {
     color: var(--primary-clr);
