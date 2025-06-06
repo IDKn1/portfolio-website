@@ -134,6 +134,7 @@ a:focus {
   grid-template-columns: 1fr 60vw 1fr;
   flex: 1;
   background-color: var(--bg-clr);
+  z-index: 1;
 }
 
 .transition-cover {
