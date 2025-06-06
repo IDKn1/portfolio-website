@@ -1,7 +1,7 @@
 :root {
-  --primary-clr: #00cc64;
-  --bg-clr: white;
-  --text-clr: #333333;
+  --primary-clr: hsl(149, 100%, 40%);
+  --bg-clr: hsl(46, 14%, 95%);
+  --text-clr: hsl(0, 0%, 20%);
 }
 
 * {
@@ -131,7 +131,7 @@ a:focus {
 /* Layout */
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 60vw 1fr;
+  grid-template-columns: 1fr 90ch 1fr;
   flex: 1;
   background-color: var(--bg-clr);
   z-index: 1;
@@ -196,7 +196,7 @@ a:focus {
 .hero-copy {
   display: flex;
   flex-wrap: wrap;
-  padding: 1.5rem 0rem 2rem 2rem;
+  padding: 1.5rem 2rem 2rem;
 }
 
 @media (max-width: 1144px) {
@@ -244,7 +244,7 @@ a:focus {
 }
 
 /* Responsive Sections */
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .left-section {
     border: none;
   }
@@ -300,7 +300,7 @@ a:focus {
   margin: 1.5rem 2.5rem;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .right-section :not(.details) p:not(:has(img)),
   .right-section ol {
     margin-inline: 0;
@@ -345,8 +345,12 @@ a:focus {
 }
 
 /* Responsive About Section */
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .about-wrapper {
     grid-template-columns: 1fr;
   }
 
@@ -358,13 +362,12 @@ a:focus {
   .about-cta {
     grid-column: 1 / 2;
   }
-
-  .about-image {
-    justify-self: unset;
-  }
 }
 
 @media (max-width: 500px) {
+  .about-image {
+    justify-self: unset;
+  }
   .stats {
     flex-direction: column;
   }

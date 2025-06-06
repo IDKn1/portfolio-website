@@ -23,7 +23,7 @@ function setupCardStackAnimation(wrapperSelector) {
   }
 
   let cardFadeBP;
-  if (window.innerWidth > 800) {
+  if (window.innerWidth > 850) {
     cardFadeBP = scaleScrollDistance(800, 1100, 300, 350);
   } else {
     cardFadeBP = scaleScrollDistance(300, 800, 250, 300);
