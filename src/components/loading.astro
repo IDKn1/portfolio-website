@@ -52,14 +52,14 @@
 
   if (!sessionStorage.getItem("visited")) {
     loader(() => {
-      animateAsciiArt();
+      // animateAsciiArt();
       animateHeroCopy();
       loaderEl.style.display = "none"; // optional: hide loader after animation
     });
     sessionStorage.setItem("visited", "true");
   } else {
     loaderEl.style.display = "none"; // skip loader if already visited
-    animateAsciiArt();
+    // animateAsciiArt();
     animateHeroCopy();
   }
 </script>
