@@ -3,7 +3,11 @@ const data = Astro.props;
 const { title, slug, cover, style, scope, project_color, collection } = data; // Include the style prop
 ---
 
-<div class="project-card" style={style}>
+<div
+  class="project-card"
+  style={style + `background-color: ` + project_color + `;`}
+>
+  <!-- Apply the style here -->
   <a href={`/${collection}/` + slug} data-color={project_color}>
     <img src={cover} />
     <div class="card-label drop-down">
@@ -14,3 +18,66 @@ const { title, slug, cover, style, scope, project_color, collection } = data; //
     </div>
   </a>
 </div>
+
+<style>
+  .project-card {
+    position: sticky;
+    /* top: var(--top-offset, 9); Fall back to 9rem if no top is set */
+    top: 9rem;
+    background: var(--bg-clr);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    height: max-content;
+    width: 100%;
+    max-height: 80vh;
+    aspect-ratio: 3/2;
+  }
+
+  h4 {
+    height: 100%;
+    font-size: 3rem;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    height: 100%;
+  }
+
+  a:hover {
+    color: var(--bg-clr);
+  }
+
+  .card-label {
+    position: relative;
+    z-index: 2;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .scope {
+    align-self: flex-end;
+    font-size: 2.25rem;
+  }
+
+  .project-card:not(:first-of-type) {
+    margin-top: 15rem;
+  }
+
+  .project-card img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+    aspect-ratio: 3/2;
+    position: absolute;
+    transform: translateX(100%);
+    transition: transform 0.75s ease-out;
+  }
+
+  .project-card:hover img {
+    transform: translateX(0%);
+  }
+</style>
