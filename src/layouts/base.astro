@@ -22,11 +22,22 @@ const data = Astro.props;
     </div>
     <Footer />
 
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script
       data-goatcounter="https://idkn1.goatcounter.com/count"
       async
       src="//gc.zgo.at/count.js"></script>
     <script src="../baseAnimation.js"></script>
+    <script>
+      import Lenis from "lenis";
+      // Initialize Lenis
+      const lenis = new Lenis({
+        autoRaf: true,
+      });
+
+      // Listen for the scroll event and log the event data
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
+    </script>
   </body>
 </html>

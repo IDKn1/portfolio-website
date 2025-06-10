@@ -53,7 +53,7 @@ function setupCardStackAnimation(wrapperSelector) {
 }
 
 gsap.utils.toArray(".drop-down").forEach((el) => {
-  console.log(el);
+  // console.log(el);
   gsap.from(el, {
     yPercent: -100,
     opacity: 0,
