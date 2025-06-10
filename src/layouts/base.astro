@@ -11,6 +11,10 @@ const data = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/assets/misc/me.svg" />
     <title>{data.title}</title>
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="0c0c7cc7-3489-4c24-b515-2d268fb4fb9f"></script>
     <!-- client router is used for the astro view transitions api: https://docs.astro.build/en/guides/view-transitions/#adding-view-transitions-to-a-page -->
     <!-- <ClientRouter /> -->
   </head>
@@ -39,5 +43,12 @@ const data = Astro.props;
         console.log(e);
       });
     </script>
+    <svg aria-hidden="true" width="0" height="0">
+      <def>
+        <filter id="distort">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur>
+        </filter>
+      </def>
+    </svg>
   </body>
 </html>
