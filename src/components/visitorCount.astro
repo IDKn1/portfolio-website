@@ -6,17 +6,38 @@
 </div>
 
 <script type="module">
-  function fetchVisitors() {
-    fetch("https://stats.n-s.work/counter//.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const count = Number(data.count);
-        const el = document.getElementById("visitors");
-        if (el) el.textContent = count + 18;
+  async function getWebsiteStats(startAt, endAt) {
+    try {
+      const params = new URLSearchParams({
+        startAt: startAt.toString(),
+        endAt: endAt.toString(),
       });
+
+      const response = await fetch(`/api/visitors?${params}`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching website stats:", error);
+      return null;
+    }
   }
 
-  document.addEventListener("DOMContentLoaded", fetchVisitors);
+  async function updateVisitorCount() {
+    const endAt = Date.now();
+    const startAt = 0;
+    const data = await getWebsiteStats(startAt, endAt);
+    if (data && data.visitors) {
+      const count = Number(data.visitors.value || data.visitors);
+      const el = document.getElementById("visitors");
+      if (el) el.textContent = count + 18;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", updateVisitorCount);
 </script>
 
 <style>
