@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.utils.toArray(".fade-up").forEach((el) => {
-  console.log(el);
   gsap.from(el, {
     y: 50,
     opacity: 0,
