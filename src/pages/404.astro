@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/base.astro";
 ---
 
 <BaseLayout title="Nikolai's Portfolio Website">
-  <div class="hero">
+  <div class="content">
     <h1>404</h1>
     <h2>Sorry that page doesn't live here</h2>
     <img class="broken-heart" src="/assets/misc/broken-heart.svg" />
@@ -11,15 +11,17 @@ import BaseLayout from "../layouts/base.astro";
 </BaseLayout>
 
 <style>
-  .hero {
-    min-height: 0;
+  .content {
+    display: flex;
+    top: 0;
+    flex-direction: column;
+    min-height: 100dvh;
     grid-column: 2/3;
     padding-block: 4rem;
+    text-align: center;
   }
 
-  @media (max-width: 850px) {
-    .content {
-      grid-template-columns: 1fr 80vw 1fr;
-    }
+  h1 {
+    font-size: 8rem;
   }
 </style>

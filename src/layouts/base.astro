@@ -1,5 +1,6 @@
 ---
 import Footer from "../components/footer.astro";
+import Navbar from "../components/navbar.astro";
 import "../styles/style.css";
 const data = Astro.props;
 ---
@@ -19,7 +20,8 @@ const data = Astro.props;
     <!-- <ClientRouter /> -->
   </head>
   <body>
-    <!-- <Navbar /> phased out in commit b5765c2-->
+    <Navbar />
+
     <slot name="full-bleed" />
     <div class="wrapper">
       <slot />
@@ -29,17 +31,9 @@ const data = Astro.props;
     <script src="../baseAnimation.js"></script>
     <script>
       import Lenis from "lenis";
-      // Initialize Lenis
-      const lenis = new Lenis({
+      new Lenis({
         autoRaf: true,
       });
     </script>
-    <svg aria-hidden="true" width="0" height="0">
-      <def>
-        <filter id="distort">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur>
-        </filter>
-      </def>
-    </svg>
   </body>
 </html>

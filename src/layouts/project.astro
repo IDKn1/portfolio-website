@@ -1,5 +1,4 @@
 ---
-import Navbar from "../components/navbar.astro";
 import BaseLayout from "./base.astro";
 const {
   title,
@@ -13,8 +12,7 @@ const {
 ---
 
 <BaseLayout title={title}>
-  <Navbar />
-  <div class="content" id="verticalContainer">
+  <div id="verticalContainer">
     <div class="left-section" id="left-section">
       <img src={"../../" + cover} alt="" id="project-cover" />
       <!-- This will be the container where we move images and video -->
@@ -130,7 +128,6 @@ This whole page is my favourite block of code  but specifically this script tag 
           element.style.objectFit = "cover";
         }
       });
-
       const allImages = document.querySelectorAll("img");
       setTimeout(() => {
         waitForImagesToLoad(allImages, () => {
@@ -145,7 +142,7 @@ This whole page is my favourite block of code  but specifically this script tag 
 </script>
 
 <style>
-  .content {
+  #verticalContainer {
     display: flex;
     align-items: flex-start;
     width: 100%;
@@ -170,8 +167,11 @@ This whole page is my favourite block of code  but specifically this script tag 
     margin: 0;
   }
 
+  ::slotted:is(img) {
+  }
+
   @media (max-width: 850px) {
-    .content {
+    #verticalContainer {
       flex-direction: column;
     }
   }

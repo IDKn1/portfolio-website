@@ -147,15 +147,10 @@ a:focus {
   pointer-events: none;
 }
 
-.content,
 .projects-wrapper,
 .about,
 .misc-wrapper {
   grid-column: 2 / 3;
-}
-
-.content {
-  padding-inline: 2rem;
 }
 
 .projects-wrapper {
