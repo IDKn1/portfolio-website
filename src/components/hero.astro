@@ -33,40 +33,70 @@
     </p>
   </div>
 </div>
-<!-- <h6 class="prompt">
-  Scroll
-    <img class="arrow" src="/assets/misc/arrow.svg" alt="Scroll down arrow">
-</h6> -->
-
-<!-- <script src="../../src/heroTextShader.js"></script> -->
 
 <style>
-  #heroText {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  /* HERO SECTION LAYOUT */
+  .hero-copy {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem 2rem 2rem;
   }
 
-  .hero-motion {
-    opacity: 0;
+  @media (max-width: 1144px) {
+    .hero-copy {
+      padding-bottom: 0;
+    }
   }
 
-  canvas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
+  /* HERO TITLE */
   .hero-title {
+    font-size: 8rem;
+    line-height: 0.8;
+    padding-inline-end: 3rem;
     background-color: var(--bg-clr);
     z-index: 1;
   }
-  .ascii-wrapper {
+
+  @media (max-width: 800px) {
+    .hero-title {
+      font-size: 20vw;
+    }
+  }
+
+  /* HERO MOTION & DESCRIPTION */
+  .hero-motion {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    gap: 1rem;
+    max-height: min-content;
+    opacity: 0;
+  }
+
+  .hero-desc {
+    width: 40ch;
+    color: var(--primary-clr);
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 800px) {
+    .hero-desc {
+      font-size: 1.125rem;
+    }
+  }
+
+  .border-line {
+    width: 5px;
+    height: 60%;
+    background-color: var(--text-clr);
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  /* ASCII BLOCK (OPTIONAL) */
+  /* .ascii-wrapper {
     font-size: min(1.55vw, 17px);
     padding-left: 2rem;
     padding-top: 2rem;
@@ -75,15 +105,5 @@
 
   .split {
     opacity: 0;
-  }
-
-  @media (max-width: 800px) {
-    .hero-title {
-      font-size: 20vw;
-    }
-
-    .hero-desc {
-      font-size: 1.125rem;
-    }
-  }
+  } */
 </style>

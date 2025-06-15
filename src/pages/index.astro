@@ -12,22 +12,22 @@ import Loader from "../components/loading.astro";
   </div>
   <div class="transition-cover" slot="full-bleed"></div>
 
-  <div class="hero" slot="full-bleed">
+  <div class="hero-wrapper" slot="full-bleed">
     <Hero />
   </div>
 
-  <!-- <div class="content"> -->
-  <div class="projects-wrapper">
-    <Projects cato="work" />
-  </div>
+  <div class="content">
+    <div class="projects-wrapper">
+      <Projects cato="work" />
+    </div>
 
-  <div class="about">
-    <About />
-  </div>
+    <div class="about">
+      <About />
+    </div>
 
-  <div class="misc-wrapper">
-    <Projects cato="misc" />
-    <!-- </div> -->
+    <div class="misc-wrapper">
+      <Projects cato="misc" />
+    </div>
   </div>
 
   <script src="../landingAnimations.js"></script>
@@ -65,5 +65,10 @@ import Loader from "../components/loading.astro";
     top: 0;
     left: 0;
     z-index: 400;
+  }
+
+  .content {
+    padding-inline: 2rem;
+    grid-column: 2/3;
   }
 </style>
