@@ -26,10 +26,10 @@
 
 @font-face {
   font-family: "Junicode";
-  src: url("/fonts/Junicode-BoldItalicCondensed.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
-  font-stretch: condensed;
+  src: url("/fonts/JunicodeVF-Italic.woff2") format("woff2");
+  font-stretch: 87.5%;
+  font-weight: 800;
+  font-style: normal;
 }
 
 @font-face {
@@ -277,7 +277,7 @@ a:focus {
 }
 
 .scope {
-  font-family: Junicode;
+  font-family: "Junicode";
   font-size: 1.75rem;
 }
 
