@@ -38,23 +38,22 @@
   .nav {
     width: 100%;
     padding-block: 1rem;
-    padding-left: 2rem;
+    padding-inline-start: 2rem;
     position: fixed;
     background-color: var(--bg-clr);
     top: 0;
     z-index: 20;
     opacity: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
   }
-  @media (max-width: 500px) {
-    .nav {
-      width: 100%;
-      padding: 1rem 2rem;
-    }
-  }
+
   .nav ul {
     list-style: none;
     display: flex;
     padding: 0;
+    grid-column: 1 / span 3;
   }
   .nav-link {
     text-decoration: none;
@@ -66,5 +65,15 @@
   .nav-link:hover,
   .nav-link:focus {
     color: var(--primary-clr);
+  }
+
+  @media (max-width: 500px) {
+    .nav {
+      padding-inline-start: 0;
+    }
+
+    .nav ul {
+      grid-column: 2 / span 5;
+    }
   }
 </style>

@@ -16,18 +16,16 @@ import Loader from "../components/loading.astro";
     <Hero />
   </div>
 
-  <div class="content">
-    <div class="projects-wrapper">
-      <Projects cato="work" />
-    </div>
+  <div class="projects-wrapper">
+    <Projects cato="work" />
+  </div>
 
-    <div class="about">
-      <About />
-    </div>
+  <div class="about-wrapper">
+    <About />
+  </div>
 
-    <div class="misc-wrapper">
-      <Projects cato="misc" />
-    </div>
+  <div class="misc-wrapper">
+    <Projects cato="misc" />
   </div>
 
   <script src="../landingAnimations.js"></script>
@@ -65,10 +63,5 @@ import Loader from "../components/loading.astro";
     top: 0;
     left: 0;
     z-index: 400;
-  }
-
-  .content {
-    padding-inline: 2rem;
-    grid-column: 2/3;
   }
 </style>

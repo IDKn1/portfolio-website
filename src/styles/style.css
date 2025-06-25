@@ -130,9 +130,10 @@ a:focus {
 /* Layout */
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 90ch 1fr;
+  grid-template-columns: repeat(12, 1fr);
   flex: 1;
   background-color: var(--bg-clr);
+  gap: 1rem;
   z-index: 1;
 }
 
@@ -147,9 +148,25 @@ a:focus {
 }
 
 .projects-wrapper,
-.about,
+.about-wrapper,
 .misc-wrapper {
-  grid-column: 2 / 3;
+  grid-column: 2 / 12;
+}
+
+@media (min-width: 1000px) {
+  .projects-wrapper,
+  .about-wrapper,
+  .misc-wrapper {
+    grid-column: 3 / 11;
+  }
+}
+
+@media (min-width: 1300px) {
+  .projects-wrapper,
+  .about-wrapper,
+  .misc-wrapper {
+    grid-column: 4 / 10;
+  }
 }
 
 .projects-wrapper {
@@ -174,7 +191,6 @@ a:focus {
 }
 /* Sections */
 .left-section {
-  grid-column: 1 / 2;
   border-right: 3px solid var(--text-clr);
   position: relative;
   will-change: transform;
@@ -266,9 +282,8 @@ a:focus {
 }
 
 /* About Section */
-.about-wrapper {
+.about {
   display: grid;
-  grid-template-columns: 2fr 1fr;
   gap: 1rem;
   width: 100%;
 }
@@ -289,11 +304,7 @@ a:focus {
 
 /* Responsive About Section */
 @media (max-width: 850px) {
-  .wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .about-wrapper {
+  .about {
     grid-template-columns: 1fr;
   }
 
