@@ -12,5 +12,26 @@ import BaseLayout from "../layouts/base.astro";
   .content {
     display: flex;
     align-items: center;
+    grid-column: 2 / 12;
+    justify-self: center;
+    min-height: 100dvh;
+  }
+
+  @media (min-width: 1000px) {
+    .content {
+      grid-column: 4 / 11;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    .content {
+      grid-column: 5 / 10;
+    }
+  }
+
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 2rem;
+    }
   }
 </style>

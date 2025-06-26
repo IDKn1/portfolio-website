@@ -1,7 +1,7 @@
 :root {
-  --primary-clr: hsl(149, 100%, 40%);
+  --primary-clr: #00cc63;
   --bg-clr: hsl(46, 14%, 95%);
-  --text-clr: hsl(0, 0%, 20%);
+  --text-clr: #333333;
 }
 
 * {
