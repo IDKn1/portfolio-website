@@ -4,7 +4,7 @@ const collaborators = z.array(
   z.object({
     name: z.string(),
     url: z.string().url(),
-  })
+  }),
 );
 
 const project_link = z.object({
@@ -22,7 +22,7 @@ const baseCard = {
   project_link: project_link.optional(),
 };
 
-const work = defineCollection({
+const projects = defineCollection({
   schema: z.object({
     ...baseCard,
     scope: z.array(z.enum(["branding", "campaign", "web design"])),
@@ -38,6 +38,6 @@ const misc = defineCollection({
 });
 
 export const collections = {
-  work,
+  work: projects,
   misc,
 };
