@@ -14,6 +14,7 @@
 - [x] fix hero text animation
 - [x] add info vis project
 - [/] project page duo scroll
-- [/] shader effect in hero section
-- [ ] handdrawn line under email CTA
+- [-] shader effect in hero section (cancelled)
+- [-] handdrawn line under email CTA
 - [ ] list of current hobbies
+- [ ] footer rework
