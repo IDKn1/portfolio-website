@@ -2,27 +2,6 @@
 
 ---
 
-<!-- <div class="ascii-wrapper">
-  <pre
-    class="split"
-    aria-hidden="true">
-     ##### /    ##   ###            ###                                                
-  ######  /  #####    ###            ###                                               
- /#   /  /     #####   ###            ##                                               
-/    /  ##     # ##      ##           ##                                               
-    /  ###     #         ##           ##                                               
-   ##   ##     #         ##    /##    ##      /###      /###   ### /### /###     /##   
-   ##   ##     #         ##   / ###   ##     / ###  /  / ###  / ##/ ###/ /##  / / ###  
-   ##   ##     #         ##  /   ###  ##    /   ###/  /   ###/   ##  ###/ ###/ /   ### 
-   ##   ##     #         ## ##    ### ##   ##        ##    ##    ##   ##   ## ##    ###
-   ##   ##     #         ## ########  ##   ##        ##    ##    ##   ##   ## ######## 
-    ##  ##     #         ## #######   ##   ##        ##    ##    ##   ##   ## #######  
-     ## #      #         /  ##        ##   ##        ##    ##    ##   ##   ## ##       
-      ###      /##      /   ####    / ##   ###     / ##    ##    ##   ##   ## ####    /
-       #######/ #######/     ######/  ### / ######/   ######     ###  ###  ### ######/ 
-         ####     ####        #####    ##/   #####     ####       ###  ###  ### #####  
-</pre>
-</div> -->
 <div class="hero-copy">
   <h1 class="hero-title">Nikolai<br />Suvanto</h1>
   <div class="hero-motion">
@@ -40,6 +19,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 1.5rem 2rem 2rem;
+    align-items: start;
   }
 
   @media (max-width: 1144px) {
@@ -52,8 +32,7 @@
   .hero-title {
     font-size: 8rem;
     line-height: 0.8;
-    padding-inline-end: 3rem;
-    background-color: var(--bg-clr);
+    padding-inline-end: 1rem;
     z-index: 1;
   }
 
@@ -66,7 +45,7 @@
   /* HERO MOTION & DESCRIPTION */
   .hero-motion {
     display: flex;
-    align-items: center;
+    align-items: start;
     position: relative;
     overflow: hidden;
     gap: 1rem;
@@ -74,11 +53,18 @@
     opacity: 0;
   }
 
+  @media (max-width: 900px) {
+    .hero-motion {
+      padding-top: 1rem;
+    }
+  }
+
   .hero-desc {
     width: 40ch;
     color: var(--primary-clr);
     font-weight: 900;
     font-size: 1.5rem;
+    margin: 0;
   }
 
   @media (max-width: 800px) {
@@ -89,21 +75,9 @@
 
   .border-line {
     width: 5px;
-    height: 60%;
+    height: 6rem;
     background-color: var(--text-clr);
     transform: scaleY(0);
     transform-origin: top;
   }
-
-  /* ASCII BLOCK (OPTIONAL) */
-  /* .ascii-wrapper {
-    font-size: min(1.55vw, 17px);
-    padding-left: 2rem;
-    padding-top: 2rem;
-    line-height: 0.5;
-  }
-
-  .split {
-    opacity: 0;
-  } */
 </style>

@@ -179,11 +179,11 @@ a:focus {
 
 .hero-wrapper {
   width: 100%;
-  height: 100dvh;
+  height: 50dvh;
   background-color: var(--bg-clr);
   color: var(--text-clr);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: space-between;
   position: sticky;
   top: 0;

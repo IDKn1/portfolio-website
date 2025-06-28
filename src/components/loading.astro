@@ -46,20 +46,18 @@
 
 <script>
   import loader from "../loaderAnimation.js";
-  import { animateAsciiArt, animateHeroCopy } from "../heroAsciiAnimation.js";
+  import { animateHeroCopy } from "../heroAnimation.js";
 
   const loaderEl = document.getElementById("loader");
 
   if (!sessionStorage.getItem("visited")) {
     loader(() => {
-      // animateAsciiArt();
       animateHeroCopy();
       loaderEl.style.display = "none"; // optional: hide loader after animation
     });
     sessionStorage.setItem("visited", "true");
   } else {
     loaderEl.style.display = "none"; // skip loader if already visited
-    // animateAsciiArt();
     animateHeroCopy();
   }
 </script>

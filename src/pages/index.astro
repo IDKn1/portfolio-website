@@ -15,6 +15,7 @@ import Loader from "../components/loading.astro";
   <div class="hero-wrapper" slot="full-bleed">
     <Hero />
   </div>
+  <div id="bottom-fade"></div>
 
   <div class="projects-wrapper">
     <Projects cato="projects" />
@@ -29,7 +30,6 @@ import Loader from "../components/loading.astro";
   </div>
 
   <script src="../landingAnimations.js"></script>
-  <script src="../heroAsciiAnimation.js"></script>
 </BaseLayout>
 
 <script>
@@ -50,6 +50,26 @@ import Loader from "../components/loading.astro";
 
   document.addEventListener("DOMContentLoaded", () => {
     setupCardClickHandlers();
+
+    const fade = document.getElementById("bottom-fade");
+    const content = document.querySelector(".wrapper");
+    if (fade && content) {
+      gsap.set(fade, { opacity: 1 });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: content,
+            start: "top top+=350",
+            end: "+=250",
+            scrub: true,
+          },
+        })
+        .to(fade, {
+          opacity: 0,
+          yPercent: 0,
+          ease: "power1.out",
+        });
+    }
   });
 </script>
 
@@ -63,5 +83,14 @@ import Loader from "../components/loading.astro";
     top: 0;
     left: 0;
     z-index: 400;
+  }
+
+  #bottom-fade {
+    position: fixed;
+    background-image: linear-gradient(#fff0, var(--bg-clr));
+    height: 7dvh;
+    width: 100%;
+    bottom: 0rem;
+    z-index: 200;
   }
 </style>
