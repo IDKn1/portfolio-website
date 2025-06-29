@@ -33,22 +33,9 @@
     if (data && data.visitors) {
       const count = Number(data.visitors.value || data.visitors);
       const el = document.getElementById("visitors");
-      if (el) el.textContent = count + 18;
+      if (el) el.textContent = count;
     }
   }
 
   document.addEventListener("DOMContentLoaded", updateVisitorCount);
 </script>
-
-<style>
-  .visitor-count {
-    font-weight: 100;
-    line-height: 2rem;
-  }
-
-  #visitors {
-    font-size: 1.5rem;
-    color: var(--primary-clr);
-    font-weight: 900;
-  }
-</style>

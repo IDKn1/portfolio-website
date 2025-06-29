@@ -189,7 +189,121 @@ a:focus {
   top: 0;
   overflow: hidden;
 }
-/* Sections */
+
+.project-cato-heading {
+  padding-bottom: 2rem;
+  position: sticky;
+  top: 5rem;
+}
+
+/* ==== HERO SECTION LAYOUT ==== */
+.hero-copy {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5rem 2rem 2rem;
+  align-items: start;
+}
+
+@media (max-width: 1144px) {
+  .hero-copy {
+    padding-bottom: 0;
+  }
+}
+
+/* HERO TITLE */
+.hero-title {
+  font-size: 8rem;
+  line-height: 0.8;
+  padding-inline-end: 1rem;
+  z-index: 1;
+}
+
+@media (max-width: 800px) {
+  .hero-title {
+    font-size: 20vw;
+  }
+}
+
+/* HERO MOTION & DESCRIPTION */
+.hero-motion {
+  display: flex;
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+  gap: 1rem;
+  max-height: min-content;
+  opacity: 0;
+}
+
+@media (max-width: 900px) {
+  .hero-motion {
+    padding-top: 1rem;
+  }
+}
+
+.hero-desc {
+  width: 40ch;
+  color: var(--primary-clr);
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .hero-desc {
+    font-size: 1.125rem;
+  }
+}
+
+.border-line {
+  width: 5px;
+  height: 6rem;
+  background-color: var(--text-clr);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+/* project cards */
+
+.project-card {
+  position: sticky;
+  top: var(--top-offset, 9); /* Fall back to 9rem if no top is set */
+  background: var(--bg-clr);
+  border-radius: 0.5rem;
+}
+
+.card-label {
+  position: relative;
+  z-index: -1;
+}
+
+.project-card:not(:first-of-type) {
+  margin-top: 15rem;
+}
+
+.project-card img {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: cover;
+  aspect-ratio: 3/2;
+  border-radius: 0.5rem;
+}
+
+/* Project Page Sections */
+#verticalContainer {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+  grid-column: 1/13;
+  padding: 0;
+}
+
+@media (max-width: 850px) {
+  #verticalContainer {
+    flex-direction: column;
+  }
+}
 .left-section {
   border-right: 3px solid var(--text-clr);
   position: relative;
@@ -203,7 +317,7 @@ a:focus {
   max-width: 50dvw;
 }
 
-/* Responsive Sections */
+/* Project left and right columns Sections */
 @media (max-width: 850px) {
   .left-section {
     border: none;
@@ -225,7 +339,7 @@ a:focus {
   object-fit: cover;
 }
 
-/* Right Section Details */
+/* Right column Details */
 .right-section h1 {
   padding-top: 2.5rem;
 }
@@ -267,18 +381,27 @@ a:focus {
   }
 }
 .collab {
-  margin-block: 1rem;
+  margin: 0;
+}
+
+.scope {
+  font-family: "Junicode";
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.details {
+  margin: 0;
+  margin-bottom: 2rem;
+  padding-inline: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--text-clr);
 }
 
 /* Misc Elements */
 .arrow,
 .broken-heart {
   height: 12vh;
-}
-
-.scope {
-  font-family: "Junicode";
-  font-size: 1.75rem;
 }
 
 /* About Section */
@@ -300,6 +423,33 @@ a:focus {
 .about-cta,
 .stats {
   grid-column: 1 / 2;
+}
+
+.stats {
+  border-top: 3px solid var(--text-clr);
+  display: flex;
+  justify-content: space-between;
+  font-weight: 100;
+  line-height: 2rem;
+}
+
+/* About section local time */
+.about-time #local-time {
+  font-size: 1.5rem;
+  color: var(--primary-clr);
+  font-weight: 900;
+}
+
+/* About section visitor counter */
+.visitor-count {
+  font-weight: 100;
+  line-height: 2rem;
+}
+
+#visitors {
+  font-size: 1.5rem;
+  color: var(--primary-clr);
+  font-weight: 900;
 }
 
 /* Responsive About Section */

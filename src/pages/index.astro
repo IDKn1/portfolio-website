@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/base.astro";
 import About from "../components/about.astro";
 import Projects from "../components/projects.astro";
-import Hero from "../components/hero.astro";
 import Loader from "../components/loading.astro";
 ---
 
@@ -13,12 +12,21 @@ import Loader from "../components/loading.astro";
   <div class="transition-cover" slot="full-bleed"></div>
 
   <div class="hero-wrapper" slot="full-bleed">
-    <Hero />
+    <div class="hero-copy">
+      <h1 class="hero-title">Nikolai<br />Suvanto</h1>
+      <div class="hero-motion">
+        <div class="border-line"></div>
+        <p class="hero-desc">
+          an art director with a strong interest in how people connect—with each
+          other, with ideas, and with the world around them.
+        </p>
+      </div>
+    </div>
   </div>
   <div id="bottom-fade"></div>
 
   <div class="projects-wrapper">
-    <Projects cato="projects" />
+    <Projects cato="projects" catTitle="Work" />
   </div>
 
   <div class="about-wrapper">
@@ -26,7 +34,7 @@ import Loader from "../components/loading.astro";
   </div>
 
   <div class="misc-wrapper">
-    <Projects cato="misc" />
+    <Projects cato="misc" catTitle="Play" />
   </div>
 
   <script src="../landingAnimations.js"></script>

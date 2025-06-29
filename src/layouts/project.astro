@@ -140,39 +140,3 @@ This whole page is my favourite block of code  but specifically this script tag 
     });
   });
 </script>
-
-<style>
-  #verticalContainer {
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
-    position: relative;
-    grid-column: 1/13;
-    padding: 0;
-  }
-
-  .scope {
-    margin: 0;
-  }
-
-  .details {
-    margin: 0;
-    margin-bottom: 2rem;
-    padding-inline: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 3px solid var(--text-clr);
-  }
-
-  .collab {
-    margin: 0;
-  }
-
-  ::slotted:is(img) {
-  }
-
-  @media (max-width: 850px) {
-    #verticalContainer {
-      flex-direction: column;
-    }
-  }
-</style>

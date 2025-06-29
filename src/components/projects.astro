@@ -2,18 +2,13 @@
 import { getCollection } from "astro:content";
 import ProjectCard from "../components/project-card.astro";
 const data = Astro.props;
-const { cato } = data;
-function capitalize(str) {
-  return str[0].toUpperCase() + str.slice(1);
-}
-
-const sectionTitle = capitalize(cato);
+const { cato, catTitle } = data;
 
 const projects = await getCollection(cato);
 const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
-<h2 class=`${cato}-heading`>{sectionTitle}</h2>
+<h2 class=`${cato}-heading project-cato-heading`>{catTitle}</h2>
 {
   sortedItems.map((i, index) => (
     <ProjectCard
@@ -27,11 +22,3 @@ const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
     />
   ))
 }
-
-<style>
-  h2 {
-    padding-bottom: 2rem;
-    position: sticky;
-    top: 5rem;
-  }
-</style>
