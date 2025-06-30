@@ -1,7 +1,10 @@
 :root {
-  --primary-clr: #00cc63;
-  --bg-clr: hsl(46, 14%, 95%);
+  /* --primary-clr: #2364ef; */
+  /* --primary-clr: #00cc63; */
+  --primary-clr: #3d6dc7;
   --text-clr: #333333;
+  --bg-clr: #f4f3f0;
+  --accent-clr: hsl(from var(--text-clr) h calc(s + 20) calc(l + 25));
 }
 
 * {
@@ -68,10 +71,14 @@ h1 {
 }
 h2 {
   font-size: 2.488rem;
-  color: var(--primary-clr);
+}
+
+.section-title {
+  color: var(--accent-clr);
 }
 h3 {
   font-size: 2.074rem;
+  color: var(--accent-clr);
 }
 h4 {
   font-size: 1.728rem;
@@ -243,7 +250,7 @@ a:focus {
 
 .hero-desc {
   width: 40ch;
-  color: var(--primary-clr);
+  color: var(--accent-clr);
   font-weight: 900;
   font-size: 1.5rem;
   margin: 0;
@@ -360,7 +367,7 @@ a:focus {
   color: var(--primary-clr);
 }
 
-.right-section blockquote {
+blockquote p {
   margin-block: 1rem;
   padding-inline: 2rem;
   font-size: 1.5rem;
@@ -434,9 +441,10 @@ a:focus {
 }
 
 /* About section local time */
-.about-time #local-time {
+#local-time,
+#visitors {
   font-size: 1.5rem;
-  color: var(--primary-clr);
+  color: var(--accent-clr);
   font-weight: 900;
 }
 
@@ -444,12 +452,6 @@ a:focus {
 .visitor-count {
   font-weight: 100;
   line-height: 2rem;
-}
-
-#visitors {
-  font-size: 1.5rem;
-  color: var(--primary-clr);
-  font-weight: 900;
 }
 
 /* Responsive About Section */

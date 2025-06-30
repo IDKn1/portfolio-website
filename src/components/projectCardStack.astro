@@ -8,7 +8,7 @@ const projects = await getCollection(cato);
 const sortedItems = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
-<h2 class=`${cato}-heading project-cato-heading`>{catTitle}</h2>
+<h2 class=`${cato}-heading project-cato-heading section-title`>{catTitle}</h2>
 {
   sortedItems.map((i, index) => (
     <ProjectCard

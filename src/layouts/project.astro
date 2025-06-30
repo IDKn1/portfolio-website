@@ -110,7 +110,7 @@ This whole page is my favourite block of code  but specifically this script tag 
       const videoWrappers = document.querySelectorAll(".video-wrapper"); // Select video-wrapper
 
       // Create a combined array of images and video wrappers
-      const allElements = [...markdownImages, ...videoWrappers];
+      const allElements = [...videoWrappers, ...markdownImages];
 
       // Move each element in order of appearance in the MDX content
       allElements.forEach((element) => {
