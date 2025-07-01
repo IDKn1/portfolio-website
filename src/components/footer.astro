@@ -10,12 +10,8 @@
 </footer>
 
 <style>
-  h4 {
-    color: var(--bg-clr);
-  }
-
   .footer-logo {
-    color: var(--bg-clr);
+    color: var(--accent-clr);
     font-size: 8rem;
     line-height: 0.8;
   }
@@ -29,12 +25,14 @@
   footer {
     width: 100%;
     height: 40dvh;
-    background-color: var(--primary-clr);
+    position: sticky;
+    bottom: 0;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
+    background-color: var(--text-clr);
+    color: var(--bg-clr);
     padding: 1.5rem 2rem;
-    grid-column: 1/4;
-    z-index: 2;
+    z-index: -1;
     align-items: flex-end;
   }
   .copyright {

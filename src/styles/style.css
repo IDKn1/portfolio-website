@@ -1,10 +1,15 @@
 :root {
-  /* --primary-clr: #2364ef; */
-  /* --primary-clr: #00cc63; */
-  --primary-clr: #3d6dc7;
+  /* --primary-clr: #3d6dc7; */
+
+  /* --primary-clr: #00cc63;
   --text-clr: #333333;
   --bg-clr: #f4f3f0;
-  --accent-clr: hsl(from var(--text-clr) h calc(s + 20) calc(l + 25));
+  --accent-clr: hsl(from var(--text-clr) h calc(s + 20) calc(l + 25)); */
+
+  --text-clr: #433;
+  --accent-clr: #c6ad92;
+  --primary-clr: #fe3519;
+  --bg-clr: #f4f3f0;
 }
 
 * {
