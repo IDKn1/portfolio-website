@@ -117,7 +117,7 @@ a:focus {
   position: relative;
 }
 
-.underline-link::after {
+.underline-link::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -133,8 +133,8 @@ a:focus {
   pointer-events: none;
 }
 
-.underline-link:hover::after,
-.underline-link:focus::after {
+.underline-link:hover::before,
+.underline-link:focus::before {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
