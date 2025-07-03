@@ -2,6 +2,13 @@
 import Footer from "../components/footer.astro";
 import Navbar from "../components/navbar.astro";
 import "../styles/style.css";
+
+console.log("CF_PAGES_BRANCH:", import.meta.env.CF_PAGES_BRANCH);
+
+const isProduction = import.meta.env.CF_PAGES_BRANCH === "main";
+console.log("isProduction:", isProduction);
+console.log("Will include Umami script:", isProduction);
+
 const data = Astro.props;
 ---
 
@@ -12,10 +19,15 @@ const data = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/assets/misc/me.svg" />
     <title>{data.title}</title>
-    <script
-      defer
-      src="https://cloud.umami.is/script.js"
-      data-website-id="0c0c7cc7-3489-4c24-b515-2d268fb4fb9f"></script>
+    {
+      isProduction && (
+        <script
+          defer=""
+          src="https://cloud.umami.is/script.js"
+          data-website-id="0c0c7cc7-3489-4c24-b515-2d268fb4fb9f"
+        />
+      )
+    }
   </head>
   <body>
     <Navbar />

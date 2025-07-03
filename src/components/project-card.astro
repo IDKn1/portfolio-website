@@ -28,7 +28,7 @@ const coverImage = getImage(cover);
   <a href={`/${collection}/` + slug} data-color={project_color}>
     {
       coverImage && (
-        <Image src={coverImage} alt={`${title} cover image`} loading="eager" />
+        <Image src={coverImage} alt={`${title} cover image`} loading="lazy" />
       )
     }
     <div class="card-label drop-down">
