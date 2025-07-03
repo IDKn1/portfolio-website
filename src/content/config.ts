@@ -38,6 +38,6 @@ const misc = defineCollection({
 });
 
 export const collections = {
-  work: projects,
+  projects,
   misc,
 };
