@@ -5,7 +5,7 @@ const { title, slug, cover, style, scope, project_color, collection } = data; //
 
 <div class="project-card" style={style}>
   <a href={`/${collection}/` + slug} data-color={project_color}>
-    <img src={cover} />
+    <img src=`../${cover}` />
     <div class="card-label drop-down">
       <h4>
         {title}

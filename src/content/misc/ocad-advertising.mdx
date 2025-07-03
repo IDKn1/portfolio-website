@@ -1,0 +1,29 @@
+---
+title: "Ocad Advertising Gradex 110 Website"
+order: 2
+cover: "src/assets/ocadvertising/hero.webp"
+project_color: "#d72c39"
+collection: "misc"
+scope:
+  - "web dev"
+project_link:
+  url: "https://ocadvertising.ca"
+  name: "Ocadvertising.ca"
+---
+
+import { Image } from "astro:assets";
+import gradGrid from "../../assets/ocadvertising/grad-grid.webp";
+import profile from "../../assets/ocadvertising/profile.webp";
+
+This website was built with Astro and serves as a digital archive for all students from OCAD University's Advertising program who exhibited their work at Gradex 110.
+
+<Image
+  src={gradGrid}
+  alt="Grid view of graduate work showcasing student projects"
+  loading="eager"
+/>
+<Image
+  src={profile}
+  alt="Student profile page with project details"
+  loading="eager"
+/>

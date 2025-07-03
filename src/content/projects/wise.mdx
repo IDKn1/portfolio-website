@@ -1,18 +1,26 @@
 ---
 title: Wise—Pay Like You Belong
 order: 1
-cover: /assets/wise/wise-passport-mock.jpg
+cover: src/assets/wise/wise-passport-mock.jpg
 scope:
   - campaign
 project_color: "#9ee86f"
 collection: projects
 ---
 
+import { Image } from "astro:assets";
 import YoutubeEmbed from "../../components/YoutubeEmbed.astro";
+import subwayPoster from "../../assets/wise/subway-3-poster-mock.jpg";
+import triPoster from "../../assets/wise/triposter-ooh.jpg";
+import trafficBillboard from "../../assets/wise/traffic-billboard-mock.jpg";
+import passportMock from "../../assets/wise/wise-passport-mock.jpg";
+import cashRegister from "../../assets/wise/cash-register-mock.jpeg";
+import instoreMock from "../../assets/wise/wise-instore-mock.jpg";
+import atmSkin from "../../assets/wise/atm-skin.jpg";
 
 ### Problem
 
-There’s a real tension in travel: the desire for cultural immersion often clashes with the invisible barrier of money. When your money feels foreign, (confusing rates, unexpected fees, awkward transactions ) you do too.
+There's a real tension in travel: the desire for cultural immersion often clashes with the invisible barrier of money. When your money feels foreign, (confusing rates, unexpected fees, awkward transactions) you do too.
 
 ### Insight
 
@@ -20,34 +28,60 @@ There’s a real tension in travel: the desire for cultural immersion often clas
 
 ### Idea
 
-Positioning Wise as the solution to navigating unfamiliar situations while traveling, the “Pay Like You Belong” campaign is built on a core belief: money shouldn’t separate you from culture—it should connect you to it. Through the “Pay Like You Belong” campaign, I mapped a traveler’s journey (from dreaming at home to arriving abroad) and designed media touchpoints accordingly. OOH ads plant the seed, guidebooks in transit hubs offer local intel, and real-world activations in cafés and shops show all the places Wise reaches. These activations made Wise feel embedded in the cultural experience rather than adjacent to it.
+Positioning Wise as the solution to navigating unfamiliar situations while traveling, the "Pay Like You Belong" campaign is built on a core belief: money shouldn't separate you from culture—it should connect you to it. Through the "Pay Like You Belong" campaign, I mapped a traveler's journey (from dreaming at home to arriving abroad) and designed media touchpoints accordingly. OOH ads plant the seed, guidebooks in transit hubs offer local intel, and real-world activations in cafés and shops show all the places Wise reaches. These activations made Wise feel embedded in the cultural experience rather than adjacent to it.
 
-<YoutubeEmbed id="j9B-eHfk13Q " />
+<YoutubeEmbed id="j9B-eHfk13Q" />
 
-![](/assets/wise/subway-3-poster-mock.jpg)
+<Image
+  src={subwayPoster}
+  loading="eager"
+  alt="Subway poster showing Wise campaign advertisement"
+/>
 
 ### Phase 1
 
 Travel starts long before your flight, it's in the planning, the daydreaming, the places you pass through every day. For those already starting their next trip, Wise meets them where they are—right within their everyday commute. Found there will be ads in subway stations and billboards along their travel route.
 
-![](/assets/wise/triposter-ooh.jpg)
-![](/assets/wise/traffic-billboard-mock.jpg)
+<Image
+  src={triPoster}
+  loading="eager"
+  alt="Triposter out-of-home advertising display"
+/>
+
+<Image
+  src={trafficBillboard}
+  loading="eager"
+  alt="Traffic billboard mock-up showing Wise campaign"
+/>
 
 ### Phase 2
 
 The next touchpoint happens in travel hubs (airports, train stations, transition points). There, travellers will find travel guides containing ready to activate Wise cards. The local guide books will be styled to look like passports, as when travelling most people already have passports and travel documents on their mind. Focused on local, lesser-known and less crowded locations, the guide books highlight locations aimed at conversation and connection.
 
-![](/assets/wise/wise-passport-mock.jpg)
+<Image
+  src={passportMock}
+  loading="eager"
+  alt="Wise passport-style travel guide mockup"
+/>
 
 ### Phase 3
 
-Lastly, Wise will partner up with local shops, cafés, and travel spots to run point-of-sale activations. As the traveler arrives and starts interacting with the local economy, Wise’s integration becomes evident.
+Lastly, Wise will partner up with local shops, cafés, and travel spots to run point-of-sale activations. As the traveler arrives and starts interacting with the local economy, Wise's integration becomes evident.
 
-Whether it’s buying a coffee at a café or picking up a souvenir from a local shop, Wise comes to life in the everyday moments. No matter where you shop, Wise is with you every step of the way.
+Whether it's buying a coffee at a café or picking up a souvenir from a local shop, Wise comes to life in the everyday moments. No matter where you shop, Wise is with you every step of the way.
 
-![](/assets/wise/cash-register-mock.jpeg)
-![](/assets/wise/wise-instore-mock.jpg)
+<Image
+  src={cashRegister}
+  loading="eager"
+  alt="Cash register point-of-sale activation mockup"
+/>
 
-> Wise becomes more than a payment method, it becomes your passport to local discoveries. You’re not just travelling, you're connecting to the world around you. When you travel with Wise you stop second-guessing yourself and start paying like you belong.
+<Image
+  src={instoreMock}
+  loading="eager"
+  alt="Wise in-store activation display"
+/>
 
-![](/assets/wise/atm-skin.jpg)
+> Wise becomes more than a payment method, it becomes your passport to local discoveries. You're not just travelling, you're connecting to the world around you. When you travel with Wise you stop second-guessing yourself and start paying like you belong.
+
+<Image src={atmSkin} loading="eager" alt="ATM skin showing Wise branding" />
