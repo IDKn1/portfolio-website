@@ -1,11 +1,36 @@
 ---
+import { Image } from "astro:assets";
+
+// Pre-load all images from the assets directory
+const images = import.meta.glob("../assets/**/*.{jpg,jpeg,webp,png}", {
+  eager: true,
+});
+
 const data = Astro.props;
-const { title, slug, cover, style, scope, project_color, collection } = data; // Include the style prop
+const { title, slug, cover, style, scope, project_color, collection } = data;
+
+// Get the image based on the cover path
+function getImage(coverPath) {
+  const imagePath = `../${coverPath}`;
+
+  if (images[imagePath]) {
+    return images[imagePath].default;
+  }
+
+  console.warn(`Image not found: ${coverPath}`);
+  return null;
+}
+
+const coverImage = getImage(cover);
 ---
 
 <div class="project-card" style={style}>
   <a href={`/${collection}/` + slug} data-color={project_color}>
-    <img src=`../${cover}` />
+    {
+      coverImage && (
+        <Image src={coverImage} alt={`${title} cover image`} loading="eager" />
+      )
+    }
     <div class="card-label drop-down">
       <h4>
         {title}

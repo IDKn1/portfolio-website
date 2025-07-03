@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "./base.astro";
-import { ArrowBigRight, ArrowUpRight } from "@lucide/astro";
+import { ArrowUpRight } from "@lucide/astro";
+import { Image } from "astro:assets";
 const {
   title,
   cover,
@@ -10,12 +11,22 @@ const {
   project_link,
   project_color,
 } = Astro.props;
+
+const images = import.meta.glob("../../**/*.{png,jpg,jpeg,webp,svg}", {
+  eager: true,
+});
+
+const coverImage = images[`../${cover}`]?.default;
+
+if (!coverImage) {
+  throw new Error(`Cover image not found: ${cover}`);
+}
 ---
 
 <BaseLayout title={title}>
   <div id="verticalContainer">
     <div class="left-section" id="left-section">
-      <img src={"../../" + cover} alt="" id="project-cover" />
+      <Image src={coverImage} alt="" id="project-cover" loading="eager" />
       <!-- This will be the container where we move images and video -->
     </div>
 
@@ -31,7 +42,7 @@ const {
                 <>
                   <a
                     href={c.url}
-                    class="underline-link "
+                    class="underline-link"
                     target="_blank"
                     rel="noopener"
                   >
