@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./base.astro";
+import { ArrowBigRight, ArrowUpRight } from "@lucide/astro";
 const {
   title,
   cover,
@@ -30,7 +31,7 @@ const {
                 <>
                   <a
                     href={c.url}
-                    class="underline-link"
+                    class="underline-link "
                     target="_blank"
                     rel="noopener"
                   >
@@ -46,12 +47,13 @@ const {
           project_link && project_link.url && (
             <h4 class="project-link">
               <a
-                class="underline-link"
+                class="underline-link external-link"
                 href={project_link.url}
                 target="_blank"
                 rel="noopener"
               >
                 {project_link.name}
+                <ArrowUpRight />
               </a>
             </h4>
           )

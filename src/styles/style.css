@@ -139,6 +139,17 @@ a:focus {
   transform: translate3d(0, 0, 0);
 }
 
+.external-link svg {
+  width: 1.25em;
+  height: 1.25em;
+  transition: rotate 0.25s ease-in-out;
+  vertical-align: bottom;
+}
+
+.external-link:hover svg {
+  rotate: 45deg;
+}
+
 /* Layout */
 .wrapper {
   display: grid;
@@ -367,9 +378,7 @@ a:focus {
 
 .right-section a {
   display: inline-block;
-  position: relative;
   padding: 0.2em 0;
-  color: var(--primary-clr);
 }
 
 blockquote p {
