@@ -21,20 +21,9 @@ const data = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/assets/misc/me.svg" />
     <title>{data.title}</title>
-    {
-      isProduction && (
-        <>
-          <script>console.log("Analytics script should be loading...");</script>
-          <script
-            defer=""
-            src="https://cloud.umami.is/script.js"
-            data-website-id="0c0c7cc7-3489-4c24-b515-2d268fb4fb9f"
-          >
-            console.log("Umami Loaded")
-          </script>
-        </>
-      )
-    }
+    <script
+      src="https://cloud.umami.is/script.js"
+      data-website-id="0c0c7cc7-3489-4c24-b515-2d268fb4fb9f"></script>
   </head>
   <body>
     <Navbar />
