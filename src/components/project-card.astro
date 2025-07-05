@@ -25,7 +25,11 @@ const coverImage = getImage(cover);
 ---
 
 <div class="project-card" style={style}>
-  <a href={`/${collection}/` + slug} data-color={project_color}>
+  <a
+    href={`/${collection}/` + slug}
+    data-color={project_color}
+    data-astro-prefetch
+  >
     {
       coverImage && (
         <Image src={coverImage} alt={`${title} cover image`} loading="lazy" />

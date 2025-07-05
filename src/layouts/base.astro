@@ -3,11 +3,8 @@ import Footer from "../components/footer.astro";
 import Navbar from "../components/navbar.astro";
 import "../styles/style.css";
 
-console.log("CF_PAGES_BRANCH:", import.meta.env.CF_PAGES_BRANCH);
-
 const isProduction = import.meta.env.CF_PAGES_BRANCH === "main";
-console.log("isProduction:", isProduction);
-console.log("Will include Umami script:", isProduction);
+// console.log("isProduction:", isProduction);
 
 const data = Astro.props;
 ---
