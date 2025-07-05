@@ -21,15 +21,14 @@ export default function pageWipe() {
       .to(transitionCover, {
         yPercent: -100,
         duration: 1,
-        delay: 0.25,
-        ease: "expo.inOut",
+        ease: "power4.inOut",
       })
       .to([left, right], {
         xPercent: 0,
-        duration: 0.75,
+        duration: 0.5,
         delay: 0.125,
-        stagger: 0.5,
-        ease: "power1.out",
+        stagger: 0.4,
+        ease: "power2.out",
       });
   }
 }

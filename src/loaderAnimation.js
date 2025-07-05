@@ -25,15 +25,15 @@ export default function loader(callback) {
 
   tl.fromTo(
     first,
-    { xPercent: -200 },
-    { xPercent: -5, duration: 1, delay: 0.75, ease: "power2.out" },
+    { xPercent: -150 },
+    { xPercent: -5, duration: 0.75, delay: 0.5, ease: "power4.out" },
     "first-move",
   );
 
   tl.fromTo(
     last,
-    { xPercent: 200 },
-    { xPercent: 5, duration: 1, delay: 0.75, ease: "expo.out" },
+    { xPercent: 150 },
+    { xPercent: 5, duration: 0.75, delay: 0.5, ease: "power4.out" },
     "first-move",
   );
 
@@ -49,10 +49,10 @@ export default function loader(callback) {
       },
       {
         width: "0px",
-        duration: 0.5,
+        duration: 0.6,
         ease: "power1.out",
       },
-      "second-move+=0.25",
+      "second-move+=0.4",
     );
   });
 
@@ -61,18 +61,31 @@ export default function loader(callback) {
   tl.fromTo(
     dash,
     { width: "0px", opacity: 0 },
-    { opacity: 1, width: "auto", ease: "back.out", duration: 0.4 },
-    ">0.5",
+    {
+      opacity: 1,
+      width: "auto",
+      transformOrigin: "center",
+      ease: "back.out(3)",
+      duration: 0.4,
+    },
+    ">.4",
   );
 
   tl.to(
     loader,
     {
-      scale: 0,
+      yPercent: -100,
       duration: 0.75,
-      ease: "power4.inOut",
+      ease: "power3.in",
     },
     ">0.5",
+  ).to(
+    [first, last, dash],
+    {
+      opacity: 0,
+      duration: 0.25,
+    },
+    ">-0.35",
   );
 
   return tl;
