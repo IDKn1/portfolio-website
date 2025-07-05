@@ -320,6 +320,7 @@ a:focus {
   position: relative;
   grid-column: 1/13;
   padding: 0;
+  padding-block-end: 2rem;
 }
 
 @media (max-width: 850px) {
