@@ -3,8 +3,13 @@ import Footer from "../components/footer.astro";
 import Navbar from "../components/navbar.astro";
 import "../styles/style.css";
 
-const isProduction = import.meta.env.CF_PAGES_BRANCH === "main";
-// console.log("isProduction:", isProduction);
+const cfPagesBranch = import.meta.env.CF_PAGES_BRANCH;
+const isProduction = cfPagesBranch === "main";
+
+console.log("CF_PAGES_BRANCH:", cfPagesBranch);
+console.log("CF_PAGES_BRANCH type:", typeof cfPagesBranch);
+console.log("isProduction:", isProduction);
+console.log("comparison result:", cfPagesBranch === "main");
 
 const data = Astro.props;
 ---
@@ -18,11 +23,16 @@ const data = Astro.props;
     <title>{data.title}</title>
     {
       isProduction && (
-        <script
-          defer=""
-          src="https://cloud.umami.is/script.js"
-          data-website-id="0c0c7cc7-3489-4c24-b515-2d268fb4fb9f"
-        />
+        <>
+          <script>console.log("Analytics script should be loading...");</script>
+          <script
+            defer=""
+            src="https://cloud.umami.is/script.js"
+            data-website-id="0c0c7cc7-3489-4c24-b515-2d268fb4fb9f"
+          >
+            console.log("Umami Loaded")
+          </script>
+        </>
       )
     }
   </head>
