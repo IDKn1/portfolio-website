@@ -1,0 +1,19 @@
+---
+const cfPagesBranch = import.meta.env.CF_PAGES_BRANCH;
+const isProduction = cfPagesBranch === "main";
+
+console.log("CF_PAGES_BRANCH:", cfPagesBranch);
+console.log("CF_PAGES_BRANCH type:", typeof cfPagesBranch);
+console.log("isProduction:", isProduction);
+console.log("comparison result:", cfPagesBranch === "main");
+---
+
+{
+  isProduction && (
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="0c0c7cc7-3489-4c24-b515-2d268fb4fb9f"
+    />
+  )
+}
