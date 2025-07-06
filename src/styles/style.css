@@ -216,7 +216,7 @@ a:focus {
 .project-cato-heading {
   padding-bottom: 2rem;
   position: sticky;
-  top: 5rem;
+  top: 4rem;
 }
 
 /* ==== HERO SECTION LAYOUT ==== */
@@ -290,7 +290,7 @@ a:focus {
 
 .project-card {
   position: sticky;
-  top: var(--top-offset, 9); /* Fall back to 9rem if no top is set */
+  top: var(--top-offset, 8); /* Fall back to 9rem if no top is set */
   background: var(--bg-clr);
   border-radius: 0.5rem;
 }
@@ -306,10 +306,16 @@ a:focus {
 
 .project-card img {
   width: 100%;
-  max-height: 50dvh;
+  max-height: 55vh;
   object-fit: cover;
   aspect-ratio: 3/2;
   border-radius: 0.5rem;
+}
+
+@media (max-width: 500px) {
+  .project-card img {
+    max-height: 45vh;
+  }
 }
 
 /* Project Page Sections */
@@ -400,6 +406,10 @@ blockquote p {
   .right-section :not(.details) p:not(:has(img)),
   .right-section ol {
     margin-inline: 0;
+  }
+
+  .right-section img + img {
+    margin-block-start: 1.5rem;
   }
 }
 .collab {
