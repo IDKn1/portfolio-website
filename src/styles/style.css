@@ -197,7 +197,7 @@ a:focus {
 
 .border-line {
   width: 5px;
-  height: 6rem;
+  height: 7rem;
   background-color: var(--text-clr);
   transform: scaleY(0);
   transform-origin: top;
@@ -308,7 +308,9 @@ a:focus {
 blockquote p {
   margin-block: 1rem;
   padding-inline: 2rem;
-  font-size: 1.5rem;
+  font-size: var(--font-size-3);
+  line-height: var(--line-height-3);
+  letter-spacing: var(--letter-space-3);
   font-weight: 900;
   color: var(--primary-clr);
 }
