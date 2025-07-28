@@ -2,6 +2,7 @@
 import Analytics from "../components/analytics.astro";
 import Footer from "../components/footer.astro";
 import Navbar from "../components/navbar.astro";
+import "../styles/base_style.css";
 import "../styles/style.css";
 
 const data = Astro.props;
@@ -20,7 +21,7 @@ const data = Astro.props;
     <Navbar />
 
     <slot name="full-bleed" />
-    <div class="wrapper">
+    <div class="wrapper grid-12-col">
       <slot />
     </div>
     <Footer />

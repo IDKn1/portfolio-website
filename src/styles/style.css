@@ -1,52 +1,3 @@
-:root {
-  /* --primary-clr: #3d6dc7; */
-
-  /* --primary-clr: #00cc63;
-  --text-clr: #333333;
-  --bg-clr: #f4f3f0;
-  --accent-clr: hsl(from var(--text-clr) h calc(s + 20) calc(l + 25)); */
-
-  --text-clr: #433;
-  --accent-clr: #c6ad92;
-  --primary-clr: #fe3519;
-  --bg-clr: #f4f3f0;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-/* Fonts */
-@font-face {
-  font-family: "AlteHaasGrotesk";
-  src: url("/fonts/AlteHaasGroteskRegular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "AlteHaasGrotesk";
-  src: url("/fonts/AlteHaasGroteskBold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Junicode";
-  src: url("/fonts/JunicodeVF-Italic.woff2") format("woff2");
-  font-stretch: 87.5%;
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "FiraCodeNFM";
-  src: url("/fonts/FiraCodeNerdFontMono-Retina.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
 /* Typography */
 body {
   font-family: "AlteHaasGrotesk", Arial, Helvetica, sans-serif;
@@ -56,43 +7,8 @@ body {
   flex-direction: column;
 }
 
-p {
-  margin-block: 1.5rem;
-  font-size: 1rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-  font-weight: 900;
-}
-
-h1 {
-  font-size: 2.986rem;
-}
-h2 {
-  font-size: 2.488rem;
-}
-
-.section-title {
-  color: var(--accent-clr);
-}
 h3 {
-  font-size: 2.074rem;
   color: var(--accent-clr);
-}
-h4 {
-  font-size: 1.728rem;
-}
-h5 {
-  font-size: 1.44rem;
-}
-h6 {
-  font-size: 1.2rem;
 }
 
 pre {
@@ -100,6 +16,9 @@ pre {
   color: var(--primary-clr);
 }
 
+.section-title {
+  color: var(--accent-clr);
+}
 /* Links */
 a {
   color: var(--text-clr);
@@ -152,8 +71,6 @@ a:focus {
 
 /* Layout */
 .wrapper {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
   flex: 1;
   background-color: var(--bg-clr);
   gap: 1rem;
